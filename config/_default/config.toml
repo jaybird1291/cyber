@@ -1,0 +1,2 @@
+[build]
+timeout = "120s"

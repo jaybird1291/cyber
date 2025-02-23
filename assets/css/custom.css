@@ -1,0 +1,63 @@
+/* Increase the default font size */
+html {
+    font-size: 13pt;
+  }
+
+.max-w-prose {
+  max-width: 90ch;
+}
+
+.image-container {
+  display: flex;
+  /* justify-content: start; */
+  column-gap: 15px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.diploma-container {
+  display: flex;
+  /* justify-content: start; */
+  column-gap: 15px;
+  flex-wrap: wrap;
+}
+
+
+.image2-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+figure.hard figcaption {
+    color: rgb(255, 63, 25);
+  }
+  
+  figure.medium figcaption {
+    color: orange;
+  }
+  
+  figure.easy figcaption {
+    color: #70ce3a;
+  }
+  
+figure.hard figcaption {
+  color: rgb(255, 25, 25);
+}
+
+figure.medium figcaption {
+  color: orange;
+}
+
+figure.easy figcaption {
+  color: #70ce3a;
+}
+
+figure.very-easy figcaption {
+  color: #ff00f9;
+}
+
+figure.insane figcaption {
+  color: #e3e3e3;
+}
+

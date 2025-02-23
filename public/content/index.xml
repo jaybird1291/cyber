@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Contents on Jaybird1291</title>
+    <link>http://localhost:1313/blog/content/</link>
+    <description>Recent content in Contents on Jaybird1291</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>© 2025 Jaybird1291</copyright>
+    <lastBuildDate>Sun, 19 May 2024 08:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog/content/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>OpShieldWall-2</title>
+      <link>http://localhost:1313/blog/content/opshieldwall-2/</link>
+      <pubDate>Sun, 19 May 2024 08:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog/content/opshieldwall-2/</guid>
+      <description>Scénario #Nous avons réussi à confirmer la localisation de l&amp;rsquo;acteur malveillant qui a compromis le réseau WiFi de notre gouvernement.</description>
+      
+    </item>
+    
+    <item>
+      <title>OpShieldWall-1</title>
+      <link>http://localhost:1313/blog/content/opshieldwall-1/</link>
+      <pubDate>Tue, 07 May 2024 08:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog/content/opshieldwall-1/</guid>
+      <description>Scénario #Merci d&amp;rsquo;avoir répondu à notre appel.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,64 @@
+{{ $srcset := "360|(max-width: 37.5em) 360px,720|(min-width: 75em) 720px,1920|(min-width: 112.5em) 1200px" }}
+{{ $srcset := split $srcset "," }}
+{{ $original := (.Page.Resources.ByType "image").GetMatch (printf "*%s" (.Get "src")) }}
+
+{{/* Si un titre est fourni, on le considère comme la difficulté */}}
+{{ $difficulty := "" }}
+{{ if .Get "title" }}
+  {{ $difficulty = lower (.Get "title") }}
+{{ end }}
+
+{{/* On rassemble les classes : celle passée en paramètre et la difficulté */}}
+{{ $classes := slice }}
+{{ if .Get "class" }}
+  {{ $classes = $classes | append (.Get "class") }}
+{{ end }}
+{{ if $difficulty }}
+  {{ $classes = $classes | append $difficulty }}
+{{ end }}
+
+<!-- image -->
+{{ if $original }}
+<figure{{ if gt (len $classes) 0 }} class="{{ delimit $classes " " }}"{{ end }}>
+	<!-- image without srcset -->
+    {{ if .Get "link" }}
+      <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+    {{ end }}
+        <img src="{{ $original.RelPermalink }}" 
+             srcset="{{ range $i, $set := $srcset }}
+                         {{ $setparams := split $set "|" }}
+                         {{ $sizecondition := index $setparams 0 }}
+                         {{ $image := $original.Resize (print $sizecondition "x") }}
+                         {{ if $i }}, {{ end }}
+                         {{ print $image.RelPermalink " " $sizecondition "w" }}
+                     {{ end }}"
+             sizes="{{ range $i, $set := $srcset }}
+                        {{ $setparams := split $set "|" }}
+                        {{ $mediacondition := index $setparams 1 }}
+                        {{ if $i }}, {{ end }}
+                        {{ $mediacondition }}
+                    {{ end }}"
+             {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" }}{{ end }}" {{ end }}
+             {{ with .Get "width" }}width="{{ . }}" {{ end }}
+             {{ with .Get "height" }}height="{{ . }}" {{ end }}/>
+    {{ if .Get "link" }}</a>{{ end }}
+    {{ if or (or (.Get "title") (.Get "caption")) (.Get "attr") }}
+    <figcaption>
+        {{ if isset .Params "title" }}
+          {{ .Get "title" }}
+        {{ end }}
+        {{ if or (.Get "caption") (.Get "attr") }}
+          <p>
+            {{ .Get "caption" }}
+            {{ with .Get "attrlink" }}<a href="{{ . }}"> {{ end }}
+                {{ .Get "attr" }}
+            {{ if .Get "attrlink" }}</a>{{ end }}
+          </p>
+        {{ end }}
+    </figcaption>
+    {{ end }}
+</figure>
+{{ else }}
+    [{{ .Get "src" }} not found]
+{{ end }}
+<!-- image -->
