@@ -44,7 +44,7 @@ Liste de tous les challenges, labs, box etc. que j'ai effectué mais aussi des c
 - Green = Easy
 - Purple = Very Easy
 
-Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont des boxs / sherlocks uniquement disponibles sur la plateforme HackTheBox Entreprise (ne permet pas de faire des liens de partage).
+Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont des boxs / sherlocks uniquement disponibles sur la plateforme HackTheBox Entreprise (qui ne permet pas de faire des liens de partage).
 
 ### Sherlock 
 
