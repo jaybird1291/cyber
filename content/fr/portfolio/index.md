@@ -69,6 +69,7 @@ Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont
     <div class="image-item">{{< figure src="pictures/brutus.webp" title="Brutus" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/631" width=120 >}}</div>
 </div>
 
+
 #### Malware Analysis
 
 <div class="image-container">
