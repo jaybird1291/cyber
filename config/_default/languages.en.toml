@@ -1,0 +1,28 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Jaybird1291"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  logo = "img/avatar.png"
+  # secondaryLogo = "img/secondary-logo.png"
+  # description = "My awesome website"
+  # copyright = "Copy, _right?_ :thinking_face:"
+
+[params.author]
+  name = "Jaybird1291"
+  image = "img/avatar.png"
+  imageQuality = 100
+  headline = "Student at École2600 <br> Focused on Forensics, Incident Response, and Network & Radio challenges."
+  links = [
+    { htb = "https://app.hackthebox.com/profile/1271052" },
+    { cyberdefenders = "https://cyberdefenders.org/p/Jaybird1291#/overview" },
+    { rootme = "https://www.root-me.org/Jaybird1291" },
+    { thm = "https://tryhackme.com/p/Jaybird1291" },
+    { cherry-blossom = "https://jaybird1291.github.io/japanese/" },
+  ]

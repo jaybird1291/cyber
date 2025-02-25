@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>http://localhost:1313/blog-cyber/fr%20copy%202/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr copy"
+      href="http://localhost:1313/blog-cyber/fr%20copy/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr copy 2"
+      href="http://localhost:1313/blog-cyber/fr%20copy%202/"
+    />
+  </url>
+</urlset>

@@ -3,18 +3,129 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/blog/en/</loc>
+    <loc>http://localhost:1313/blog-cyber/en/</loc>
+    <lastmod>2024-05-19T08:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog/"
+      href="http://localhost:1313/blog-cyber/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog/en/"
+      href="http://localhost:1313/blog-cyber/en/"
+    />
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog-cyber/en/posts/opshieldwall-2/</loc>
+    <lastmod>2024-05-19T08:00:05+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/opshieldwall-2/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/opshieldwall-2/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/opshieldwall-2/"
+    />
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog-cyber/en/posts/</loc>
+    <lastmod>2024-05-19T08:00:05+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/"
+    />
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog-cyber/en/posts/opshieldwall-1/</loc>
+    <lastmod>2024-05-07T08:00:05+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/opshieldwall-1/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/opshieldwall-1/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/opshieldwall-1/"
+    />
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog-cyber/en/posts/portfolio/</loc>
+    <lastmod>2024-05-06T08:00:05+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/portfolio/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/portfolio/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/portfolio/"
+    />
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog-cyber/en/posts/projets/</loc>
+    <lastmod>2024-05-05T08:00:05+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/projets/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/projets/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/projets/"
     />
   </url>
 </urlset>
