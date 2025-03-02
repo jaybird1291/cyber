@@ -132,6 +132,7 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   appId = "$FIREBASE_APP_ID"
   measurementId = "$FIREBASE_MEASUREMENT_ID"
 
+
 [fathomAnalytics]
   # site = "ABC12345"
   # domain = "llama.yoursite.com"
