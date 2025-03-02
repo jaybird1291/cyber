@@ -40,6 +40,9 @@ jobs:
           sed -i 's|\$FIREBASE_APP_ID|'"${{ secrets.FIREBASE_APP_ID }}"'|g' config/_default/params.toml
           sed -i 's|\$FIREBASE_MEASUREMENT_ID|'"${{ secrets.FIREBASE_MEASUREMENT_ID }}"'|g' config/_default/params.toml
 
+          echo "✅ Vérification du fichier params.toml :"
+          cat config/_default/params.toml
+
       - name: Build
         run: hugo --minify
 
