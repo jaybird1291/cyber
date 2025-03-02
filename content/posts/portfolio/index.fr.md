@@ -125,6 +125,12 @@ Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont
 
 <script src="https://cyberdefenders.org/p/Jaybird1291/badge"></script>
 
+### Threat Hunting
+<div class="image-container">
+    <div class="image">{{< figure src="pictures/Midnight.webp" title="Hard" link="https://cyberdefenders.org/blueteam-ctf-challenges/progress/Jaybird1291/212/" width=150 >}}</div>
+</div>
+
+
 ### Network Forensics 
 <div class="image-container"> 
     <div class="image">{{< figure src="pictures/SolarDisruption_NG3AiEm.webp" title="Hard" link="https://cyberdefenders.org/blueteam-ctf-challenges/progress/Jaybird1291/202/" width=150 >}}</div>

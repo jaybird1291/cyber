@@ -118,6 +118,11 @@ date: 2024-05-06 08:00:05+0000
 
 <script src="https://cyberdefenders.org/p/Jaybird1291/badge"></script>
 
+### 脅威ハンティング
+<div class="image-container">
+    <div class="image">{{< figure src="pictures/Midnight.webp" title="Hard" link="https://cyberdefenders.org/blueteam-ctf-challenges/progress/Jaybird1291/212/" width=150 >}}</div>
+</div>
+
 ### ネットワークフォレンジック
 <div class="image-container"> 
     <div class="image">{{< figure src="pictures/SolarDisruption_NG3AiEm.webp" title="Hard" link="https://cyberdefenders.org/blueteam-ctf-challenges/progress/Jaybird1291/202/" width=150 >}}</div>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game of Life en fond avec grille</title>
+  <style>
+    /* Le body prend tout l'espace, sans marges ni barres de défilement */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0a0a11; /* Couleur de fond */
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block; /* Évite des scrollbars inattendues */
+    }
+  </style>
+</head>
+<body>
+  <canvas id="golCanvas"></canvas>
+
+  <script>
+    // ================================
+    //      PARAMÈTRES MODIFIABLES
+    // ================================
+    const cellSize = 8;         // Taille d'une cellule en pixels
+    const updateInterval = 100; // Vitesse de rafraîchissement (ms)
+
+    // Pourcentage global de cellules vivantes au démarrage
+    // Ici, 10 % seulement, pour ne pas « inonder » le fond.
+    const probAlive = 0.10;
+
+    // Répartition entre les 3 types lorsqu'une cellule est vivante
+    // (la somme doit faire 1)
+    const ratioType2 = 0.70; // #42456b (plus grande quantité)
+    const ratioType1 = 0.25; // #5209f7 (en plus petite quantité)
+    const ratioType3 = 0.05; // #ec421a (très très petite quantité)
+
+    // Couleurs
+    const colorBackground = "#0a0a11"; // fond
+    const colorType1 = "#5209f7";
+    const colorType2 = "#42456b";
+    const colorType3 = "#ec421a";
+
+    // Couleur de la grille
+    const colorGrid = "#0d0d14";
+
+    // ================================
+    //        VARIABLES GLOBALES
+    // ================================
+    let canvas, ctx;
+    let cols, rows;       // Nombre de colonnes/lignes de la grille
+    let grid, nextGrid;   // Grilles pour le Game of Life
+    let animationId;      
+
+    // -------------------------------
+    //   INITIALISATION PRINCIPALE
+    // -------------------------------
+    window.addEventListener("load", init);
+    window.addEventListener("resize", onResize);
+
+    function init() {
+      canvas = document.getElementById("golCanvas");
+      ctx = canvas.getContext("2d");
+
+      resizeCanvas();  // Ajuste la taille et calcule cols/rows
+      initGrid();      // Crée la grille aléatoirement
+      draw();          // Dessine la première fois
+
+      startAnimation(); // Démarre la boucle
+    }
+
+    // Ajuste la taille du canvas à la fenêtre
+    function onResize() {
+      // Pour éviter d'avoir deux boucles en parallèle,
+      // on arrête l'animation avant de redimensionner
+      stopAnimation();
+
+      resizeCanvas();
+      initGrid();
+      draw();
+
+      startAnimation();
+    }
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      cols = Math.floor(canvas.width / cellSize);
+      rows = Math.floor(canvas.height / cellSize);
+    }
+
+    // -------------------------------
+    //        GRILLE INITIALE
+    // -------------------------------
+    function initGrid() {
+      grid = [];
+      nextGrid = [];
+
+      for (let r = 0; r < rows; r++) {
+        const rowArray = [];
+        const nextRowArray = [];
+        for (let c = 0; c < cols; c++) {
+          rowArray.push(randomCell());
+          nextRowArray.push({ alive: false, color: null });
+        }
+        grid.push(rowArray);
+        nextGrid.push(nextRowArray);
+      }
+    }
+
+    // Crée une cellule (vivante/morte) de façon aléatoire
+    function randomCell() {
+      // Décide si la cellule est vivante ou morte
+      if (Math.random() < probAlive) {
+        // La cellule est vivante. Décidons de son type.
+        const r = Math.random();
+        if (r < ratioType2) {
+          return { alive: true, color: colorType2 };
+        } else if (r < ratioType2 + ratioType1) {
+          return { alive: true, color: colorType1 };
+        } else {
+          return { alive: true, color: colorType3 };
+        }
+      } else {
+        // Cellule morte
+        return { alive: false, color: null };
+      }
+    }
+
+    // -------------------------------
+    //          ANIMATION
+    // -------------------------------
+    function startAnimation() {
+      // Boucle via setInterval pour être sûr que ça tourne partout
+      animationId = setInterval(() => {
+        update();
+        draw();
+      }, updateInterval);
+    }
+
+    function stopAnimation() {
+      if (animationId) {
+        clearInterval(animationId);
+        animationId = null;
+      }
+    }
+
+    // -------------------------------
+    //    MISE À JOUR & DESSIN
+    // -------------------------------
+    // Met à jour la grille (application des règles du Game of Life)
+    function update() {
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const cell = grid[r][c];
+          const neighbors = countNeighbors(r, c);
+
+          if (cell.alive) {
+            // Reste en vie si 2 ou 3 voisins vivants, sinon meurt
+            if (neighbors === 2 || neighbors === 3) {
+              nextGrid[r][c].alive = true;
+              nextGrid[r][c].color = cell.color; // Conserve sa couleur
+            } else {
+              nextGrid[r][c].alive = false;
+              nextGrid[r][c].color = null;
+            }
+          } else {
+            // Une cellule morte naît si exactement 3 voisins vivants
+            if (neighbors === 3) {
+              const bornCell = randomCell(); // Attribue une couleur
+              nextGrid[r][c].alive = true;
+              nextGrid[r][c].color = bornCell.color;
+            } else {
+              nextGrid[r][c].alive = false;
+              nextGrid[r][c].color = null;
+            }
+          }
+        }
+      }
+
+      // On échange les références : grid devient la nextGrid, et vice-versa
+      const temp = grid;
+      grid = nextGrid;
+      nextGrid = temp;
+    }
+
+    // Compte le nombre de voisins vivants autour de la case (row, col)
+    function countNeighbors(row, col) {
+      let count = 0;
+
+      for (let dr = -1; dr <= 1; dr++) {
+        for (let dc = -1; dc <= 1; dc++) {
+          // On ignore la cellule elle-même (dr=0, dc=0)
+          if (dr === 0 && dc === 0) continue;
+          const rr = row + dr;
+          const cc = col + dc;
+
+          if (rr >= 0 && rr < rows && cc >= 0 && cc < cols) {
+            if (grid[rr][cc].alive) {
+              count++;
+            }
+          }
+        }
+      }
+      return count;
+    }
+
+    // Dessine la grille dans le canvas
+    function draw() {
+      // Fond
+      ctx.fillStyle = colorBackground;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Dessiner les cellules vivantes
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const cell = grid[r][c];
+          if (cell.alive) {
+            ctx.fillStyle = cell.color;
+            ctx.fillRect(c * cellSize, r * cellSize, cellSize, cellSize);
+          }
+        }
+      }
+
+      // Dessiner la grille par-dessus
+      drawGrid();
+    }
+
+    // Fonction qui dessine la grille en #0d0d14
+    function drawGrid() {
+      ctx.strokeStyle = colorGrid;
+      ctx.lineWidth = 1;
+
+      // Lignes horizontales
+      for (let r = 0; r <= rows; r++) {
+        ctx.beginPath();
+        ctx.moveTo(0, r * cellSize);
+        ctx.lineTo(cols * cellSize, r * cellSize);
+        ctx.stroke();
+      }
+
+      // Lignes verticales
+      for (let c = 0; c <= cols; c++) {
+        ctx.beginPath();
+        ctx.moveTo(c * cellSize, 0);
+        ctx.lineTo(c * cellSize, rows * cellSize);
+        ctx.stroke();
+      }
+    }
+
+  </script>
+</body>
+</html>

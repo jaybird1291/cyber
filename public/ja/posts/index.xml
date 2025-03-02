@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>© 2025 Jaybird1291</copyright>
-    <lastBuildDate>Sun, 19 May 2024 08:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/ja/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Mar 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/ja/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Midnight RDP Lab</title>
+      <link>http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/</link>
+      <pubDate>Sun, 02 Mar 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/</guid>
+      <description>シナリオ #InfiniTech Solutions の IT 従業員が、自身のメールアカウントに関連する異常なアクティビティを報告しました。調査の結果、その従業員の業務用認証情報が、最近のデータ漏洩により流出していたことが判明しました。</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/midnight-rdp/featured.webp" />
+    </item>
     
     <item>
       <title>OpShieldWall-2</title>
