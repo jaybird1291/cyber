@@ -19,5 +19,15 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/opshieldwall-2/featured.jpg" />
     </item>
     
+    <item>
+      <title>OpShieldWall-1</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/opshieldwall-1/</link>
+      <pubDate>Tue, 07 May 2024 08:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/opshieldwall-1/</guid>
+      <description>Scenario #Thank you for responding to our call.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/opshieldwall-1/featured.png" />
+    </item>
+    
   </channel>
 </rss>

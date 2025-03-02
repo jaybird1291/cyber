@@ -45,8 +45,11 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/blog-cyber/js/main.bundle.min.764eb2fe8d6a6b086c7c58f87d12c64fa79a7585117fc27eb53f688f80c287a6eff16277f9d186cd223a39ff700e294d64482834faece5e07ee0498fa042d056.js"
-    integrity="sha512-dk6y/o1qawhsfFj4fRLGT6eadYURf8J&#43;tT9oj4DCh6bv8WJ3&#43;dGGzSI6Of9wDilNZEgoNPrs5eB&#43;4EmPoELQVg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/blog-cyber/js/main.bundle.min.83d4bde2d1e3cbe675a39f04cd797186d47f5c0af768ddd88b7a1e20a4b69bc5b12bedd76e2e4c3bad19a96d477bb652f80eb98656bf7a2c410381172847d7af.js"
+    integrity="sha512-g9S94tHjy&#43;Z1o58EzXlxhtR/XAr3aN3Yi3oeIKS2m8WxK&#43;3Xbi5MO60ZqW1He7ZS&#43;A65hla/eixBA4EXKEfXrw==" data-copy="" data-copied=""></script>
   
   
   
@@ -133,6 +136,29 @@
   
   
   <meta name="theme-color"/>
+  
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "$FIREBASE_API_KEY",
+      authDomain: "$FIREBASE_API_KEY",
+      projectId: "$FIREBASE_PROJECT_ID",
+      storageBucket: "$FIREBASE_STORAGE_BUCKET",
+      messagingSenderId: "$FIREBASE_MESSAGING_SENDER_ID",
+      appId: "$FIREBASE_APP_ID",
+      measurementId: "$FIREBASE_MEASUREMENT_ID"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
   
   
 </head>

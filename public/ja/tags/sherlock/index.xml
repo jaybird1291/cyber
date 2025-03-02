@@ -19,5 +19,15 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/opshieldwall-2/featured.jpg" />
     </item>
     
+    <item>
+      <title>OpShieldWall-1</title>
+      <link>http://localhost:1313/blog-cyber/ja/posts/opshieldwall-1/</link>
+      <pubDate>Tue, 07 May 2024 08:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/ja/posts/opshieldwall-1/</guid>
+      <description>シナリオ #お電話にご対応いただき、ありがとうございます。ヴェロリアン国防省は切実な支援を必要としています&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/opshieldwall-1/featured.png" />
+    </item>
+    
   </channel>
 </rss>

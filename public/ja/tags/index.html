@@ -47,8 +47,11 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/blog-cyber/js/main.bundle.min.764eb2fe8d6a6b086c7c58f87d12c64fa79a7585117fc27eb53f688f80c287a6eff16277f9d186cd223a39ff700e294d64482834faece5e07ee0498fa042d056.js"
-    integrity="sha512-dk6y/o1qawhsfFj4fRLGT6eadYURf8J&#43;tT9oj4DCh6bv8WJ3&#43;dGGzSI6Of9wDilNZEgoNPrs5eB&#43;4EmPoELQVg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/blog-cyber/js/main.bundle.min.83d4bde2d1e3cbe675a39f04cd797186d47f5c0af768ddd88b7a1e20a4b69bc5b12bedd76e2e4c3bad19a96d477bb652f80eb98656bf7a2c410381172847d7af.js"
+    integrity="sha512-g9S94tHjy&#43;Z1o58EzXlxhtR/XAr3aN3Yi3oeIKS2m8WxK&#43;3Xbi5MO60ZqW1He7ZS&#43;A65hla/eixBA4EXKEfXrw==" data-copy="" data-copied=""></script>
   
   
   
@@ -135,6 +138,29 @@
   
   
   <meta name="theme-color"/>
+  
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "$FIREBASE_API_KEY",
+      authDomain: "$FIREBASE_API_KEY",
+      projectId: "$FIREBASE_PROJECT_ID",
+      storageBucket: "$FIREBASE_STORAGE_BUCKET",
+      messagingSenderId: "$FIREBASE_MESSAGING_SENDER_ID",
+      appId: "$FIREBASE_APP_ID",
+      measurementId: "$FIREBASE_MEASUREMENT_ID"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
   
   
 </head>
@@ -554,8 +580,26 @@
 
 
 
+
+
 <div class="flex flex-row flex-wrap items-center">
   
+  
+  <span>
+  
+  
+    
+  
+  <span id="views_taxonomy_tags" class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400" title="views">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg>
+  </span>
+
+</span>
+</span>
   
 </div>
 
@@ -572,13 +616,109 @@
     <h2 class="flex items-center">
       <a
         class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
+        href="/blog-cyber/ja/tags/android-forensic/"
+        >Android Forensic</a
+      >
+      
+        <span class="px-2 text-base text-primary-500">&middot;</span>
+        <span class="text-base text-neutral-400">
+          1
+        </span>
+      
+    </h2>
+  </article>
+    
+      <article class="w-full px-2 my-3 overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
+    <h2 class="flex items-center">
+      <a
+        class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
+        href="/blog-cyber/ja/tags/autopsy/"
+        >Autopsy</a
+      >
+      
+        <span class="px-2 text-base text-primary-500">&middot;</span>
+        <span class="text-base text-neutral-400">
+          1
+        </span>
+      
+    </h2>
+  </article>
+    
+      <article class="w-full px-2 my-3 overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
+    <h2 class="flex items-center">
+      <a
+        class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
+        href="/blog-cyber/ja/tags/cyberdefenders/"
+        >Cyberdefenders</a
+      >
+      
+        <span class="px-2 text-base text-primary-500">&middot;</span>
+        <span class="text-base text-neutral-400">
+          1
+        </span>
+      
+    </h2>
+  </article>
+    
+      <article class="w-full px-2 my-3 overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
+    <h2 class="flex items-center">
+      <a
+        class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
+        href="/blog-cyber/ja/tags/easy/"
+        >Easy</a
+      >
+      
+        <span class="px-2 text-base text-primary-500">&middot;</span>
+        <span class="text-base text-neutral-400">
+          1
+        </span>
+      
+    </h2>
+  </article>
+    
+      <article class="w-full px-2 my-3 overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
+    <h2 class="flex items-center">
+      <a
+        class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
+        href="/blog-cyber/ja/tags/hard/"
+        >Hard</a
+      >
+      
+        <span class="px-2 text-base text-primary-500">&middot;</span>
+        <span class="text-base text-neutral-400">
+          1
+        </span>
+      
+    </h2>
+  </article>
+    
+      <article class="w-full px-2 my-3 overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
+    <h2 class="flex items-center">
+      <a
+        class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
         href="/blog-cyber/ja/tags/medium/"
         >Medium</a
       >
       
         <span class="px-2 text-base text-primary-500">&middot;</span>
         <span class="text-base text-neutral-400">
-          2
+          1
+        </span>
+      
+    </h2>
+  </article>
+    
+      <article class="w-full px-2 my-3 overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
+    <h2 class="flex items-center">
+      <a
+        class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
+        href="/blog-cyber/ja/tags/network-forensic/"
+        >Network Forensic</a
+      >
+      
+        <span class="px-2 text-base text-primary-500">&middot;</span>
+        <span class="text-base text-neutral-400">
+          1
         </span>
       
     </h2>
@@ -604,13 +744,29 @@
     <h2 class="flex items-center">
       <a
         class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
-        href="/blog-cyber/ja/tags/writeup/"
-        >Writeup</a
+        href="/blog-cyber/ja/tags/splunk/"
+        >Splunk</a
       >
       
         <span class="px-2 text-base text-primary-500">&middot;</span>
         <span class="text-base text-neutral-400">
-          2
+          1
+        </span>
+      
+    </h2>
+  </article>
+    
+      <article class="w-full px-2 my-3 overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
+    <h2 class="flex items-center">
+      <a
+        class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
+        href="/blog-cyber/ja/tags/threat-hunting/"
+        >Threat Hunting</a
+      >
+      
+        <span class="px-2 text-base text-primary-500">&middot;</span>
+        <span class="text-base text-neutral-400">
+          1
         </span>
       
     </h2>

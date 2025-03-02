@@ -30,6 +30,16 @@ jobs:
           hugo-version: "0.125.5"
           extended: true
 
+      - name: Inject Firebase Variables
+        run: |
+          sed -i 's|\$FIREBASE_API_KEY|'"${{ secrets.FIREBASE_API_KEY }}"'|g' config/_default/params.toml
+          sed -i 's|\$FIREBASE_AUTH_DOMAIN|'"${{ secrets.FIREBASE_AUTH_DOMAIN }}"'|g' config/_default/params.toml
+          sed -i 's|\$FIREBASE_PROJECT_ID|'"${{ secrets.FIREBASE_PROJECT_ID }}"'|g' config/_default/params.toml
+          sed -i 's|\$FIREBASE_STORAGE_BUCKET|'"${{ secrets.FIREBASE_STORAGE_BUCKET }}"'|g' config/_default/params.toml
+          sed -i 's|\$FIREBASE_MESSAGING_SENDER_ID|'"${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}"'|g' config/_default/params.toml
+          sed -i 's|\$FIREBASE_APP_ID|'"${{ secrets.FIREBASE_APP_ID }}"'|g' config/_default/params.toml
+          sed -i 's|\$FIREBASE_MEASUREMENT_ID|'"${{ secrets.FIREBASE_MEASUREMENT_ID }}"'|g' config/_default/params.toml
+
       - name: Build
         run: hugo --minify
 
@@ -40,5 +50,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./public
-
-
