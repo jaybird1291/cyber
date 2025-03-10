@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Jaybird1291</title>
+    <link>http://localhost:1313/blog-cyber/ja/tags/windows/</link>
+    <description>Recent content in Windows on Jaybird1291</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>© 2025 Jaybird1291</copyright>
+    <lastBuildDate>Mon, 10 Mar 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/ja/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Latus</title>
+      <link>http://localhost:1313/blog-cyber/ja/posts/latus/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/ja/posts/latus/</guid>
+      <description>Scénario #Le 28 juin, notre client a détecté des sessions RDP non autorisées, sans déploiement de PAM, dans leur environnement.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/latus/featured.png" />
+    </item>
+    
+  </channel>
+</rss>

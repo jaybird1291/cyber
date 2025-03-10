@@ -30,6 +30,27 @@
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/latus/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/midnight-rdp/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/"
+    />
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/</loc>
+    <lastmod>2025-03-02T00:00:05+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
       hreflang="en"
       href="http://localhost:1313/blog-cyber/en/posts/midnight-rdp/"
     />

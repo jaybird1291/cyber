@@ -16,7 +16,17 @@
       
       <guid>http://localhost:1313/blog-cyber/en/posts/midnight-rdp/</guid>
       <description>Scenario #An IT employee at InfiniTech Solutions reported unusual activity associated with their email account.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/midnight-rdp/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/latus/featured.png" />
+    </item>
+    
+    <item>
+      <title>Midnight RDP Lab</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/midnight-rdp/</link>
+      <pubDate>Sun, 02 Mar 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/midnight-rdp/</guid>
+      <description>Scenario #An IT employee at InfiniTech Solutions reported unusual activity associated with their email account.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/latus/featured.png" />
     </item>
     
   </channel>
