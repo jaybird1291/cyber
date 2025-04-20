@@ -2,14 +2,14 @@
 title: APTNightmare-2
 description: 🔎 Linux Memory Forensic 
 slug: aptnightmare2
-date: 2025-04-21 00:00:05+0000
+date: 2025-04-20 00:00:05+0000
 tags: ["HackTheBox", "Sherlock", "Hard", "Linux"]
 ---
 
 ![](pictures/lab.png)
 
 ## Scénario
-> À l'issue du processus de récupération du serveur, l'équipe IR a découvert un labyrinthe de trafic persistant, de communications subreptices et de processus résistants qui ont échappé à nos efforts d'arrêt. Il est évident que la portée de l'incident dépasse la violation initiale de nos serveurs et de nos clients. En tant qu'expert en forensic, pouvez-vous éclairer les ombres qui cachent ces activités clandestines ?
+> À l'issue du processus de récupération du serveur, l'équipe IR a mis en évidence un réseau complexe de trafic persistant, de communications furtives et de processus tenaces ayant résisté à nos tentatives d'arrêt. Il est évident que la portée de l'incident dépasse la violation initiale de nos serveurs et de nos clients. En tant qu'expert en forensic, pouvez-vous éclairer les ombres qui cachent ces activités clandestines ?
 
 
 ## Setup
@@ -17,7 +17,7 @@ Pour ce Sherlock nous allons utiliser :
 - Volatility2
 - IDA
 
-Pour nous aider on va aussi s'appuyer sur cette cheatsheet tels que :
+Nous allons également nous appuyer sur cette cheatsheet :
 - https://downloads.volatilityfoundation.org/releases/2.4/CheatSheet_v2.4.pdf
 
 ### Profil volatility
@@ -69,7 +69,7 @@ Pour cela on va utiliser le module **linux_netstat** de volatility qui permet d'
 python2 vol.py -f ~/Downloads/APTNightmare-2/dump.mem --profile=LinuxUbuntu_5_3_0-70-generic_profilex64 linux_netstat > netstat.txt
 ```
 
-On est sous Linux, le plus probable c'est de voir un reverse shell bash bien crade, et bingo : 
+Sous Linux, le plus probable est de retrouver un reverse shell bash particulièrement basique, et effectivement : 
 
 ![netstat](pictures/netstat.png)
 
@@ -79,7 +79,7 @@ On est sous Linux, le plus probable c'est de voir un reverse shell bash bien cra
 ## Question 2
 > Quel était le PPID de la connexion malveillante du reverse shell ?
 
-Premièrement on va tester un ``linux_pstree` : 
+Tout d'abord, testons avec ``linux_pstree` : 
 
 ```bash
 python2 vol.py -f ~/Downloads/APTNightmare-2/dump.mem --profile=LinuxUbuntu_5_3_0-70-generic_profilex64 linux_pstree | grep -C 5 3633
@@ -124,7 +124,7 @@ Le résultat est que ``linux_pstree``, qui ne se fie qu'à la liste des tâches,
 
 Pour cela on va utiliser le plugin ``linux_check_modules``. Mais avant, remettons en contexte qu'est-ce qu'un module kernel et quel est le lien avec un rootkit.
 
-Un module kernel c'est un morceau de code qui peut être chargé et déchargé dynamiquement dans le kernel d'un système d'exploitation en cours d'exécution. Celma permet d'étendre ses fonctionnalités (comme la prise en charge de nouveaux périphériques ou systèmes de fichiers) sans nécessiter de redémarrer ou de recompiler complétementl le kernel.
+Un module kernel c'est un morceau de code qui peut être chargé et déchargé dynamiquement dans le kernel d'un système d'exploitation en cours d'exécution. Cela permet d'étendre ses fonctionnalités (comme la prise en charge de nouveaux périphériques ou systèmes de fichiers) sans devoir redémarrer ou recompiler complètement le kernel.
 
 Les rootkits opèrent au niveau du kernel Linux en insérant leurs propres modules kernel (LKM - Loadable Kernel Modules). Ces modules malveillants peuvent:
 - intercepter les appels système pour dissimuler des fichiers, processus ou connexions
@@ -181,12 +181,12 @@ Le nom **"nfentlink"** est une tentative de camouflage d'un module malveillant e
 ## Question 4
 > Quand est-ce que le module a été chargé ?
 
-Premièrement j'étais partie sur une mauvaise piste. Ma pensée était : 
-- prendre le timestamp du chargement du module dans dmesg via ``linux_dmesg``
+Au départ, j'étais parti sur une mauvaise piste. Ma pensée était : 
+- prendre le timestamp du chargement du module dans ``dmesg`` via ``linux_dmesg``
 - prendre le timestamp du boot dans ``linux_pslist``
 - calculer et hop 
 
-Cela aurait fonctionné si c'était la première fois que le module était chargé. Néanmoins, il a déjà été chargé dans le passé. Ma méthode est vraiment mauvaise par défaut, en cas de réponse à incident cela peut vous induire en erreur. 
+Cela aurait fonctionné si c'était la première fois que le module était chargé. Néanmoins, il a déjà été chargé dans le passé. Cette méthode est intrinsèquement mauvaise et peut induire en erreur dans un contexte de réponse à incident.
 
 Au final j'ai remis tout à plat et je me suis dit "où puis-je trouver des timestamp lié à des actions passées après de multiple boot ?".
 
@@ -214,7 +214,7 @@ python2 vol.py -f ~/Downloads/APTNightmare-2/dump.mem --profile=LinuxUbuntu_5_3_
 ## Question 5
 > Quel est le chemin d'accès complet et le nom du fichier du module du kernel malveillant ?
 
-Pareil on va check dans les fichiers énumérés. Premièrement on cherche le module qu'on a identifié "nfentlink".
+De même, vérifions parmi les fichiers énumérés. Premièrement on cherche le module qu'on a identifié "nfentlink".
 
 ```bash
 cat files.txt |grep nfentlink
@@ -293,7 +293,7 @@ On voit bien que la fonction d'initialisation est ``nfnetlink_init`` mais aussi 
 
 ![](pictures/gef.png)
 
-Gef affiche les deux fonctions à la même adresse mémoire. On voit donc une technique délibérée de camouflage des modules kernel rootkit. 
+Gef affiche les deux fonctions à la même adresse mémoire. On observe donc une technique délibérée de camouflage utilisée par des rootkits au niveau kernel. 
 
 Le module malveillant utilise la fonction standard ``init_module`` (qui est l'entrée **obligatoire** pour tout module kernel Linux) mais a intentionnellement renommé cette fonction en ``nfnetlink_init`` pour ressembler au module légitime du kernel. 
 
@@ -313,7 +313,7 @@ _sys_call_table = kallsyms_lookup_name("sys_call_table");
 ```
 Cette ligne utilise la fonction ``kallsym_lookup_name`` pour obtenir l'adresse de la table des syscall ``sys_call_table`` dans la mémoire du kernel.
 
-``sys_call_table`` est un tableau contenant les pointeurs vers les fonctions des syscall utilisés par le kernel. En modifiant cette table, l'attaquant peut rediriger les syscall vers des fonctions malveillantes.
+``sys_call_table`` est un tableau contenant les pointeurs vers les fonctions des syscall utilisés par le kernel. En modifiant cette table, l'attaquant redirige les appels système vers ses propres routines malveillantes.
 
 On va donc aller voir le tableau de données dans la section ``.rodata`` (section contenant des chaînes de caractères et des données en lecture seule). 
 
@@ -339,7 +339,7 @@ On va donc aller voir la fonction ``hook_kill`` :
 
 ![hook_kill](pictures/hook_kill.png)
 
-Et ce qui saute aux yeux c'est bien : 
+Ce qui retient immédiatement notre attention est : 
 ```nasm
 cmp     dword ptr [rdi+68h], 64
 ```
@@ -355,7 +355,7 @@ if ( (*(DWORD *)(a1 + 104)) != 64 )
     return ((__int64 (*) (void))orig_kill());
 ```
 
-- ``a1 + 104`` : cela accède au signal envoyé avec l'appel kill(). Le champ à l'adresse ``a1 + 104`` correspond donc au signal.
+- ``a1 + 104`` : cela accède au signal envoyé avec l'appel ``kill()``. Le champ à l'adresse ``a1 + 104`` correspond donc au signal.
 
 - ``(*(DWORD *)(a1 + 104)) != 64`` : cette condition vérifie si le signal n'est pas égal à 64.
 
@@ -366,7 +366,8 @@ Sinon il fait appel à ``hide_pid`` :
 sprintf(hide_pid, "%d", *((QWORD *)(a1 + 112)));
 ```
 
-- ``sprintf(hide_pid, "%d", ...) ``: la fonction ``sprintf`` est utilisée ici pour formater et passer le PID dans la fonction ``hide_pid``. Cela suggère que le module utilise ce PID pour appeler la fonction ``hide_pid``, qui est probablement utilisée pour cacher le processus du système (par exemple en supprimant les entrées dans /proc, dans les répertoires système, ou d'autres structures de données du kernel).
+- ``sprintf(hide_pid, "%d", ...) ``: la fonction ``sprintf`` est utilisée ici pour formater et passer le PID dans la fonction ``hide_pid``. On comprend donc que ce PID est utilisé par la fonction ``hide_pid`` afin de dissimuler le processus au niveau du système, par exemple en supprimant ses entrées dans ``/proc`` ou dans d'autres structures internes du kernel.
+
 
 - ``hide_pid`` : est la fonction pour cacher un processus, empêchant ainsi sa visibilité.
 

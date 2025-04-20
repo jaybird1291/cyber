@@ -199,6 +199,11 @@ Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont
 - <strong class="alternate">Opdisk</strong> : The Cyber Plumber's Handbook
 
 ## **Conf & meetups**
+### 2025
+<div class="image-container">
+    <div class="image">{{< figure src="pictures/thcon.png" title="THCON 2025" width=195 >}}</div>
+</div>
+
 ### 2024
 <div class="image-container">
     <div class="image">{{< figure src="pictures/defconparis.png" title="DEFCON Paris" width=165 >}}</div>
