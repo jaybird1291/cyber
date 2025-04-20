@@ -4,7 +4,7 @@
 
   <url>
     <loc>http://localhost:1313/blog-cyber/ja/</loc>
-    <lastmod>2025-03-02T00:00:05+00:00</lastmod>
+    <lastmod>2025-04-21T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -24,10 +24,36 @@
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/</loc>
-    <lastmod>2025-03-02T00:00:05+00:00</lastmod>
+    <loc>http://localhost:1313/blog-cyber/ja/posts/</loc>
+    <lastmod>2025-04-21T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/"
+    />
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog-cyber/ja/posts/latus/</loc>
+    <lastmod>2025-03-10T00:00:05+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/latus/"
+    />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
@@ -35,13 +61,8 @@
     />
     <xhtml:link
       rel="alternate"
-      hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/midnight-rdp/"
-    />
-    <xhtml:link
-      rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/"
+      href="http://localhost:1313/blog-cyber/ja/posts/latus/"
     />
   </url>
   <url>
@@ -63,27 +84,6 @@
       rel="alternate"
       hreflang="ja"
       href="http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/"
-    />
-  </url>
-  <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/</loc>
-    <lastmod>2025-03-02T00:00:05+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/"
     />
   </url>
   <url>
