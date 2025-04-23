@@ -183,14 +183,15 @@ Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont
 - Comptia Pentest+
 
 
-## **Cours**
+## **Cours & formations suivis**
+- <strong class="alternate">SANS</strong> : FOR585: Smartphone Forensic Analysis In-Depth
+- <strong class="alternate">13Cubed</strong> : Investigating Windows Endpoint
+- <strong class="alternate">13Cubed</strong> : Investigating Windows Memory
+- <strong class="alternate">13Cubed</strong> : Investigating Linux Devices
 - <strong class="alternate">OALABS</strong> : Reverse Engineering 101 (RE101)
 - <strong class="alternate">Evasive Malware</strong> : A Field Guide to Detecting, Analyzing, and Defeating Advanced Threats (Kyle Cucci - no starch press)
 - <strong class="alternate">Kaspersky</strong> : Advanced Malware Analysis Techniques 
 - <strong class="alternate">Kaspersky</strong> : Hunting APTs like a Ninja with YARA
-- <strong class="alternate">13Cubed</strong> : Investigating Windows Endpoint
-- <strong class="alternate">13Cubed</strong> : Investigating Windows Memory
-- <strong class="alternate">13Cubed</strong> : Investigating Linux Devices
 - <strong class="alternate">Roman Stuehler</strong> : Android App Hacking - Black Belt Edition
 - <strong class="alternate">Pentherz</strong> : Intro to SDR Hacking 
 - <strong class="alternate">Christopher Negus</strong> : Linux Bible

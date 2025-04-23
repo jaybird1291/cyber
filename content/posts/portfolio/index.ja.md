@@ -177,14 +177,15 @@ Path :
 - Comptia Pentest+
 
 
-## **コース** 
+## **受講した講座と研修** 
+- <strong class="alternate">SANS</strong> : FOR585: Smartphone Forensic Analysis In-Depth
+- <strong class="alternate">13Cubed</strong> : Investigating Windows Endpoint
+- <strong class="alternate">13Cubed</strong> : Investigating Windows Memory
+- <strong class="alternate">13Cubed</strong> : Investigating Linux Devices
 - <strong class="alternate">OALABS</strong> : Reverse Engineering 101 (RE101) （リバースエンジニアリング101）
 - <strong class="alternate">Evasive Malware</strong> : A Field Guide to Detecting, Analyzing, and Defeating Advanced Threats (Kyle Cucci - no starch press)
 - <strong class="alternate">Kaspersky</strong> : Advanced Malware Analysis Techniques （高度なマルウェア分析技術）
 - <strong class="alternate">Kaspersky</strong> : Hunting APTs like a Ninja with YARA （YARAを使った忍者のようなAPT追跡）
-- <strong class="alternate">13Cubed</strong> : Investigating Windows Endpoint
-- <strong class="alternate">13Cubed</strong> : Investigating Windows Memory
-- <strong class="alternate">13Cubed</strong> : Investigating Linux Devices
 - <strong class="alternate">Roman Stuehler</strong> : Android App Hacking - Black Belt Edition （Androidアプリハッキング - ブラックベルト版）
 - <strong class="alternate">Pentherz</strong> : Intro to SDR Hacking （SDRハッキング入門）
 - <strong class="alternate">Christopher Negus</strong> : Linux Bible （リナックスバイブル）
