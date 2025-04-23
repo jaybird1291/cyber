@@ -12,9 +12,10 @@ Les images sont des liens cliquables.
     <br>En cours <br>
     Mastère (BAC+5) - Expert de la sécurité des données, des réseaux et des systèmes<br>
     Uniquement en alternance<br>
-    Je fais passer les entretiens de motivation et techniques pour les nouvelles admissions dans mon master<br>
+    Je fais passer les entretiens de motivation et techniques pour les nouvelles admissions<br>
     (N° RNCP 38951) 
 </div>
+
 
 <div class="diploma-container">
     <div class="image-item">{{< figure src="pictures/efrei_logo.jpg" link="https://www.efrei.fr/" width=120 >}}</div><br>
