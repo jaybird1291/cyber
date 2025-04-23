@@ -16,16 +16,12 @@ Les images sont des liens cliquables.
     (N° RNCP 38951) 
 </div>
 
---- 
-
 <div class="diploma-container">
     <div class="image-item">{{< figure src="pictures/efrei_logo.jpg" link="https://www.efrei.fr/" width=120 >}}</div><br>
     <br>Bachelor (BAC+3) - Cybersécurité & Ethical Hacking<br>
     3ème année en alternance<br>
     Mention - Très bien
 </div>
-
----
 
 <div class="diploma-container">
     <div class="image-item">{{< figure src="pictures/3IL-logo.jpg" link="https://www.3il-ingenieurs.fr/" width=120 >}}</div><br>
