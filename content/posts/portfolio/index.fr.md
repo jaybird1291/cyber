@@ -12,7 +12,8 @@ Les images sont des liens cliquables.
     <br>En cours <br>
     Mastère (BAC+5) - Expert de la sécurité des données, des réseaux et des systèmes<br>
     Uniquement en alternance<br>
-    https://www.francecompetences.fr/recherche/rncp/38951/
+    Je fais passer les entretiens de motivation et techniques pour les nouvelles admissions dans mon master<br>
+    (N° RNCP 38951) 
 </div>
 
 --- 

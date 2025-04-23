@@ -11,7 +11,8 @@ date: 2024-05-06 08:00:05+0000
     <br>進行中 <br>
     修士課程 (BAC+5) - データ、ネットワーク、システムセキュリティの専門家<br>
     職業訓練（ワークスタディプログラム）のみ対応<br>
-    https://www.francecompetences.fr/recherche/rncp/38951/
+    修士課程の新規入学者に対して、志望動機および技術面の面接を担当しています。<br>
+    (N° RNCP 38951) 
 </div>
 
 <div class="diploma-container">

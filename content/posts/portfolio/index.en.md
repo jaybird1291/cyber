@@ -12,7 +12,8 @@ The images are clickable links.
     <br>In progress <br>
     Master’s Degree (BAC+5) - Expert in Data, Network, and System Security<br>
     Only available through work-study programs<br>
-    https://www.francecompetences.fr/recherche/rncp/38951/
+    I conduct motivation and technical interviews for new admissions to my master's program<br>
+    (N° RNCP 38951) 
 </div>
 
 <div class="diploma-container">
