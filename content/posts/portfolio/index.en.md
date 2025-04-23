@@ -12,7 +12,7 @@ The images are clickable links.
     <br>In progress <br>
     Master’s Degree (BAC+5) - Expert in Data, Network, and System Security<br>
     Only available through work-study programs<br>
-    I conduct motivation and technical interviews for new admissions to my master's program<br>
+    I conduct motivation and technical interviews for new admissions<br>
     (N° RNCP 38951) 
 </div>
 
