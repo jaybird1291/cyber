@@ -184,6 +184,7 @@ Path :
 - <strong class="alternate">Kaspersky</strong> : Hunting APTs like a Ninja with YARA （YARAを使った忍者のようなAPT追跡）
 - <strong class="alternate">13Cubed</strong> : Investigating Windows Endpoint
 - <strong class="alternate">13Cubed</strong> : Investigating Windows Memory
+- <strong class="alternate">13Cubed</strong> : Investigating Linux Devices
 - <strong class="alternate">Roman Stuehler</strong> : Android App Hacking - Black Belt Edition （Androidアプリハッキング - ブラックベルト版）
 - <strong class="alternate">Pentherz</strong> : Intro to SDR Hacking （SDRハッキング入門）
 - <strong class="alternate">Christopher Negus</strong> : Linux Bible （リナックスバイブル）

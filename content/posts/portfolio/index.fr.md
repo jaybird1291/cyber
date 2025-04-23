@@ -190,6 +190,7 @@ Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont
 - <strong class="alternate">Kaspersky</strong> : Hunting APTs like a Ninja with YARA
 - <strong class="alternate">13Cubed</strong> : Investigating Windows Endpoint
 - <strong class="alternate">13Cubed</strong> : Investigating Windows Memory
+- <strong class="alternate">13Cubed</strong> : Investigating Linux Devices
 - <strong class="alternate">Roman Stuehler</strong> : Android App Hacking - Black Belt Edition
 - <strong class="alternate">Pentherz</strong> : Intro to SDR Hacking 
 - <strong class="alternate">Christopher Negus</strong> : Linux Bible
