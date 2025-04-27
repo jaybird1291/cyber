@@ -62,9 +62,16 @@ date: 2024-05-06 08:00:05+0000
     <div class="image-item">{{< figure src="pictures/htb-tracer.webp" title="Tracer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/558" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-logjammer.webp" title="Log Jammer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/557" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-rogueone.webp" title="Rogue One" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/569" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/Origins.webp" class="very-easy" title="Origins" link="https://labs.hackthebox.com/achievement/sherlock/1271052/869" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/smartypants.webp" class="very-easy" title="SmartyPants" link="https://labs.hackthebox.com/achievement/sherlock/1271052/864" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/reaper.webp" class="very-easy" title="Reaper" link="https://labs.hackthebox.com/achievement/sherlock/1271052/749" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/campfire-2.webp" class="very-easy" title="Campfire-2" link="https://labs.hackthebox.com/achievement/sherlock/1271052/736" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/campfire-1.webp" class="very-easy" title="Campfire-1" link="https://labs.hackthebox.com/achievement/sherlock/1271052/737" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/unit42.png" class="very-easy" title="Unit42" link="https://labs.hackthebox.com/achievement/sherlock/1271052/632" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/crownjewel2.webp" title="CrownJewel-2" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/750" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/crownjewel1.webp" title="CrownJewel-1" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/751" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/brutus.webp" title="Brutus" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/631" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/noxious.webp" class="very-easy" title="Noxious" link="https://labs.hackthebox.com/achievement/sherlock/1271052/747" width=120 >}}</div>
 </div>
 
 #### マルウェア分析
@@ -80,6 +87,14 @@ date: 2024-05-06 08:00:05+0000
 <div class="image-container">
     <div class="image">{{< figure src="pictures/htb-nubilum-2.webp" class="easy" title="Nubilum-2" link="https://labs.hackthebox.com/achievement/sherlock/1271052/573" width=120 >}}</div>
 </div>
+
+
+#### Threat Intelligence 
+<div class="image-container">
+    <div class="image">{{< figure src="pictures/DreamJob-1.webp" class="very-easy" title="DreamJob-1" link="https://labs.hackthebox.com/achievement/sherlock/1271052/865" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/UFO-1.webp" class="very-easy" title="UFO-1" link="https://labs.hackthebox.com/achievement/sherlock/1271052/840" width=120 >}}</div>
+</div>
+
 
 ### ボックス
 
@@ -178,19 +193,24 @@ Path :
 
 
 ## **受講した講座と研修** 
+### 2025
 - <strong class="alternate">SANS</strong> : FOR585: Smartphone Forensic Analysis In-Depth
 - <strong class="alternate">13Cubed</strong> : Investigating Windows Endpoint
 - <strong class="alternate">13Cubed</strong> : Investigating Windows Memory
 - <strong class="alternate">13Cubed</strong> : Investigating Linux Devices
-- <strong class="alternate">OALABS</strong> : Reverse Engineering 101 (RE101) （リバースエンジニアリング101）
-- <strong class="alternate">Evasive Malware</strong> : A Field Guide to Detecting, Analyzing, and Defeating Advanced Threats (Kyle Cucci - no starch press)
-- <strong class="alternate">Kaspersky</strong> : Advanced Malware Analysis Techniques （高度なマルウェア分析技術）
-- <strong class="alternate">Kaspersky</strong> : Hunting APTs like a Ninja with YARA （YARAを使った忍者のようなAPT追跡）
-- <strong class="alternate">Roman Stuehler</strong> : Android App Hacking - Black Belt Edition （Androidアプリハッキング - ブラックベルト版）
-- <strong class="alternate">Pentherz</strong> : Intro to SDR Hacking （SDRハッキング入門）
-- <strong class="alternate">Christopher Negus</strong> : Linux Bible （リナックスバイブル）
-- <strong class="alternate">OSINT (Open Source Intelligence Techniques)</strong> : IntelTechniques （オープンソースインテリジェンステクニック）
-- <strong class="alternate">Opdisk</strong> : The Cyber Plumber's Handbook （サイバープランバーのハンドブック）
+
+### 2024
+- <strong class="alternate">Evasive Malware</strong> : A Field Guide to Detecting, Analyzing, and Defeating Advanced Threats
+- <strong class="alternate">Roman Stuehler</strong> : Android App Hacking - Black Belt Edition
+- <strong class="alternate">Kaspersky</strong> : Advanced Malware Analysis Techniques 
+- <strong class="alternate">Kaspersky</strong> : Hunting APTs like a Ninja with YARA
+- <strong class="alternate">OALABS</strong> : Reverse Engineering 101 (RE101)
+- <strong class="alternate">Pentherz</strong> : Intro to SDR Hacking 
+
+### 2023
+- <strong class="alternate">OSINT</strong> : IntelTechniques
+- <strong class="alternate">Christopher Negus</strong> : Linux Bible
+- <strong class="alternate">Opdisk</strong> : The Cyber Plumber's Handbook
 
 ## **会議とミートアップ**
 ### 2025
