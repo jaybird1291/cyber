@@ -7,7 +7,67 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Jaybird1291</copyright>
-    <atom:link href="http://localhost:1313/blog-cyber/en/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jun 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/en/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Streamer</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/streamer/</link>
+      <pubDate>Sun, 01 Jun 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/streamer/</guid>
+      <description>Scenario #Simon Stark is a dev at forela who recently planned to stream some coding sessions with colleagues on which he received appreciation from CEO and other colleagues too.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/streamer/featured.png" />
+    </item>
+    
+    <item>
+      <title>APTNightmare-2</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/aptnightmare2/</link>
+      <pubDate>Sun, 20 Apr 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/aptnightmare2/</guid>
+      <description>Scenario #Upon completing the server recovery process, the IR team uncovered a labyrinth of persistent traffic, surreptitious communications, and resilient processes that eluded our termination efforts.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/aptnightmare2/featured.png" />
+    </item>
+    
+    <item>
+      <title>Latus</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/latus/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/latus/</guid>
+      <description>Scénario #Our customer discovered illegal RDP sessions without Privileged Access Management (PAM) in their system on June 28.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/latus/featured.png" />
+    </item>
+    
+    <item>
+      <title>Midnight RDP Lab</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/midnight-rdp/</link>
+      <pubDate>Sun, 02 Mar 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/midnight-rdp/</guid>
+      <description>Scenario #An IT employee at InfiniTech Solutions reported unusual activity associated with their email account.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/midnight-rdp/featured.webp" />
+    </item>
+    
+    <item>
+      <title>OpShieldWall-2</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/opshieldwall-2/</link>
+      <pubDate>Sun, 19 May 2024 08:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/opshieldwall-2/</guid>
+      <description>Scenario #We have successfully confirmed the location of the malicious actor who compromised our government’s WiFi network.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/opshieldwall-2/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>OpShieldWall-1</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/opshieldwall-1/</link>
+      <pubDate>Tue, 07 May 2024 08:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/opshieldwall-1/</guid>
+      <description>Scenario #Thank you for responding to our call.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/opshieldwall-1/featured.png" />
+    </item>
     
   </channel>
 </rss>

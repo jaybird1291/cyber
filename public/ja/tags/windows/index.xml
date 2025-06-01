@@ -15,7 +15,7 @@
       <pubDate>Sun, 01 Jun 2025 00:00:05 +0000</pubDate>
       
       <guid>http://localhost:1313/blog-cyber/ja/posts/streamer/</guid>
-      <description>シナリオ #6月28日、顧客の環境にてPAM (Privileged Access Management) を経由しない不正なRDPセッションが検出されました。攻撃者は別サーバへの横展開（ラテラルムーブメント）のために踏み台として使ったと思われるサーバで証拠を収集しました。攻撃者はイベントログ（event logs）を削除していますが、残されたわずかなアーティファクトでも攻撃の流れを再現し、攻撃者の行動を追跡するには十分だと考えています。</description>
+      <description>シナリオ #Simon Starkはforelaの開発者で、最近同僚と一緒にコーディングセッションをストリーミングしようと計画していて、そのアイデアはCEOや他の同僚からも好評でした。彼はGoogle検索で見つけた有名なストリーミングソフトを何気なくインストールしました。それはGoogle広告で上位に表示されていたURLの一つでした。しかし、残念ながら事態は思わぬ方向へ進み、セキュリティインシデントが発生してしまいました。提供されたトリアージ済みのアーティファクトを分析し、何が起こったのかを正確に突き止めてください。</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/streamer/featured.png" />
     </item>
     
