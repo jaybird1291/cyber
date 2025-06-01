@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>© 2025 Jaybird1291</copyright>
-    <lastBuildDate>Sun, 20 Apr 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/ja/tags/sherlock/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jun 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/ja/tags/sherlock/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Streamer</title>
+      <link>http://localhost:1313/blog-cyber/ja/posts/streamer/</link>
+      <pubDate>Sun, 01 Jun 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/ja/posts/streamer/</guid>
+      <description>シナリオ #6月28日、顧客の環境にてPAM (Privileged Access Management) を経由しない不正なRDPセッションが検出されました。攻撃者は別サーバへの横展開（ラテラルムーブメント）のために踏み台として使ったと思われるサーバで証拠を収集しました。攻撃者はイベントログ（event logs）を削除していますが、残されたわずかなアーティファクトでも攻撃の流れを再現し、攻撃者の行動を追跡するには十分だと考えています。</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/streamer/featured.png" />
+    </item>
     
     <item>
       <title>APTNightmare-2</title>
