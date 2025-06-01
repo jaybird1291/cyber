@@ -3,7 +3,7 @@ title: APTNightmare-2
 description: 🔎 Linux Memory Forensic 
 slug: aptnightmare2
 date: 2025-04-20 00:00:05+0000
-tags: ["HackTheBox", "Sherlock", "Hard", "Linux"]
+tags: ["HackTheBox", "Sherlock", "Hard", "Linux", "Writeup"]
 ---
 
 ![](pictures/lab.png)

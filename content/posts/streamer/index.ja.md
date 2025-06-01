@@ -3,7 +3,7 @@ title: Streamer
 description: 🔎 DFIR Windows 
 slug: streamer
 date: 2025-06-01 00:00:05+0000
-tags: ["HackTheBox", "Sherlock", "Hard", "Windows"]
+tags: ["HackTheBox", "Sherlock", "Hard", "Windows", "Writeup"]
 ---
 
 ![](pictures/lab.png)

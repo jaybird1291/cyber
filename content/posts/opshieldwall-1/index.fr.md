@@ -3,7 +3,7 @@ title: OpShieldWall-1
 description: 🛜 Forensic réseau d'un WiFi compromis
 slug: opshieldwall-1
 date: 2024-05-07 08:00:05+0000
-tags: ["Sherlock", "Network Forensic", "Easy"]
+tags: ["Sherlock", "Network Forensic", "Easy", "Writeup"]
 # weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
 

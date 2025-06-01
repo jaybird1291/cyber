@@ -3,7 +3,7 @@ title: Midnight RDP Lab
 description: 🌠 Splunk SearchによるDFIR
 slug: midnight-rdp
 date: 2025-03-02 00:00:05+0000
-tags: ["Cyberdefenders", "Threat Hunting", "Hard", "Splunk"]
+tags: ["Cyberdefenders", "Threat Hunting", "Hard", "Splunk", "Writeup"]
 ---
 
 ![](pictures/Midnight.png)
