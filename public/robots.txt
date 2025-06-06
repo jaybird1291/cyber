@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /
-Sitemap: http://localhost:1313/blog-cyber/sitemap.xml
+Allow: /

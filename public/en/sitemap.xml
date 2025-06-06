@@ -66,6 +66,27 @@
     />
   </url>
   <url>
+    <loc>http://localhost:1313/blog-cyber/en/posts/fcsc/</loc>
+    <lastmod>2025-05-18T00:00:05+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/fcsc/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/fcsc2025/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/fcsc/"
+    />
+  </url>
+  <url>
     <loc>http://localhost:1313/blog-cyber/en/posts/aptnightmare2/</loc>
     <lastmod>2025-04-20T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
