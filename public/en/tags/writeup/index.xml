@@ -20,6 +20,16 @@
     </item>
     
     <item>
+      <title>FCSC 2025 (ANSSI CTF) - iOS Forensic</title>
+      <link>http://localhost:1313/blog-cyber/en/posts/fcsc/</link>
+      <pubDate>Sun, 18 May 2025 00:00:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/en/posts/fcsc/</guid>
+      <description>Scenario #As you pass through customs, the customs officer asks you to hand over your phone and its unlock code.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/fcsc/featured.png" />
+    </item>
+    
+    <item>
       <title>APTNightmare-2</title>
       <link>http://localhost:1313/blog-cyber/en/posts/aptnightmare2/</link>
       <pubDate>Sun, 20 Apr 2025 00:00:05 +0000</pubDate>

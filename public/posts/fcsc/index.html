@@ -95,7 +95,7 @@
     "name": "FCSC 2025 (CTF ANSSI) - iOS Forensic",
     "headline": "FCSC 2025 (CTF ANSSI) - iOS Forensic",
     "description": "🔎 6 des 7 challenges de Forensic iOS du FCSC 2025",
-    "abstract": "Scénario #\rLors d’un passage de douane, le douanier vous demande de lui remettre votre téléphone ainsi que son code de déverrouillage.",
+    "abstract": "Scénario #\rLors d\u0026rsquo;un passage de douane, le douanier vous demande de lui remettre votre téléphone ainsi que son code de déverrouillage.",
     "inLanguage": "fr",
     "url" : "http:\/\/localhost:1313\/blog-cyber\/posts\/fcsc\/",
     "author" : {
@@ -111,7 +111,7 @@
     "keywords": ["FCSC","2025","iOS","Writeup"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2079"
+    "wordCount": "2078"
   }]
   </script>
 
@@ -1202,9 +1202,9 @@
     
 </h2>
 <blockquote>
-<p>Lors d’un passage de douane, le douanier vous demande de lui remettre votre téléphone ainsi que son code de déverrouillage. Le téléphone vous est rendu quelques heures plus tard …
-Suspicieux, vous envoyez votre téléphone pour analyse au CERT-FR de l’ANSSI. Les analystes du CERT-FR effectuent une collecte sur le téléphone, composée d’un sysdiagnose et d’un backup.
-Ces épreuves font partie d’une série. Les épreuves sont indépendantes sauf iBackdoor 2/2 qui dépend de iBackdoor 1/2 :
+<p>Lors d&rsquo;un passage de douane, le douanier vous demande de lui remettre votre téléphone ainsi que son code de déverrouillage. Le téléphone vous est rendu quelques heures plus tard …
+Suspicieux, vous envoyez votre téléphone pour analyse au CERT-FR de l&rsquo;ANSSI. Les analystes du CERT-FR effectuent une collecte sur le téléphone, composée d&rsquo;un sysdiagnose et d&rsquo;un backup.
+Ces épreuves font partie d&rsquo;une série. Les épreuves sont indépendantes sauf iBackdoor 2/2 qui dépend de iBackdoor 1/2 :
 iForensics - iCrash
 iForensics - iDevice
 iForensics - iWiFi
@@ -1215,7 +1215,7 @@ iForensics - iBackdoor 2/2
 iForensics - iC2
 iForensics - iCompromise</p>
 </blockquote>
-<p>On a donc une backup.tar.xz (logique) et des sysdiagnose et crashes !</p>
+<p>On a donc une backup.tar.xz (logique) et des sysdiagnose &amp; crashes !</p>
 
 
 <h2 class="relative group">Setup 
@@ -1239,7 +1239,7 @@ iForensics - iCompromise</p>
 <ul>
 <li><a href="pictures/FOR585.pdf">FOR585.pdf</a></li>
 </ul>
-<p>On pourrait aussi utiliser des tools et méthodologies plus &ldquo;pro&rdquo; (via Plaso etc.) mais dans le contexte du CTF (fait en retard) je n&rsquo;ai pas pris le temps de le faire.</p>
+<p>On pourrait aussi utiliser des tools et méthodologies plus &ldquo;pro&rdquo; (via Plaso etc.) mais dans le contexte du CTF (fait en retard) je n&rsquo;ai pas pris le temps de le faire. 🤠</p>
 
 
 <h2 class="relative group">Intro - iForensics - iCrash 
@@ -1253,7 +1253,7 @@ iForensics - iCompromise</p>
     
 </h2>
 <blockquote>
-<p>Il semblerait qu’un flag se soit caché à l’endroit où sont stockés les crashes sur le téléphone …</p>
+<p>Il semblerait qu&rsquo;un flag se soit caché à l&rsquo;endroit où sont stockés les crashes sur le téléphone …</p>
 </blockquote>
 <p>Ici très simple. On sait que les crashs se trouvent dans l&rsquo;archive <code>sysdiagnose_and_crashes.tar.xz</code>. On l&rsquo;extrait donc :</p>
 <pre tabindex="0"><code>tar -xf sysdiagnose_and_crashes.tar.xz 
@@ -1273,7 +1273,7 @@ iForensics - iCompromise</p>
     
 </h2>
 <blockquote>
-<p>Pour commencer, trouvez quelques informations d’intérêt sur le téléphone : version d’iOS et identifiant du modèle de téléphone.
+<p>Pour commencer, trouvez quelques informations d&rsquo;intérêt sur le téléphone : version d&rsquo;iOS et identifiant du modèle de téléphone.
 Le flag est au format FCSC{&lt;identifiant du modèle&gt;|&lt;numéro de build&gt;}. Par exemple, pour un iPhone 14 Pro Max en iOS 18.4 (22E240) : FCSC{iPhone15,3|22E240}.</p>
 </blockquote>
 <p>Pour répondre à cette question il faut savoir de quoi est constitué une backup iOS. J&rsquo;ai parlé plus haut de backup &ldquo;logique&rdquo;. Cela a une importance car si on regarde à l&rsquo;intérieur de la backup on ne voit que des dossiers bizarres :</p>
@@ -1294,10 +1294,10 @@ Le flag est au format FCSC{&lt;identifiant du modèle&gt;|&lt;numéro de build&g
     </figure>
 </p>
 <p>En fait il faut reconstruire la structure et noms de dossiers / fichiers. Pour cela il faut utiliser la <strong>Manifest.db</strong> (iOS 10+) en faisant la correspondance entre les RelativePath et les FileID.</p>
-<p>Néanmoins on voit aussi des fichiers avec des noms normaux dont <strong>Info.plist</strong>. C&rsquo;est ici qu&rsquo;Apple conserve les metadata clés concernant l’appareil :</p>
+<p>Néanmoins on voit aussi des fichiers avec des noms normaux dont <strong>Info.plist</strong>. C&rsquo;est ici qu&rsquo;Apple conserve les metadata clés concernant l&rsquo;appareil :</p>
 <ul>
 <li>Product Type (identifiant du modèle, ex. iPhone12,3),</li>
-<li>Product Version (version d’iOS, ex. 16.0),</li>
+<li>Product Version (version d&rsquo;iOS, ex. 16.0),</li>
 <li>Build Version (numéro de build, ex. 20A362),</li>
 <li>Divers identifiants (IMEI, MEID, Serial Number, GUID…),</li>
 <li>Date du dernier backup, applications installées, etc.</li>
@@ -1353,7 +1353,7 @@ Le flag est au format FCSC{&lt;identifiant du modèle&gt;|&lt;numéro de build&g
 </span></span><span class="line"><span class="cl">  <span class="c1"># Si relativePath est vide, on saute (ce sont souvent des entrées de dossier sans chemin)</span>
 </span></span><span class="line"><span class="cl">  <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$RELPATH</span><span class="s2">&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="k">continue</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c1"># Chemins de sortie pour recréer l’arborescence</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Chemins de sortie pour recréer l&#39;arborescence</span>
 </span></span><span class="line"><span class="cl">  <span class="nv">DEST_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$OUT</span><span class="s2">/</span><span class="nv">$DOMAIN</span><span class="s2">/</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$RELPATH</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="nv">DEST_PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$OUT</span><span class="s2">/</span><span class="nv">$DOMAIN</span><span class="s2">/</span><span class="nv">$RELPATH</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">
@@ -1390,7 +1390,7 @@ Le flag est au format FCSC{&lt;identifiant du modèle&gt;|&lt;numéro de build&g
     
 </h2>
 <blockquote>
-<p>Pour continuer, trouvez quelques informations d’intérêt sur le téléphone : SSID et BSSID du réseau WiFi sur lequel le téléphone est connecté ainsi que le compte iCloud associé au téléphone.
+<p>Pour continuer, trouvez quelques informations d&rsquo;intérêt sur le téléphone : SSID et BSSID du réseau WiFi sur lequel le téléphone est connecté ainsi que le compte iCloud associé au téléphone.
 Le flag est au format FCSC{<SSID>|<BSSID>|<compte iCloud>}. Par exemple, si le téléphone est connecté sur le réseau WiFi example, qui a pour BSSID 00:11:22:33:44:55 et que le compte iCloud associé est <a href="mailto:example@example.com">example@example.com</a> : FCSC{example|00:11:22:33:44:55|example@example.com}.</p>
 </blockquote>
 <p>Afin d&rsquo;accélérer l&rsquo;extraction des informations Wi-Fi et iCloud, on peut utiliser iLEAPP (iOS Logs, Events, and Protobuf Parser) : il va collecter et organiser automatiquement pour nous pleins d&rsquo;artefacts et faire un rapport.</p>
@@ -1442,7 +1442,7 @@ Le flag est au format FCSC{<SSID>|<BSSID>|<compte iCloud>}. Par exemple, si le t
     
 </h2>
 <blockquote>
-<p>Avant la remise du téléphone à la douane, le propriétaire du téléphone a eu le temps d’envoyer un trésor. Retrouvez ce trésor.</p>
+<p>Avant la remise du téléphone à la douane, le propriétaire du téléphone a eu le temps d&rsquo;envoyer un trésor. Retrouvez ce trésor.</p>
 </blockquote>
 <p>Ici plusieurs manières rapide de le trouver. En effet le scénario parle d&rsquo;un envoi. On pense directement au SMS.</p>
 <p>iLEAPP parse cela donc on peut aller checker directement :</p>
@@ -1462,7 +1462,7 @@ Le flag est au format FCSC{<SSID>|<BSSID>|<compte iCloud>}. Par exemple, si le t
       
     </figure>
 </p>
-<p>On peut aussi le faire ingérer à Autopsy avec le module &ldquo;Logical File Analysis&rdquo;. Grâce à cela, Autopsy va scanner tous les fichiers et, d’après leurs en-têtes (magic bytes), il va regrouper certains des médias (JPEG, PNG, etc.) sous l’onglet &ldquo;User Content Suspected&rdquo; car le <strong>Chemin d’accès</strong> est localisé dans <code>HomeDomain/Media/DCIM/…</code>. Il considère donc qu’il s’agit d’un contenu utilisateur (photo prise ou importée)</p>
+<p>On peut aussi le faire ingérer à Autopsy avec le module &ldquo;Logical File Analysis&rdquo;. Grâce à cela, Autopsy va scanner tous les fichiers et, d&rsquo;après leurs en-têtes (magic bytes), il va regrouper certains des médias (JPEG, PNG, etc.) sous l&rsquo;onglet &ldquo;User Content Suspected&rdquo; car le <strong>Chemin d&rsquo;accès</strong> est localisé dans <code>HomeDomain/Media/DCIM/…</code>. Il considère donc qu&rsquo;il s&rsquo;agit d&rsquo;un contenu utilisateur (photo prise ou importée)</p>
 <p><strong>Flag</strong> : <code>FCSC{511773550dca}</code></p>
 
 
@@ -1477,10 +1477,10 @@ Le flag est au format FCSC{<SSID>|<BSSID>|<compte iCloud>}. Par exemple, si le t
     
 </h2>
 <blockquote>
-<p>Il semblerait qu’un message n’ait pas pu s’envoyer … Retrouvez le destinataire de ce message.
+<p>Il semblerait qu&rsquo;un message n&rsquo;ait pas pu s&rsquo;envoyer … Retrouvez le destinataire de ce message.
 Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est <a href="mailto:example@example.com">example@example.com</a> : <a href="mailto:FCSC%7bexample@example.com">FCSC{example@example.com</a>}.</p>
 </blockquote>
-<p>Ici très rapide, on peut directement aller chercher dans la DB <strong>sms.db</strong>. C’est cette base qui contient toutes les conversations (iMessage et SMS), avec les tables principales message (headers, état, texte, etc.) et handle (liste des correspondants, numéros / adresses).</p>
+<p>Ici très rapide, on peut directement aller chercher dans la DB <strong>sms.db</strong>. C&rsquo;est cette base qui contient toutes les conversations (iMessage et SMS), avec les tables principales message (headers, état, texte, etc.) et handle (liste des correspondants, numéros / adresses).</p>
 <p>Ne faites pas l&rsquo;erreur d&rsquo;aller chercher dans la table &ldquo;message&rdquo;. En effet, on ne retrouve que les iMessage ici. Pour les SMS il faut aller dans la table &ldquo;chat&rdquo;.</p>
 <p>
     <figure>
@@ -1512,12 +1512,12 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
     
 </h2>
 <blockquote>
-<p>Vous continuez vos analyses afin de trouver la backdoor sur le téléphone. Vous finissez par vous rendre compte qu’une application est compromise et que le téléphone était infecté au moment de la collecte … Trouvez l’identifiant de l’application compromise ainsi que l’identifiant de processus (PID) du malware.</p>
-<p>Le flag est au format FCSC{<identifiant application>|<PID>}. Par exemple, si l’application compromise est Example (com.example) et que le PID est 1337 : FCSC{com.example|1337}.</p>
+<p>Vous continuez vos analyses afin de trouver la backdoor sur le téléphone. Vous finissez par vous rendre compte qu&rsquo;une application est compromise et que le téléphone était infecté au moment de la collecte … Trouvez l&rsquo;identifiant de l&rsquo;application compromise ainsi que l&rsquo;identifiant de processus (PID) du malware.</p>
+<p>Le flag est au format FCSC{<identifiant application>|<PID>}. Par exemple, si l&rsquo;application compromise est Example (com.example) et que le PID est 1337 : FCSC{com.example|1337}.</p>
 </blockquote>
 <p>Ici on va devoir s&rsquo;appuyer sur les sysdiagnose (<code>/sysdiagnose_and_crashes/private/var/mobile/Library/Logs/CrashReporter/DiagnosticLogs/sysdiagnose/sysdiagnose_2025.04.07_08-06-18-0700_iPhone-OS_iPhone_20A362</code>).</p>
-<p>Mais avant c&rsquo;est quoi les sysdiagnose ? C&rsquo;est une archive générée par iOS qui regroupe automatiquement les logs système, rapports de crash, états réseau et informations de configuration au moment de la capture. Il sert principalement à diagnostiquer des problèmes de performance ou de stabilité en fournissant un instantané complet de l’appareil. Mais il est aussi très utile d&rsquo;un point de vu forensic après une compromission.</p>
-<p>Pour être un minimum pro et gagner du temps je vais utiliser le superbe tool de l&rsquo;EC-DIGIT-CSIRC (<a href="https://github.com/EC-DIGIT-CSIRC/sysdiagnose/%29" target="_blank">https://github.com/EC-DIGIT-CSIRC/sysdiagnose/)</a>.</p>
+<p>Mais avant c&rsquo;est quoi les sysdiagnose ? C&rsquo;est une archive générée par iOS qui regroupe automatiquement les logs système, rapports de crash, états réseau et informations de configuration au moment de la capture. Il sert principalement à diagnostiquer des problèmes de performance ou de stabilité en fournissant un instantané complet de l&rsquo;appareil. Mais il est aussi très utile d&rsquo;un point de vu forensic après une compromission.</p>
+<p>Pour être un minimum pro et gagner du temps je vais utiliser le superbe tool <strong>EC-DIGIT-CSIRC/sysdiagnose</strong> <a href="https://github.com/EC-DIGIT-CSIRC/sysdiagnose" target="_blank">https://github.com/EC-DIGIT-CSIRC/sysdiagnose</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">┌──<span class="o">(</span>venv<span class="o">)</span>─<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~/sysdiagnose<span class="o">]</span>
 </span></span><span class="line"><span class="cl">└─$ sysdiag create /mnt/hgfs/backup/sysdiagnose_and_crashes/private/var/mobile/Library/Logs/CrashReporter/DiagnosticLogs/sysdiagnose/sysdiagnose_2025.04.07_08-06-18-0700_iPhone-OS_iPhone_20A362.tar.gz 
 </span></span><span class="line"><span class="cl">
@@ -1546,9 +1546,9 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
 </ul>
 <p>Le ps.txt fournit un instantané de tout ce qui tourne sur l&rsquo;iPhone (y compris les exécutables cachés ou lancés par des services système). Sans ce listing, un malware qui se dissimule derrière un nom trompeur ou dans un répertoire non standard pourrait passer inaperçu.</p>
 <ul>
-<li><strong>Détection d’anomalies dans les privilèges</strong></li>
+<li><strong>Détection d&rsquo;anomalies dans les privilèges</strong></li>
 </ul>
-<p>En regardant les colonnes user/uid et ppid, on repère rapidement quand un processus tiers (par exemple extrait d’une app tierce) s&rsquo;exécute sous l’utilisateur root (UID 0). Or, une app normale ne devrait jamais obtenir un tel niveau de privilèges sans passer par un mécanisme officiel.</p>
+<p>En regardant les colonnes user/uid et ppid, on repère rapidement quand un processus tiers (par exemple extrait d&rsquo;une app tierce) s&rsquo;exécute sous l&rsquo;utilisateur root (UID 0). Or, une app normale ne devrait jamais obtenir un tel niveau de privilèges sans passer par un mécanisme officiel.</p>
 <ul>
 <li><strong>Identification de commandes et arguments suspects</strong></li>
 </ul>
@@ -1556,11 +1556,11 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
 <ul>
 <li><strong>Tracking temporel et contexte</strong></li>
 </ul>
-<p>Avec la date/heure (started, datetime) et les champs de performance (%cpu, %mem), on sait si un processus a démarré anormalement tôt (au boot) ou s’il consomme des ressources pour exfiltrer des données, même si ça reste à 0 % pour masquer son activité.</p>
+<p>Avec la date/heure (started, datetime) et les champs de performance (%cpu, %mem), on sait si un processus a démarré anormalement tôt (au boot) ou s&rsquo;il consomme des ressources pour exfiltrer des données, même si ça reste à 0 % pour masquer son activité.</p>
 <ul>
-<li><strong>Corroboration avec d’autres modules de sysdiagnose</strong></li>
+<li><strong>Corroboration avec d&rsquo;autres modules de sysdiagnose</strong></li>
 </ul>
-<p>Le ps.txt s’intègre à l’ensemble des autres dumps (réseau, fichiers ouverts, configurations). On peut croiser : &ldquo;X processus root vers IP Y&rdquo; + &ldquo;connexion réseau vers Y&rdquo; + &ldquo;fichiers créés dans Z&rdquo; pour construire un fil d’attaque.</p>
+<p>Le ps.txt s&rsquo;intègre à l&rsquo;ensemble des autres dumps (réseau, fichiers ouverts, configurations). On peut croiser : &ldquo;X processus root vers IP Y&rdquo; + &ldquo;connexion réseau vers Y&rdquo; + &ldquo;fichiers créés dans Z&rdquo; pour construire un fil d&rsquo;attaque.</p>
 <p>
     <figure>
       <img
@@ -1598,13 +1598,13 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
 </span></span><span class="line"><span class="cl">root     …   <span class="m">330</span>     <span class="m">1</span>  … /var/containers/Bundle/Application/…/Signal.app/mussel <span class="nv">dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg</span><span class="o">==</span>
 </span></span><span class="line"><span class="cl">root     …   <span class="m">345</span>   <span class="m">344</span>  … /var/containers/Bundle/Application/…/Signal.app/mussel <span class="nv">dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg</span><span class="o">==</span>
 </span></span></code></pre></div><p><strong>1. Binaire &ldquo;mussel&rdquo;</strong>
-– Un fichier mussel embarqué dans l’app Signal est inhabituel : ce n’est pas un démon standard d’iOS.</p>
+– Un fichier mussel embarqué dans l&rsquo;app Signal est inhabituel : ce n&rsquo;est pas un démon standard d&rsquo;iOS.</p>
 <p><strong>2. Exécution en root</strong>
-– Il tourne avec l’UID 0 (root), ce qui est extrêmement suspect pour un composant d’application tierce.</p>
+– Il tourne avec l&rsquo;UID 0 (root), ce qui est extrêmement suspect pour un composant d&rsquo;application tierce.</p>
 <p><strong>3. Argument codé en Base64</strong>
-– <code>dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg==</code> est une chaîne Base64 qui, décodée, donne <strong>tcp://98.66.154.235:29552</strong> — un canal TCP vers une IP externe, sans doute un C2.</p>
-<p><strong>4. Comportement typique d’un spyware</strong>
-– Un démon inconnu qui s’exécute en root et ouvre une connexion vers un hôte externe ressemble fortement à un implant malveillant ou spyware.</p>
+– <code>dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg==</code> est une chaîne Base64 qui, décodée, donne <strong>tcp://98.66.154.235:29552</strong>, un canal TCP vers une IP externe, sans doute un C2.</p>
+<p><strong>4. Comportement typique d&rsquo;un spyware</strong>
+– Un démon inconnu qui s&rsquo;exécute en root et ouvre une connexion vers un hôte externe ressemble fortement à un implant malveillant ou spyware.</p>
 <p>
     <figure>
       <img
@@ -1635,13 +1635,13 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
     
 </h2>
 <blockquote>
-<p>Maintenant que vous savez quelle application a été compromise, retrouvez comment est-ce que l’attaquant a récupéré l’application légitime, préalablement à l’infection. Il vous faudra retrouver :</p>
+<p>Maintenant que vous savez quelle application a été compromise, retrouvez comment est-ce que l&rsquo;attaquant a récupéré l&rsquo;application légitime, préalablement à l&rsquo;infection. Il vous faudra retrouver :</p>
 <ul>
-<li>L’identifiant de l’application utilisée pour récupérer l’application légitime;</li>
-<li>Le chemin utilisé pour stocker l’application légitime;</li>
-<li>La date de désinstallation de l’application légitime (en heure locale).</li>
+<li>L&rsquo;identifiant de l&rsquo;application utilisée pour récupérer l&rsquo;application légitime;</li>
+<li>Le chemin utilisé pour stocker l&rsquo;application légitime;</li>
+<li>La date de désinstallation de l&rsquo;application légitime (en heure locale).</li>
 </ul>
-<p>Le flag est au format FCSC{<identifiant application>|<chemin>|<date>}. Par exemple, si l’application utilisée est Example (com.example), que le chemin est /private/var/tmp/test.xyz et que la date de désinstallation est 2025-01-01 01:00:00 : FCSC{com.example|/private/var/tmp/test.xyz|2025-01-01 01:00:00}.</p>
+<p>Le flag est au format FCSC{<identifiant application>|<chemin>|<date>}. Par exemple, si l&rsquo;application utilisée est Example (com.example), que le chemin est /private/var/tmp/test.xyz et que la date de désinstallation est 2025-01-01 01:00:00 : FCSC{com.example|/private/var/tmp/test.xyz|2025-01-01 01:00:00}.</p>
 </blockquote>
 <p>Remettons les choses à plat :</p>
 <ul>
@@ -1684,19 +1684,19 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
 </span></span><span class="line"><span class="cl"><span class="c1">// à la même seconde, on détruit ses containers :
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="s2">&#34;message&#34;</span><span class="err">:</span> <span class="s2">&#34;Destroying container org.whispersystems.signal ... at /private/var/containers/Bundle/Application/1EC20F02-...&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// à 07:43:55, désinstallation de l’outil com.fiore.trolldecrypt
+</span></span><span class="line"><span class="cl"><span class="c1">// à 07:43:55, désinstallation de l&#39;outil com.fiore.trolldecrypt
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;datetime&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-04-07T07:43:55.000000-07:00&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;Uninstalling identifier com.fiore.trolldecrypt&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// puis destruction du bundle container correspondant
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></div><p>On sait donc maintenant que l&rsquo;attaquant a utilisé TrollDecrypt qui est utilitaire opensource destiné aux appareils iOS équipés de <strong>TrollStore</strong>. Il permet de déchiffrer à la volée les applications installées (IPA protégées par FairPlay DRM) directement sur l’appareil, sans nécessiter de jailbreak. Concrètement, il :</p>
+</span></span></code></pre></div><p>On sait donc maintenant que l&rsquo;attaquant a utilisé TrollDecrypt qui est utilitaire opensource destiné aux appareils iOS équipés de <strong>TrollStore</strong>. Il permet de déchiffrer à la volée les applications installées (IPA protégées par FairPlay DRM) directement sur l&rsquo;appareil, sans nécessiter de jailbreak. Concrètement, il :</p>
 <ul>
-<li>scanne la liste des apps installées sur l’iDevice via TrollStore</li>
-<li>déchiffre le binaire FairPlay de l’application ciblée</li>
+<li>scanne la liste des apps installées sur l&rsquo;iDevice via TrollStore</li>
+<li>déchiffre le binaire FairPlay de l&rsquo;application ciblée</li>
 <li>emballe le résultat dans un fichier .ipa exploitable (pour analyses, réinstallations, sideloading, etc.)</li>
 </ul>
-<p>TrollStore exploite une faille <strong>CoreTrust</strong> pour signer à vie n’importe quelle IPA. TrollDecrypt s’appuie dessus pour lancer l’app ciblée, dumper sa mémoire et sortir un IPA FairPlay free. D’où la présence du dossier <code>/Library/TrollDecrypt/decrypted/</code>.</p>
+<p>TrollStore exploite une faille <strong>CoreTrust</strong> pour signer à vie n&rsquo;importe quelle IPA. TrollDecrypt s&rsquo;appuie dessus pour lancer l&rsquo;app ciblée, dumper sa mémoire et sortir un IPA FairPlay free. D&rsquo;où la présence du dossier <code>/Library/TrollDecrypt/decrypted/</code>.</p>
 <p>J&rsquo;avoue qu&rsquo;il y aurait mille façons intelligentes de pivoter, analyser et trouver le path de stockage de l&rsquo;app légitime mais il y a plus rapide. Dans un contexte de CTF ça compte.</p>
 <p>Chercher un <strong>.ipa</strong> tout simplement.</p>
 <p>
@@ -1720,7 +1720,7 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
 <li>07 h 40 m 47 s : désinstallation de Signal (log MI)</li>
 <li>07 h 40–42 m : dump → Signal_7.53_decrypted.ipa (fslisting)</li>
 <li>07 h 43 m 55 s : désinstallation de TrollDecrypt (log MI)</li>
-<li>07 h 47 m xx s : lancement de l’IPA repackée (unified log)</li>
+<li>07 h 47 m xx s : lancement de l&rsquo;IPA repackée (unified log)</li>
 </ol>
 <p>On a désormais tout pour créer le flag.</p>
 <p><strong>Flag</strong> : <code>FCSC{com.fiore.trolldecrypt|/private/var/mobile/Library/TrollDecrypt/decrypted/Signal_7.53_decrypted.ipa|2025-04-07 07:40:47}</code></p>
@@ -1737,8 +1737,8 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
     
 </h2>
 <blockquote>
-<p>Retrouvez le nom de l’outil malveillant déployé sur le téléphone, ainsi que le protocole, l’adresse IP et le port de communication vers le serveur C2.</p>
-<p>Le flag est au format FCSC{<outil>|<protocole>|<adresse IP>|<port>}. Par exemple, si l’outil est Cobalt Strike, le protocole TCP, l’adresse IP 127.0.0.1 et le port 1337 : FCSC{Cobalt Strike|TCP|127.0.0.1|1337}.</p>
+<p>Retrouvez le nom de l&rsquo;outil malveillant déployé sur le téléphone, ainsi que le protocole, l&rsquo;adresse IP et le port de communication vers le serveur C2.</p>
+<p>Le flag est au format FCSC{<outil>|<protocole>|<adresse IP>|<port>}. Par exemple, si l&rsquo;outil est Cobalt Strike, le protocole TCP, l&rsquo;adresse IP 127.0.0.1 et le port 1337 : FCSC{Cobalt Strike|TCP|127.0.0.1|1337}.</p>
 </blockquote>
 <p>Je me suis donc renseigné davantage sur TrollStore et les actualités intéressantes liées. Je suis tombé sur cette article : <a href="https://idevicecentral.com/news/ios-malware-makes-trollstore-users-vulnerable-to-monitoring-file-extraction-remote-control-on-ios-14-ios-17/" target="_blank">https://idevicecentral.com/news/ios-malware-makes-trollstore-users-vulnerable-to-monitoring-file-extraction-remote-control-on-ios-14-ios-17/</a></p>
 <p>
@@ -1876,6 +1876,20 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
     </main><footer id="site-footer" class="py-10 print:hidden">
   
   
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/blog-cyber/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
     
   
   <div class="flex items-center justify-between">
