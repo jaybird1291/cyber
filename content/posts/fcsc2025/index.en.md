@@ -8,7 +8,7 @@ tags: ["FCSC", "2025", "iOS", "Writeup"]
 
 ![](pictures/chall.png)
 
-## Scénario 
+## Scenario 
 > As you pass through customs, the customs officer asks you to hand over your phone and its unlock code. The phone is returned to you a few hours later…
 > 
 > Suspicious, you send your phone to ANSSI’s CERT-FR for analysis. CERT-FR analysts carry out a collection on the phone, consisting of a sysdiagnose and a backup.
