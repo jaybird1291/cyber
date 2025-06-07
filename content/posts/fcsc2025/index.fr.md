@@ -32,7 +32,7 @@ Pour ces challenges nous allons utiliser :
 - Autopsy
 
 On peut aussi s'aider de cheatsheets telles que : 
-- [FOR585.pdf](pictures/FOR585.pdf)
+- [FOR585.pdf](FOR585.pdf)
 
 On pourrait aussi utiliser des tools et méthodologies plus "pro" (via Plaso etc.) mais dans le contexte du CTF (fait en retard) je n'ai pas pris le temps de le faire. 🤠
 
