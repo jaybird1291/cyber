@@ -1,5 +1,5 @@
 ---
-title: FCSC 2025 (ANSSI CTF) - iOS Forensic
+title: FCSC 2025 - iOS Forensic
 description: 🔎 6 of 7 iOS Forensic challenges of FCSC 2025 
 slug: FCSC
 date: 2025-05-18 00:00:05+0000
