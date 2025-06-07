@@ -32,7 +32,8 @@ Pour ces challenges nous allons utiliser :
 - Autopsy
 
 On peut aussi s'aider de cheatsheets telles que : 
-- [FOR585.pdf](FOR585.pdf)
+- ![](pictures/FOR585-1.png)
+- ![](pictures/FOR585-2.png)
 
 On pourrait aussi utiliser des tools et méthodologies plus "pro" (via Plaso etc.) mais dans le contexte du CTF (fait en retard) je n'ai pas pris le temps de le faire. 🤠
 
@@ -284,10 +285,10 @@ Chercher un **.ipa** tout simplement.
 ![](pictures/path.png)
 
 Ce qui donne pour une timeline très succincte : 
-1. 07 h 40 m 47 s : désinstallation de Signal (log MI)
-2. 07 h 40–42 m : dump → Signal_7.53_decrypted.ipa (fslisting)
-3. 07 h 43 m 55 s : désinstallation de TrollDecrypt (log MI)
-4. 07 h 47 m xx s : lancement de l'IPA repackée (unified log)
+1. 07h40m47s : désinstallation de Signal (log MI)
+2. 07h40–42m : dump → Signal_7.53_decrypted.ipa (fslisting)
+3. 07h43m55s : désinstallation de TrollDecrypt (log MI)
+4. 07h47mxxs : lancement de l'IPA repackée (unified log)
 
 On a désormais tout pour créer le flag.
 

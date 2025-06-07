@@ -32,7 +32,8 @@ For the whole series I relied on:
 - Autopsy
 
 Handy reference material:
-- [FOR585.pdf](FOR585.pdf)
+- ![](pictures/FOR585-1.png)
+- ![](pictures/FOR585-2.png)
 
 Sure, you could bring in heavier artillery (Plaso etc.), but I was solving the CTF late and opted for the fast route. 🤠
 

@@ -111,7 +111,7 @@
     "keywords": ["FCSC","2025","iOS","Writeup"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2078"
+    "wordCount": "2059"
   }]
   </script>
 
@@ -1294,7 +1294,38 @@ iForensics - iCompromise</p>
 </ul>
 <p>On peut aussi s&rsquo;aider de cheatsheets telles que :</p>
 <ul>
-<li><a href="FOR585.pdf">FOR585.pdf</a></li>
+<li>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /blog-cyber/posts/fcsc/pictures/FOR585-1_hu526accbd9745411f298d0ee24bcade9f_3701863_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/fcsc/pictures/FOR585-1_hu526accbd9745411f298d0ee24bcade9f_3701863_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/fcsc/pictures/FOR585-1_hu526accbd9745411f298d0ee24bcade9f_3701863_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/fcsc/pictures/FOR585-1_hu526accbd9745411f298d0ee24bcade9f_3701863_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/fcsc/pictures/FOR585-1_hu526accbd9745411f298d0ee24bcade9f_3701863_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+    </figure>
+</li>
+<li>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /blog-cyber/posts/fcsc/pictures/FOR585-2_huf20b17d15b8d997177847310f74238c6_6141451_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/fcsc/pictures/FOR585-2_huf20b17d15b8d997177847310f74238c6_6141451_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/fcsc/pictures/FOR585-2_huf20b17d15b8d997177847310f74238c6_6141451_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/fcsc/pictures/FOR585-2_huf20b17d15b8d997177847310f74238c6_6141451_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/fcsc/pictures/FOR585-2_huf20b17d15b8d997177847310f74238c6_6141451_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+    </figure>
+</li>
 </ul>
 <p>On pourrait aussi utiliser des tools et méthodologies plus &ldquo;pro&rdquo; (via Plaso etc.) mais dans le contexte du CTF (fait en retard) je n&rsquo;ai pas pris le temps de le faire. 🤠</p>
 
@@ -1774,10 +1805,10 @@ Le flag est au format FCSC{<destinataire>}. Par exemple, si le destinataire est 
 </p>
 <p>Ce qui donne pour une timeline très succincte :</p>
 <ol>
-<li>07 h 40 m 47 s : désinstallation de Signal (log MI)</li>
-<li>07 h 40–42 m : dump → Signal_7.53_decrypted.ipa (fslisting)</li>
-<li>07 h 43 m 55 s : désinstallation de TrollDecrypt (log MI)</li>
-<li>07 h 47 m xx s : lancement de l&rsquo;IPA repackée (unified log)</li>
+<li>07h40m47s : désinstallation de Signal (log MI)</li>
+<li>07h40–42m : dump → Signal_7.53_decrypted.ipa (fslisting)</li>
+<li>07h43m55s : désinstallation de TrollDecrypt (log MI)</li>
+<li>07h47mxxs : lancement de l&rsquo;IPA repackée (unified log)</li>
 </ol>
 <p>On a désormais tout pour créer le flag.</p>
 <p><strong>Flag</strong> : <code>FCSC{com.fiore.trolldecrypt|/private/var/mobile/Library/TrollDecrypt/decrypted/Signal_7.53_decrypted.ipa|2025-04-07 07:40:47}</code></p>
