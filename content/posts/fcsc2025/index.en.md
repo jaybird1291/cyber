@@ -11,7 +11,7 @@ tags: ["FCSC", "2025", "iOS", "Writeup"]
 ## Scenario 
 > As you pass through customs, the customs officer asks you to hand over your phone and its unlock code. The phone is returned to you a few hours later…
 > 
-> Suspicious, you send your phone to ANSSI’s CERT-FR for analysis. CERT-FR analysts carry out a collection on the phone, consisting of a sysdiagnose and a backup.
+> Suspicious, you send your phone to ANSSI's CERT-FR for analysis. CERT-FR analysts carry out a collection on the phone, consisting of a sysdiagnose and a backup.
 > 
 > iForensics - iDevice
 > iForensics - iWiFi
@@ -22,7 +22,7 @@ tags: ["FCSC", "2025", "iOS", "Writeup"]
 > iForensics - iC2
 > iForensics - iCompromise
 
-We have a logical `backup.tar.xz` **plus** a set of _sysdiagnose_ and crash files!  
+We have a logical `backup.tar.xz` (logical) **plus** a set of _sysdiagnose_ and crash files!  
 
 ## Setup
 For the whole series I relied on:
@@ -34,7 +34,7 @@ For the whole series I relied on:
 Handy reference material:
 - [FOR585.pdf](pictures/FOR585.pdf)
 
-Sure, you could bring in heavier artillery (Plaso etc.), but I was solving the CTF late and opted for the fast route. 😄
+Sure, you could bring in heavier artillery (Plaso etc.), but I was solving the CTF late and opted for the fast route. 🤠
 
 ## Intro - iForensics - iCrash
 > It seems that a flag has hidden itself in the place where crashes are stored on the phone…
@@ -55,13 +55,13 @@ If we go inside ``sysdiagnose_and_crashes/private/var/mobile/Library/Logs/CrashR
 > To start with, find some information of interest about the phone: iOS version and phone model identifier.
 > The flag is in the format FCSC{<model identifier>|<build number>}. For example, for an iPhone 14 Pro Max running iOS 18.4 (22E240): FCSC{iPhone15,3|22E240}.
 
-First, remember what a logical iOS backup looks like: a sea of hex-named folders.
+To answer this question, you need to know what an iOS backup consists of. I spoke earlier of a "logical" backup. This is important because if you look inside the backup, all you see are weird folders:
 
 ![](pictures/backup.png)
 
 To make sense of it we must rebuild the real paths using **Manifest.db** (introduced with iOS 10). That DB maps each fileID to its original RelativePath.
 
-Luckily, some human-readable files survive at the root — including **Info.plist**. Apple stores key device metadata there:
+Luckily, some human-readable files survive at the root, including **Info.plist**. Apple stores key device metadata there:
 - product Type (model identifier, e.g. iPhone12,3)
 - product Version (iOS version, e.g. 16.0)
 - build Version (e.g. 20A362)
@@ -73,9 +73,9 @@ Everything we need for the flag!
 
 **Flag** : ``FCSC{iPhone12,3|20A362}``
 
-Want to see the full rebuild? Quick demo:
+If you're interested in rebuilding the arbo, here's a demonstration:
 
-First, peek at **Manifest.db**:
+First, let's take a look at what **Manifest.db** is made of: 
 
 ![](pictures/manifestdb.png)
 
@@ -87,15 +87,12 @@ OUT="/mnt/hgfs/backup/reconstructed-backup"
 
 mkdir -p "$OUT"
 
-# on utilise -separator '|' pour que SQLite nous renvoie directement fileID|domain|relativePath
 sqlite3 -separator '|' "$BACKUP/Manifest.db" \
 "SELECT fileID, domain, COALESCE(relativePath,'') FROM Files;" \
 | while IFS="|" read -r FILEID DOMAIN RELPATH; do
 
-  # Si relativePath est vide, on saute (ce sont souvent des entrées de dossier sans chemin)
   [[ -z "$RELPATH" ]] && continue
 
-  # Chemins de sortie pour recréer l’arborescence
   DEST_DIR="$OUT/$DOMAIN/$(dirname "$RELPATH")"
   DEST_PATH="$OUT/$DOMAIN/$RELPATH"
 
@@ -114,7 +111,7 @@ And voilà !
 >
 > The flag is in the format FCSC{<SSID>|<BSSID>|<iCloud account>}. For example, if the phone is connected to the example WiFi network, which has the BSSID 00:11:22:33:44:55 and the associated iCloud account is example@example.com: FCSC{example|00:11:22:33:44:55|example@example.com}.
 
-Fastest path? iLEAPP (iOS Logs, Events & Protobuf Parser). It harvests a ton of artefacts and ships an HTML report.
+To speed up the extraction of Wi-Fi and iCloud information, we can use iLEAPP (iOS Logs, Events, and Protobuf Parser): it will automatically collect and organize lots of artifacts for us and make a report.
 
 After running iLEAPP you can read SSID & BSSID straight from the Wi-Fi section:
 
@@ -136,9 +133,7 @@ Because iLEAPP parses the `sms.db` for us, we can open the report and jump strai
 
 ![](pictures/sms.png)
 
-Another route is Autopsy: ingest the backup with the **Logical File Analysis** module. Autopsy scans all files and, based on magic bytes, groups user-generated media (JPEG, PNG etc.) under **User Content Suspected** when the _path_ lives in `HomeDomain/Media/DCIM/...`.
-
-Either way we isolate the attachment and read the ID.
+It can also be fed to Autopsy via the "Logical File Analysis" module. Autopsy scans all the files and, based on their headers (magic bytes), groups some of the media (JPEG, PNG, etc.) under the "User Content Suspected" tab, since the **Access Path** is located in ``HomeDomain/Media/DCIM/...``. It therefore considers it to be user content (photo taken or imported).
 
 **Flag** : ``FCSC{511773550dca}``
 
@@ -147,10 +142,9 @@ Either way we isolate the attachment and read the ID.
 > It seems that a message could not be sent… Find the recipient of this message.
 > The flag is in the format FCSC{<recipient>}. For example, if the recipient is example@example.com: FCSC{example@example.com}.
 
-Lightning-round answer: open `sms.db`.  
-That SQLite DB holds every iMessage *and* SMS:
+In this case, it's very quick: you can go straight to the DB **sms.db**. This is the database containing all conversations (iMessage and SMS), with the main tables message (headers, status, text, etc.) and handle (list of correspondents, numbers/addresses).
 
-Don’t fall into the trap of querying `message` only, for plain SMS you actually need the **chat** table.
+Don't fall into the trap of querying `message` only, for plain SMS you actually need the **chat** table.
 
 ![](pictures/invisible.png)
 
@@ -163,7 +157,7 @@ Don’t fall into the trap of querying `message` only, for plain SMS you actuall
 
 Here we'll have to use sysdiagnose (``/sysdiagnose_and_crashes/private/var/mobile/Library/Logs/CrashReporter/DiagnosticLogs/sysdiagnose/sysdiagnose_2025.04.07_08-06-18-0700_iPhone-OS_iPhone_20A362``).
 
-But before going, what's sysdiagnose you might be wondering? iOS can generate a giant bundle of system logs, crash reports, network states and config snapshots to debug performance issues. From a forensic angle it’s gold: a freeze-frame of the whole device at collection time.
+But first, what is sysdiagnose? It's an archive generated by iOS that automatically gathers system logs, crash reports, network status and configuration information at the time of capture. It's mainly used to diagnose performance or stability problems by providing a complete snapshot of the device. But it is also very useful from a forensic point of view after a compromise. 
 
 To stay efficient I used the excellent **EC-DIGIT-CSIRC/sysdiagnose** toolkit <https://github.com/EC-DIGIT-CSIRC/sysdiagnose>.
 
@@ -180,18 +174,31 @@ Case successfully created:
 ![](pictures/sysdiagnose1.png)
 
 We'll directly use the "ps" parser. Running the ps parser gives us the full process list at capture time. That dump is invaluable:
-- **Global visibility** : every running process, even hidden ones.
-- **Privilege anomalies** : spot third-party binaries running as root (UID 0).
-- **Suspicious commands / args** : unknown binaries, Base64 blobs, unusual sockets.
-- **Temporal context** : started, %cpu, %mem let you gauge longevity & resource use.
-- **Correlation** : combine with network logs, open-file lists, etc., to stitch the intrusion path.
+- **Global visibility**: 
+
+The ps.txt provides a snapshot of everything running on the iPhone (including executables hidden or launched by system services). Without this listing, malware hiding behind a misleading name or in a non-standard directory could go undetected.
+
+- **Privilege anomalies**:
+
+By looking at the user/uid and ppid columns, you can quickly spot when a third-party process (e.g. extracted from a third-party app) is running as root (UID 0). However, a normal app should never be granted this level of privileges without going through an official mechanism.
+
+- **Suspicious commands / args**:
+
+The command field shows the executable and its arguments. Any unknown binary (as we'll see later) or coded URL (Base64 or other) is immediately visible and can be decoded/inspected.
+
+- **Temporal context**:
+
+With date/time (started, datetime) and performance fields (%cpu, %mem), we know if a process has started abnormally early (at boot) or if it is consuming resources to exfiltrate data, even if it remains at 0% to mask its activity.
+
+- **Correlation**:
+
+The ps.txt is integrated with all other dumps (network, open files, configurations). You can cross-reference: “X root process to IP Y” + “network connection to Y” + “files created in Z” to build an attack thread.
 
 ![](pictures/sysdiagnose2.png)
 
 ![](pictures/sysdiagnose3.png)
 
 What stands out?
-
 ```bash
 root     …   279     1  … /var/containers/Bundle/Application/…/Signal.app/mussel dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg==
 root     …   330     1  … /var/containers/Bundle/Application/…/Signal.app/mussel dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg==
@@ -202,10 +209,10 @@ root     …   345   344  … /var/containers/Bundle/Application/…/Signal.app/
 – Bundled inside Signal; not an iOS stock daemon.
 
 **2. Running as root**
-– Highly suspicious for a third-party component.
+– Running with UID 0 (root) is highly suspicious for a third-party component.
 
 **3. Base64 argument**
-– ``dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg==`` is Base64 which, decoded, gives **tcp://98.66.154.235:29552** - TCP going to an external IP (C2)
+– ``dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg==`` is Base64 which, decoded, gives **tcp://98.66.154.235:29552**, TCP going to an external IP (C2)
 
 **4. Classic spyware behaviour**
 – Unknown root daemon + outbound C2 traffic = red flag lol
@@ -216,27 +223,23 @@ root     …   345   344  … /var/containers/Bundle/Application/…/Signal.app/
 
 
 ## ⭐⭐ - iForensics - iBackdoor 2/2
-> Now that you know which application has been compromised, find out how the attacker retrieved the legitimate application prior to infection. You’ll need to find :
+> Now that you know which application has been compromised, find out how the attacker retrieved the legitimate application prior to infection. You'll need to find :
 > - The identifier of the application used to retrieve the legitimate application;
 > - The path used to store the legitimate application;
 > - The date on which the legitimate application was uninstalled (in local time).
 >
 > The flag is in the format FCSC{<application identifier>|<path>|<date>}. For example, if the application used is Example (com.example), the path is /private/var/tmp/test.xyz and the uninstall date is 2025-01-01 01:00:00: FCSC{com.example|/private/var/tmp/test.xyz|2025-01-01 01:00:00}.
 
-Laying out what we already know
-- The target app is **Signal**.  
-- The rogue (re-packed) version was launched around **07:47 AM**.  
-
-We still need:  
-- the storage path of the pristine IPA,  
-- *who* fetched it,  
-- when that pristine copy was uninstalled.
+Let's set the record straight: 
+- we know that Signal is the app in question
+- we know it was launched around 7:47AM
+- we need to find the path to the app, what "retrieved" / installed the legitimate app and when it was uninstalled
 
 For this I went straight to **mobileinstallation** logs.
 
 In fact, `mobileinstallation` is the iOS subsystem in charge of every install / update / uninstall.  
-I
-n the JSON-formatted unified logs we get:
+
+In the JSON-formatted unified logs we get:
 - precise timestamps (timestamp + datetime)
 - bundle IDs
 - verbose uninstall events
@@ -246,20 +249,20 @@ Bingo :
 ![](pictures/backdoor2.png)
 
 ```json
-// à 07:40:47-07:00, première désinstallation de Signal
+// at 07:40:47-07:00, first uinstall of Signal
 {
   "datetime": "2025-04-07T07:40:47.000000-07:00",
   "event_type": "MIClientConnection _uninstallIdentities",
   "message": "Uninstall requested by installcoordinationd ... for identity [org.whispersystems.signal]"
 }
-// à la même seconde, on détruit ses containers :
+// at the same second, destruction of its containers:
 "message": "Destroying container org.whispersystems.signal ... at /private/var/containers/Bundle/Application/1EC20F02-..."
 
-// à 07:43:55, désinstallation de l’outil com.fiore.trolldecrypt
+// at 07:43:55, uninstall of com.fiore.trolldecrypt
 {
   "datetime": "2025-04-07T07:43:55.000000-07:00",
   "message": "Uninstalling identifier com.fiore.trolldecrypt"
-  // puis destruction du bundle container correspondant
+  // then destroy the corresponding bundle container
 }
 ```
 

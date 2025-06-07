@@ -34,7 +34,7 @@ Pour ces challenges nous allons utiliser :
 On peut aussi s'aider de cheatsheets telles que : 
 - [FOR585.pdf](pictures/FOR585.pdf)
 
-On pourrait aussi utiliser des tools et méthodologies plus "pro" (via Plaso etc.) mais dans le contexte du CTF (fait en retard) je n'ai pas pris le temps de le faire. 
+On pourrait aussi utiliser des tools et méthodologies plus "pro" (via Plaso etc.) mais dans le contexte du CTF (fait en retard) je n'ai pas pris le temps de le faire. 🤠
 
 
 ## Intro - iForensics - iCrash
@@ -163,7 +163,7 @@ Ici on va devoir s'appuyer sur les sysdiagnose (``/sysdiagnose_and_crashes/priva
 
 Mais avant c'est quoi les sysdiagnose ? C'est une archive générée par iOS qui regroupe automatiquement les logs système, rapports de crash, états réseau et informations de configuration au moment de la capture. Il sert principalement à diagnostiquer des problèmes de performance ou de stabilité en fournissant un instantané complet de l'appareil. Mais il est aussi très utile d'un point de vu forensic après une compromission. 
 
-Pour être un minimum pro et gagner du temps je vais utiliser le superbe tool de l'EC-DIGIT-CSIRC (https://github.com/EC-DIGIT-CSIRC/sysdiagnose/). 
+Pour être un minimum pro et gagner du temps je vais utiliser le superbe tool **EC-DIGIT-CSIRC/sysdiagnose** <https://github.com/EC-DIGIT-CSIRC/sysdiagnose>.
 
 ```bash
 ┌──(venv)─(kali㉿kali)-[~/sysdiagnose]
@@ -216,7 +216,7 @@ root     …   345   344  … /var/containers/Bundle/Application/…/Signal.app/
 – Il tourne avec l'UID 0 (root), ce qui est extrêmement suspect pour un composant d'application tierce.
 
 **3. Argument codé en Base64**
-– ``dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg==`` est une chaîne Base64 qui, décodée, donne **tcp://98.66.154.235:29552** — un canal TCP vers une IP externe, sans doute un C2.
+– ``dGNwOi8vOTguNjYuMTU0LjIzNToyOTU1Mg==`` est une chaîne Base64 qui, décodée, donne **tcp://98.66.154.235:29552**, un canal TCP vers une IP externe, sans doute un C2.
 
 **4. Comportement typique d'un spyware**
 – Un démon inconnu qui s'exécute en root et ouvre une connexion vers un hôte externe ressemble fortement à un implant malveillant ou spyware.
