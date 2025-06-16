@@ -54,6 +54,7 @@ date: 2024-05-06 08:00:05+0000
     <div class="image-item">{{< figure src="pictures/heartbreaker.webp" title="Heartbreaker" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/698" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/trent.webp" title="Trent" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/841" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-aptnightmare.webp" title="APTNightmare" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/612" width=120 >}}</div>
+    <div class="image-item">{{< figure src="pictures/nuts.webp" title="Nuts" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/752" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/OpShieldWall4.png" title="OpShieldWall-4" link="https://labs.hackthebox.com/" class="medium" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-opshieldwall2.webp" class="medium" link="https://labs.hackthebox.com/" title="OpShieldWall-2" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-opshieldwall1.webp" class="easy" link="https://labs.hackthebox.com/" title="OpShieldWall-1" width=120 >}}</div>
