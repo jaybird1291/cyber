@@ -65,6 +65,8 @@ Some images do not link to the HTB result pages as they are boxes/Sherlocks only
     <div class="image-item">{{< figure src="pictures/htb-tracer.webp" title="Tracer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/558" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-logjammer.webp" title="Log Jammer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/557" width=120 >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-rogueone.webp" title="Rogue One" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/569" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/blackout2025.webp" class="very-easy" title="Phantom-Check" link="https://labs.hackthebox.com/achievement/sherlock/1271052/935" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/smoke-mirrors.webp" class="very-easy" title="Smoke-Mirrors" link="https://labs.hackthebox.com/achievement/sherlock/1271052/937" width=120 >}}</div>
     <div class="image">{{< figure src="pictures/Origins.webp" class="very-easy" title="Origins" link="https://labs.hackthebox.com/achievement/sherlock/1271052/869" width=120 >}}</div>
     <div class="image">{{< figure src="pictures/smartypants.webp" class="very-easy" title="SmartyPants" link="https://labs.hackthebox.com/achievement/sherlock/1271052/864" width=120 >}}</div>
     <div class="image">{{< figure src="pictures/reaper.webp" class="very-easy" title="Reaper" link="https://labs.hackthebox.com/achievement/sherlock/1271052/749" width=120 >}}</div>
@@ -96,6 +98,7 @@ Some images do not link to the HTB result pages as they are boxes/Sherlocks only
 #### Threat Intelligence 
 <div class="image-container">
     <div class="image">{{< figure src="pictures/DreamJob-1.webp" class="very-easy" title="DreamJob-1" link="https://labs.hackthebox.com/achievement/sherlock/1271052/865" width=120 >}}</div>
+    <div class="image">{{< figure src="pictures/electricbreeze-1.webp" class="very-easy" title="ElectricBreeze-1" link="https://labs.hackthebox.com/achievement/sherlock/1271052/881" width=120 >}}</div>
     <div class="image">{{< figure src="pictures/UFO-1.webp" class="very-easy" title="UFO-1" link="https://labs.hackthebox.com/achievement/sherlock/1271052/840" width=120 >}}</div>
 </div>
 
