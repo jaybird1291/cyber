@@ -57,6 +57,8 @@ date: 2024-05-06 08:00:05+0000
     <div class="image-item">{{< figure src="pictures/OpShieldWall4.png" title="OpShieldWall-4" link="https://labs.hackthebox.com/" class="medium" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-opshieldwall2.webp" class="medium" link="https://labs.hackthebox.com/" title="OpShieldWall-2" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-opshieldwall1.webp" class="easy" link="https://labs.hackthebox.com/" title="OpShieldWall-1" >}}</div>
+    <div class="image-item">{{< figure src="pictures/NeuroSync-D.webp" title="NeuroSync-D" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/879" >}}</div>
+    <div class="image-item">{{< figure src="pictures/Pikaptcha.webp" title="Pikaptcha" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/774" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-JingleBell.webp" title="Jingle Bell" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/613" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-recollection.webp" title="Recollection" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/586" >}}</div>
     <div class="image-item">{{< figure src="pictures/Kuber.webp" title="Kuber" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/870" >}}</div>
@@ -64,7 +66,6 @@ date: 2024-05-06 08:00:05+0000
     <div class="image-item">{{< figure src="pictures/htb-tracer.webp" title="Tracer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/558" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-logjammer.webp" title="Log Jammer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/557" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-rogueone.webp" title="Rogue One" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/569" >}}</div>
-    <div class="image-item">{{< figure src="pictures/NeuroSync-D.webp" title="NeuroSync-D" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/879" >}}</div>
     <div class="image">{{< figure src="pictures/blackout2025.webp" class="very-easy" title="Phantom-Check" link="https://labs.hackthebox.com/achievement/sherlock/1271052/935" >}}</div>
     <div class="image">{{< figure src="pictures/smoke-mirrors.webp" class="very-easy" title="Smoke-Mirrors" link="https://labs.hackthebox.com/achievement/sherlock/1271052/937" >}}</div>
     <div class="image">{{< figure src="pictures/Origins.webp" class="very-easy" title="Origins" link="https://labs.hackthebox.com/achievement/sherlock/1271052/869" >}}</div>
