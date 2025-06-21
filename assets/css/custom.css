@@ -7,12 +7,40 @@ html {
   max-width: 90ch;
 }
 
+/*   Desktop ≥ 600 px  ------------------------------------------ */
 .image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  justify-content: center;     /* centre le bloc complet */
+  gap: 0.8rem;                   /* écart constant (remplace column-gap) */
+}
+
+.image-container figure {
+  margin: 0;                   /* enlève la marge par défaut */
   display: flex;
-  /* justify-content: start; */
-  column-gap: 15px;
-  flex-wrap: wrap;
-  text-align: center;
+  flex-direction: column;
+  align-items: center;         /* centre l’image ET le caption */
+}
+
+.image-container img {
+  width: 100%;                 /* l’image remplit sa colonne (120 px) */
+  height: auto;
+}
+
+.image-container figcaption {
+  margin-top: -1rem;     /* au lieu de 1rem par défaut */
+  text-align: center;          /* centre le texte dans le bloc */
+  font-size: .80rem;
+}
+
+
+/*   Mobile < 600 px  ------------------------------------------- */
+@media (max-width: 599px) {
+  .image-container {
+    /* même grille mais colonnes plus étroites */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    font-size: .85rem;
+  }
 }
 
 .diploma-container {
@@ -21,7 +49,6 @@ html {
   column-gap: 15px;
   flex-wrap: wrap;
 }
-
 
 .image2-container {
   display: flex;
