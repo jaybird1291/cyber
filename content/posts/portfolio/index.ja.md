@@ -45,38 +45,38 @@ date: 2024-05-06 08:00:05+0000
 ### シャーロック
 
 #### DFIR / SOC
-
 <div class="image-container">
-    <div class="image-item">{{< figure src="pictures/htb-opshieldwall7.webp" title="OpShieldWall-7" link="https://labs.hackthebox.com/"  class="insane" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/streamer.webp" title="Streamer" class="hard" link="https://labs.hackthebox.com/achievement/sherlock/1271052/899" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/APTNightmare-2.webp" title="APTNightmare-2" class="hard" link="https://labs.hackthebox.com/achievement/sherlock/1271052/857" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/latus.webp" title="Latus" class="hard" link="https://labs.hackthebox.com/achievement/sherlock/1271052/757" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/heartbreaker.webp" title="Heartbreaker" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/698" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/trent.webp" title="Trent" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/841" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-aptnightmare.webp" title="APTNightmare" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/612" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/nuts.webp" title="Nuts" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/752" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/OpShieldWall4.png" title="OpShieldWall-4" link="https://labs.hackthebox.com/" class="medium" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-opshieldwall2.webp" class="medium" link="https://labs.hackthebox.com/" title="OpShieldWall-2" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-opshieldwall1.webp" class="easy" link="https://labs.hackthebox.com/" title="OpShieldWall-1" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-JingleBell.webp" title="Jingle Bell" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/613" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-recollection.webp" title="Recollection" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/586" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-noted.webp" title="Noted" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/585" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-tracer.webp" title="Tracer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/558" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-logjammer.webp" title="Log Jammer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/557" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/htb-rogueone.webp" title="Rogue One" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/569" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/NeuroSync-D.webp" title="NeuroSync-D" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/879" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/blackout2025.webp" class="very-easy" title="Phantom-Check" link="https://labs.hackthebox.com/achievement/sherlock/1271052/935" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/smoke-mirrors.webp" class="very-easy" title="Smoke-Mirrors" link="https://labs.hackthebox.com/achievement/sherlock/1271052/937" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/Origins.webp" class="very-easy" title="Origins" link="https://labs.hackthebox.com/achievement/sherlock/1271052/869" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/smartypants.webp" class="very-easy" title="SmartyPants" link="https://labs.hackthebox.com/achievement/sherlock/1271052/864" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/reaper.webp" class="very-easy" title="Reaper" link="https://labs.hackthebox.com/achievement/sherlock/1271052/749" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/campfire-2.webp" class="very-easy" title="Campfire-2" link="https://labs.hackthebox.com/achievement/sherlock/1271052/736" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/campfire-1.webp" class="very-easy" title="Campfire-1" link="https://labs.hackthebox.com/achievement/sherlock/1271052/737" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/unit42.png" class="very-easy" title="Unit42" link="https://labs.hackthebox.com/achievement/sherlock/1271052/632" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/crownjewel2.webp" title="CrownJewel-2" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/750" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/crownjewel1.webp" title="CrownJewel-1" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/751" width=120 >}}</div>
-    <div class="image-item">{{< figure src="pictures/brutus.webp" title="Brutus" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/631" width=120 >}}</div>
-    <div class="image">{{< figure src="pictures/noxious.webp" class="very-easy" title="Noxious" link="https://labs.hackthebox.com/achievement/sherlock/1271052/747" width=120 >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-opshieldwall7.webp" title="OpShieldWall-7" link="https://labs.hackthebox.com/"  class="insane" >}}</div>
+    <div class="image-item">{{< figure src="pictures/streamer.webp" title="Streamer" class="hard" link="https://labs.hackthebox.com/achievement/sherlock/1271052/899" >}}</div>
+    <div class="image-item">{{< figure src="pictures/APTNightmare-2.webp" title="APTNightmare-2" class="hard" link="https://labs.hackthebox.com/achievement/sherlock/1271052/857" >}}</div>
+    <div class="image-item">{{< figure src="pictures/latus.webp" title="Latus" class="hard" link="https://labs.hackthebox.com/achievement/sherlock/1271052/757" >}}</div>
+    <div class="image-item">{{< figure src="pictures/heartbreaker.webp" title="Heartbreaker" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/698" >}}</div>
+    <div class="image-item">{{< figure src="pictures/trent.webp" title="Trent" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/841" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-aptnightmare.webp" title="APTNightmare" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/612" >}}</div>
+    <div class="image-item">{{< figure src="pictures/nuts.webp" title="Nuts" class="medium" link="https://labs.hackthebox.com/achievement/sherlock/1271052/752" >}}</div>
+    <div class="image-item">{{< figure src="pictures/OpShieldWall4.png" title="OpShieldWall-4" link="https://labs.hackthebox.com/" class="medium" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-opshieldwall2.webp" class="medium" link="https://labs.hackthebox.com/" title="OpShieldWall-2" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-opshieldwall1.webp" class="easy" link="https://labs.hackthebox.com/" title="OpShieldWall-1" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-JingleBell.webp" title="Jingle Bell" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/613" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-recollection.webp" title="Recollection" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/586" >}}</div>
+    <div class="image-item">{{< figure src="pictures/Kuber.webp" title="Kuber" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/870" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-noted.webp" title="Noted" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/585" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-tracer.webp" title="Tracer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/558" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-logjammer.webp" title="Log Jammer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/557" >}}</div>
+    <div class="image-item">{{< figure src="pictures/htb-rogueone.webp" title="Rogue One" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/569" >}}</div>
+    <div class="image-item">{{< figure src="pictures/NeuroSync-D.webp" title="NeuroSync-D" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/879" >}}</div>
+    <div class="image">{{< figure src="pictures/blackout2025.webp" class="very-easy" title="Phantom-Check" link="https://labs.hackthebox.com/achievement/sherlock/1271052/935" >}}</div>
+    <div class="image">{{< figure src="pictures/smoke-mirrors.webp" class="very-easy" title="Smoke-Mirrors" link="https://labs.hackthebox.com/achievement/sherlock/1271052/937" >}}</div>
+    <div class="image">{{< figure src="pictures/Origins.webp" class="very-easy" title="Origins" link="https://labs.hackthebox.com/achievement/sherlock/1271052/869" >}}</div>
+    <div class="image">{{< figure src="pictures/smartypants.webp" class="very-easy" title="SmartyPants" link="https://labs.hackthebox.com/achievement/sherlock/1271052/864" >}}</div>
+    <div class="image">{{< figure src="pictures/reaper.webp" class="very-easy" title="Reaper" link="https://labs.hackthebox.com/achievement/sherlock/1271052/749" >}}</div>
+    <div class="image">{{< figure src="pictures/campfire-2.webp" class="very-easy" title="Campfire-2" link="https://labs.hackthebox.com/achievement/sherlock/1271052/736" >}}</div>
+    <div class="image">{{< figure src="pictures/campfire-1.webp" class="very-easy" title="Campfire-1" link="https://labs.hackthebox.com/achievement/sherlock/1271052/737" >}}</div>
+    <div class="image">{{< figure src="pictures/unit42.png" class="very-easy" title="Unit42" link="https://labs.hackthebox.com/achievement/sherlock/1271052/632" >}}</div>
+    <div class="image-item">{{< figure src="pictures/crownjewel2.webp" title="CrownJewel-2" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/750" >}}</div>
+    <div class="image-item">{{< figure src="pictures/crownjewel1.webp" title="CrownJewel-1" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/751" >}}</div>
+    <div class="image-item">{{< figure src="pictures/brutus.webp" title="Brutus" class="very-easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/631" >}}</div>
+    <div class="image">{{< figure src="pictures/noxious.webp" class="very-easy" title="Noxious" link="https://labs.hackthebox.com/achievement/sherlock/1271052/747" >}}</div>
 </div>
 
 #### マルウェア分析

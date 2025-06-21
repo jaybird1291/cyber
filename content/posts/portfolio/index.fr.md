@@ -61,6 +61,7 @@ Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont
     <div class="image-item">{{< figure src="pictures/htb-opshieldwall1.webp" class="easy" link="https://labs.hackthebox.com/" title="OpShieldWall-1" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-JingleBell.webp" title="Jingle Bell" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/613" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-recollection.webp" title="Recollection" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/586" >}}</div>
+    <div class="image-item">{{< figure src="pictures/Kuber.webp" title="Kuber" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/870" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-noted.webp" title="Noted" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/585" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-tracer.webp" title="Tracer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/558" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-logjammer.webp" title="Log Jammer" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/557" >}}</div>
