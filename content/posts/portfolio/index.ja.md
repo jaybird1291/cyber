@@ -60,6 +60,7 @@ date: 2024-05-06 08:00:05+0000
     <div class="image-item">{{< figure src="pictures/NeuroSync-D.webp" title="NeuroSync-D" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/879" >}}</div>
     <div class="image-item">{{< figure src="pictures/Pikaptcha.webp" title="Pikaptcha" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/774" >}}</div>
     <div class="image-item">{{< figure src="pictures/Meerkat.webp" title="Meerkat" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/552" >}}</div>
+    <div class="image-item">{{< figure src="pictures/Bumblebee.webp" title="Bumblebee" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/554" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-JingleBell.webp" title="Jingle Bell" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/613" >}}</div>
     <div class="image-item">{{< figure src="pictures/htb-recollection.webp" title="Recollection" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/586" >}}</div>
     <div class="image-item">{{< figure src="pictures/Kuber.webp" title="Kuber" class="easy" link="https://labs.hackthebox.com/achievement/sherlock/1271052/870" >}}</div>
