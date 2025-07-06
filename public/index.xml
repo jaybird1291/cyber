@@ -2,101 +2,101 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jaybird1291</title>
-    <link>http://localhost:1313/blog-cyber/</link>
+    <link>http://localhost:1313/cyber/</link>
     <description>Recent content on Jaybird1291</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>© 2025 Jaybird1291</copyright>
-    <lastBuildDate>Sun, 01 Jun 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jun 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/cyber/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Streamer</title>
-      <link>http://localhost:1313/blog-cyber/posts/streamer/</link>
+      <link>http://localhost:1313/cyber/posts/streamer/</link>
       <pubDate>Sun, 01 Jun 2025 00:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/streamer/</guid>
+      <guid>http://localhost:1313/cyber/posts/streamer/</guid>
       <description>Scénario #Simon Stark est un développeur chez forela qui a récemment prévu de diffuser des sessions de programmation avec ses collègues, ce qui lui a valu l&amp;rsquo;appréciation du PDG et d&amp;rsquo;autres collègues.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/streamer/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/streamer/featured.png" />
     </item>
     
     <item>
       <title>FCSC 2025 - iOS Forensic</title>
-      <link>http://localhost:1313/blog-cyber/posts/fcsc/</link>
+      <link>http://localhost:1313/cyber/posts/fcsc/</link>
       <pubDate>Sun, 18 May 2025 00:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/fcsc/</guid>
+      <guid>http://localhost:1313/cyber/posts/fcsc/</guid>
       <description>Scénario #Lors d&amp;rsquo;un passage de douane, le douanier vous demande de lui remettre votre téléphone ainsi que son code de déverrouillage.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/fcsc/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/fcsc/featured.png" />
     </item>
     
     <item>
       <title>APTNightmare-2</title>
-      <link>http://localhost:1313/blog-cyber/posts/aptnightmare2/</link>
+      <link>http://localhost:1313/cyber/posts/aptnightmare2/</link>
       <pubDate>Sun, 20 Apr 2025 00:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/aptnightmare2/</guid>
+      <guid>http://localhost:1313/cyber/posts/aptnightmare2/</guid>
       <description>Scénario #À l&amp;rsquo;issue du processus de récupération du serveur, l&amp;rsquo;équipe IR a mis en évidence un réseau complexe de trafic persistant, de communications furtives et de processus tenaces ayant résisté à nos tentatives d&amp;rsquo;arrêt.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/aptnightmare2/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/aptnightmare2/featured.png" />
     </item>
     
     <item>
       <title>Latus</title>
-      <link>http://localhost:1313/blog-cyber/posts/latus/</link>
+      <link>http://localhost:1313/cyber/posts/latus/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/latus/</guid>
+      <guid>http://localhost:1313/cyber/posts/latus/</guid>
       <description>Scénario #Le 28 juin, notre client a détecté des sessions RDP non autorisées, sans déploiement de PAM, dans leur environnement.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/latus/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/latus/featured.png" />
     </item>
     
     <item>
       <title>Midnight RDP Lab</title>
-      <link>http://localhost:1313/blog-cyber/posts/midnight-rdp/</link>
+      <link>http://localhost:1313/cyber/posts/midnight-rdp/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/midnight-rdp/</guid>
+      <guid>http://localhost:1313/cyber/posts/midnight-rdp/</guid>
       <description>Scénario #Un employé informatique d’InfiniTech Solutions a signalé une activité inhabituelle associée à son compte e-mail.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/midnight-rdp/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/midnight-rdp/featured.webp" />
     </item>
     
     <item>
       <title>OpShieldWall-2</title>
-      <link>http://localhost:1313/blog-cyber/posts/opshieldwall-2/</link>
+      <link>http://localhost:1313/cyber/posts/opshieldwall-2/</link>
       <pubDate>Sun, 19 May 2024 08:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/opshieldwall-2/</guid>
+      <guid>http://localhost:1313/cyber/posts/opshieldwall-2/</guid>
       <description>Scénario #Nous avons réussi à confirmer la localisation de l&amp;rsquo;acteur malveillant qui a compromis le réseau WiFi de notre gouvernement.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/opshieldwall-2/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/opshieldwall-2/featured.jpg" />
     </item>
     
     <item>
       <title>OpShieldWall-1</title>
-      <link>http://localhost:1313/blog-cyber/posts/opshieldwall-1/</link>
+      <link>http://localhost:1313/cyber/posts/opshieldwall-1/</link>
       <pubDate>Tue, 07 May 2024 08:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/opshieldwall-1/</guid>
+      <guid>http://localhost:1313/cyber/posts/opshieldwall-1/</guid>
       <description>Scénario #Merci d&amp;rsquo;avoir répondu à notre appel.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/opshieldwall-1/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/opshieldwall-1/featured.png" />
     </item>
     
     <item>
       <title>Portfolio</title>
-      <link>http://localhost:1313/blog-cyber/posts/portfolio/</link>
+      <link>http://localhost:1313/cyber/posts/portfolio/</link>
       <pubDate>Mon, 06 May 2024 08:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/portfolio/</guid>
+      <guid>http://localhost:1313/cyber/posts/portfolio/</guid>
       <description>Diplômes #Les images sont des liens cliquables.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/portfolio/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/portfolio/featured.png" />
     </item>
     
     <item>
       <title>Projets</title>
-      <link>http://localhost:1313/blog-cyber/posts/projets/</link>
+      <link>http://localhost:1313/cyber/posts/projets/</link>
       <pubDate>Sun, 05 May 2024 08:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/posts/projets/</guid>
+      <guid>http://localhost:1313/cyber/posts/projets/</guid>
       <description>Liste des projets que j&amp;rsquo;ai effecuté.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/projets/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/projets/featured.png" />
     </item>
     
   </channel>

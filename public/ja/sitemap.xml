@@ -3,233 +3,233 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/</loc>
+    <loc>http://localhost:1313/cyber/ja/</loc>
     <lastmod>2025-06-01T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/"
+      href="http://localhost:1313/cyber/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/"
+      href="http://localhost:1313/cyber/en/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/"
+      href="http://localhost:1313/cyber/ja/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/</loc>
     <lastmod>2025-06-01T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/"
+      href="http://localhost:1313/cyber/posts/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/"
+      href="http://localhost:1313/cyber/en/posts/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/"
+      href="http://localhost:1313/cyber/ja/posts/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/streamer/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/streamer/</loc>
     <lastmod>2025-06-01T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/streamer/"
+      href="http://localhost:1313/cyber/en/posts/streamer/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/streamer/"
+      href="http://localhost:1313/cyber/posts/streamer/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/streamer/"
+      href="http://localhost:1313/cyber/ja/posts/streamer/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/aptnightmare2/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/aptnightmare2/</loc>
     <lastmod>2025-04-20T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/aptnightmare2/"
+      href="http://localhost:1313/cyber/en/posts/aptnightmare2/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/aptnightmare2/"
+      href="http://localhost:1313/cyber/posts/aptnightmare2/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/aptnightmare2/"
+      href="http://localhost:1313/cyber/ja/posts/aptnightmare2/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/latus/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/latus/</loc>
     <lastmod>2025-03-10T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/latus/"
+      href="http://localhost:1313/cyber/en/posts/latus/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/latus/"
+      href="http://localhost:1313/cyber/posts/latus/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/latus/"
+      href="http://localhost:1313/cyber/ja/posts/latus/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/midnight-rdp/</loc>
     <lastmod>2025-03-02T00:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/midnight-rdp/"
+      href="http://localhost:1313/cyber/en/posts/midnight-rdp/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/midnight-rdp/"
+      href="http://localhost:1313/cyber/posts/midnight-rdp/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/"
+      href="http://localhost:1313/cyber/ja/posts/midnight-rdp/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/opshieldwall-2/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/opshieldwall-2/</loc>
     <lastmod>2024-05-19T08:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/opshieldwall-2/"
+      href="http://localhost:1313/cyber/en/posts/opshieldwall-2/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/opshieldwall-2/"
+      href="http://localhost:1313/cyber/posts/opshieldwall-2/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/opshieldwall-2/"
+      href="http://localhost:1313/cyber/ja/posts/opshieldwall-2/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/opshieldwall-1/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/opshieldwall-1/</loc>
     <lastmod>2024-05-07T08:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/opshieldwall-1/"
+      href="http://localhost:1313/cyber/en/posts/opshieldwall-1/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/opshieldwall-1/"
+      href="http://localhost:1313/cyber/posts/opshieldwall-1/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/opshieldwall-1/"
+      href="http://localhost:1313/cyber/ja/posts/opshieldwall-1/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/portfolio/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/portfolio/</loc>
     <lastmod>2024-05-06T08:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/portfolio/"
+      href="http://localhost:1313/cyber/en/posts/portfolio/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/portfolio/"
+      href="http://localhost:1313/cyber/posts/portfolio/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/portfolio/"
+      href="http://localhost:1313/cyber/ja/posts/portfolio/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/projets/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/projets/</loc>
     <lastmod>2024-05-05T08:00:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/projets/"
+      href="http://localhost:1313/cyber/en/posts/projets/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/projets/"
+      href="http://localhost:1313/cyber/posts/projets/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/projets/"
+      href="http://localhost:1313/cyber/ja/posts/projets/"
     />
   </url>
   <url>
-    <loc>http://localhost:1313/blog-cyber/ja/posts/fcsc2025/</loc>
+    <loc>http://localhost:1313/cyber/ja/posts/fcsc2025/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/fcsc/"
+      href="http://localhost:1313/cyber/en/posts/fcsc/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/fcsc/"
+      href="http://localhost:1313/cyber/posts/fcsc/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/fcsc2025/"
+      href="http://localhost:1313/cyber/ja/posts/fcsc2025/"
     />
   </url>
 </urlset>

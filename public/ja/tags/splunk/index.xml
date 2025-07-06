@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Splunk on Jaybird1291</title>
-    <link>http://localhost:1313/blog-cyber/ja/tags/splunk/</link>
+    <link>http://localhost:1313/cyber/ja/tags/splunk/</link>
     <description>Recent content in Splunk on Jaybird1291</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>© 2025 Jaybird1291</copyright>
-    <lastBuildDate>Sun, 02 Mar 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/ja/tags/splunk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Mar 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/cyber/ja/tags/splunk/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Midnight RDP Lab</title>
-      <link>http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/</link>
+      <link>http://localhost:1313/cyber/ja/posts/midnight-rdp/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/ja/posts/midnight-rdp/</guid>
+      <guid>http://localhost:1313/cyber/ja/posts/midnight-rdp/</guid>
       <description>シナリオ #InfiniTech Solutions の IT 従業員が、自身のメールアカウントに関連する異常なアクティビティを報告しました。調査の結果、その従業員の業務用認証情報が、最近のデータ漏洩により流出していたことが判明しました。</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/midnight-rdp/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/midnight-rdp/featured.webp" />
     </item>
     
   </channel>

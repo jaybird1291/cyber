@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Jaybird1291</title>
-    <link>http://localhost:1313/blog-cyber/ja/tags/linux/</link>
+    <link>http://localhost:1313/cyber/ja/tags/linux/</link>
     <description>Recent content in Linux on Jaybird1291</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>© 2025 Jaybird1291</copyright>
-    <lastBuildDate>Sun, 20 Apr 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog-cyber/ja/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Apr 2025 00:00:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/cyber/ja/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>APTNightmare-2</title>
-      <link>http://localhost:1313/blog-cyber/ja/posts/aptnightmare2/</link>
+      <link>http://localhost:1313/cyber/ja/posts/aptnightmare2/</link>
       <pubDate>Sun, 20 Apr 2025 00:00:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog-cyber/ja/posts/aptnightmare2/</guid>
+      <guid>http://localhost:1313/cyber/ja/posts/aptnightmare2/</guid>
       <description>シナリオ #サーバー復旧後、IRチームは継続するトラフィック、隠された通信、および終了措置を回避する執拗なプロセスの迷宮を発見しました。ンシデントの範囲はサーバーとクライアントへの最初の侵害を超えていることが明らかです。フォレンジック調査の専門家として、これらの秘密裏の活動を隠す影を照らし出すことはできますか？</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/aptnightmare2/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cyber/posts/aptnightmare2/featured.png" />
     </item>
     
   </channel>
