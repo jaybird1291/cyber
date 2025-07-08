@@ -9,13 +9,13 @@
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
-      hreflang="fr"
-      href="http://localhost:1313/blog-cyber/"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/"
     />
     <xhtml:link
       rel="alternate"
-      hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/"
     />
     <xhtml:link
       rel="alternate"
@@ -30,13 +30,13 @@
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
-      hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/"
     />
     <xhtml:link
       rel="alternate"
-      hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/"
     />
     <xhtml:link
       rel="alternate"
