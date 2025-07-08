@@ -249,3 +249,41 @@ The device uploads the attachment (encrypted with its own keys) and delivers it 
 - What is confirmed: the patched guard, the new OS Log string, and that `iMessage.imservice` changed
 - Even if the adversary used a different internal API (e.g. a mis-scoped XPC service), the absence of the `isFromMe` validation is the fundamental bug.
 
+---
+
+## 8. Forensic thoughts
+
+Since I don't have the CitizenLab compromised iPhones everything here is hypothesis or purely logical deductions.
+
+**1. Unified log queries that surface CVE-2025-43200 activity**:
+
+| What to look for                                                | Why it matters                                                                                                            |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`"re-send a message that wasn't sent by me"`**                | New `os_log` string introduced only in iOS 18.3.1+; its presence means the device *blocked* a forged resend attempt.      | 
+| **`_reAttemptMessageDeliveryForGUID`** stack traces (pre-patch) | On vulnerable 18.3/18.2.1 devices you may still see crash or fault logs that name this selector if the exploit mis-fires. | 
+
+Tip: unified logs roll after ~7 days on-device; always pull a full sysdiagnose immediately.
+
+**2. Chat database (sms.db) artefacts**:
+```sql
+/*  Possible reflection duplicates: same GUID appears as both inbound (is_from_me = 0)
+    and outbound (is_from_me = 1) within a short window                */
+SELECT guid, date, is_from_me, text
+FROM message
+WHERE guid IN (
+    SELECT guid FROM message WHERE is_from_me = 0
+)
+ORDER BY date ASC;
+```
+
+- A **duplicate GUID** flipping from ``is_from_me`` = 0 ➜ 1 without user action strongly suggests the resend primitive was abused.
+- Cross-reference the GUID with the **attachments** table; Paragon's chain replayed iCloud-link photo/video blobs.
+
+**3. IDS & Message-delivery traces**:
+- Location (rooted dump or iOS Full Filesystem): ``/private/var/mobile/Library/Logs/CrashReporter/DiagnosticLogs/ids.*``
+- Grep for:
+    - ``"resend-request"``
+    - ``"guid"`` values that also appear in sms.db duplicates
+    - ``"handleID"`` matching unknown email/phone numbers
+
+These plaintext IDS control-frames often survive in the diagnostic logs even when the main unified log has rolled.

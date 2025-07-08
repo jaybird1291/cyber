@@ -111,7 +111,7 @@
     "keywords": ["iOS","Patch-diffing","Graphite","Paragon"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1331"
+    "wordCount": "1562"
   }]
   </script>
 
@@ -648,7 +648,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-07-08T20:00:30&#43;00:00">8 July 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <time datetime="2025-07-08T20:00:30&#43;00:00">8 July 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -1121,6 +1121,7 @@
     <li><a href="#5-diffs-inside-imessageimservice-183-22d63-and-1831-22d72">5. Diffs inside iMessage.imservice 18.3 (22D63) and 18.3.1 (22D72)</a></li>
     <li><a href="#6-how-this-maps-to-cve-2025-43200">6. How this maps to CVE-2025-43200</a></li>
     <li><a href="#7-attack-vector---a-plausible-reconstruction">7. Attack vector - a plausible reconstruction</a></li>
+    <li><a href="#8-forensic-thoughts">8. Forensic thoughts</a></li>
   </ul>
 </nav>
   </div>
@@ -1141,6 +1142,7 @@
     <li><a href="#5-diffs-inside-imessageimservice-183-22d63-and-1831-22d72">5. Diffs inside iMessage.imservice 18.3 (22D63) and 18.3.1 (22D72)</a></li>
     <li><a href="#6-how-this-maps-to-cve-2025-43200">6. How this maps to CVE-2025-43200</a></li>
     <li><a href="#7-attack-vector---a-plausible-reconstruction">7. Attack vector - a plausible reconstruction</a></li>
+    <li><a href="#8-forensic-thoughts">8. Forensic thoughts</a></li>
   </ul>
 </nav>
   </div>
@@ -1652,6 +1654,68 @@ The exploit succeeded because that obvious invariant was never enforced in the r
 <li>What is confirmed: the patched guard, the new OS Log string, and that <code>iMessage.imservice</code> changed</li>
 <li>Even if the adversary used a different internal API (e.g. a mis-scoped XPC service), the absence of the <code>isFromMe</code> validation is the fundamental bug.</li>
 </ul>
+<hr>
+
+
+<h2 class="relative group">8. Forensic thoughts 
+    <div id="8-forensic-thoughts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#8-forensic-thoughts" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Since I don&rsquo;t have the CitizenLab compromised iPhones everything here is hypothesis or purely logical deductions.</p>
+<p><strong>1. Unified log queries that surface CVE-2025-43200 activity</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What to look for</th>
+<th>Why it matters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>&quot;re-send a message that wasn't sent by me&quot;</code></strong></td>
+<td>New <code>os_log</code> string introduced only in iOS 18.3.1+; its presence means the device <em>blocked</em> a forged resend attempt.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>_reAttemptMessageDeliveryForGUID</code></strong> stack traces (pre-patch)</td>
+<td>On vulnerable 18.3/18.2.1 devices you may still see crash or fault logs that name this selector if the exploit mis-fires.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Tip: unified logs roll after ~7 days on-device; always pull a full sysdiagnose immediately.</p>
+<p><strong>2. Chat database (sms.db) artefacts</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="cm">/*  Possible reflection duplicates: same GUID appears as both inbound (is_from_me = 0)
+</span></span></span><span class="line"><span class="cl"><span class="cm">    and outbound (is_from_me = 1) within a short window                */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">guid</span><span class="p">,</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">is_from_me</span><span class="p">,</span><span class="w"> </span><span class="nb">text</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">message</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">guid</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">guid</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">is_from_me</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>A <strong>duplicate GUID</strong> flipping from <code>is_from_me</code> = 0 ➜ 1 without user action strongly suggests the resend primitive was abused.</li>
+<li>Cross-reference the GUID with the <strong>attachments</strong> table; Paragon&rsquo;s chain replayed iCloud-link photo/video blobs.</li>
+</ul>
+<p><strong>3. IDS &amp; Message-delivery traces</strong>:</p>
+<ul>
+<li>Location (rooted dump or iOS Full Filesystem): <code>/private/var/mobile/Library/Logs/CrashReporter/DiagnosticLogs/ids.*</code></li>
+<li>Grep for:
+<ul>
+<li><code>&quot;resend-request&quot;</code></li>
+<li><code>&quot;guid&quot;</code> values that also appear in sms.db duplicates</li>
+<li><code>&quot;handleID&quot;</code> matching unknown email/phone numbers</li>
+</ul>
+</li>
+</ul>
+<p>These plaintext IDS control-frames often survive in the diagnostic logs even when the main unified log has rolled.</p>
 
           
           
