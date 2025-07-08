@@ -224,12 +224,32 @@
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/fcsc/"
+      href="http://localhost:1313/blog-cyber/posts/fcsc2025/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="ja"
       href="http://localhost:1313/blog-cyber/ja/posts/fcsc2025/"
+    />
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog-cyber/ja/posts/graphite-caught/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/graphite-caught/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/fcsc/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/graphite-caught/"
     />
   </url>
 </urlset>

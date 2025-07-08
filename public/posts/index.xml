@@ -99,5 +99,15 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/projets/featured.png" />
     </item>
     
+    <item>
+      <title></title>
+      <link>http://localhost:1313/blog-cyber/posts/fcsc2025/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog-cyber/posts/fcsc2025/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/fcsc2025/featured.png" />
+    </item>
+    
   </channel>
 </rss>

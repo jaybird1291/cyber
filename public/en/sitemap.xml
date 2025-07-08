@@ -7,6 +7,21 @@
     <lastmod>2025-07-08T20:00:30+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/fcsc/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/graphite-caught/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/graphite-caught/"
+    />
   </url>
   <url>
     <loc>http://localhost:1313/blog-cyber/en/</loc>
@@ -79,7 +94,7 @@
     <xhtml:link
       rel="alternate"
       hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/fcsc/"
+      href="http://localhost:1313/blog-cyber/posts/fcsc2025/"
     />
     <xhtml:link
       rel="alternate"
