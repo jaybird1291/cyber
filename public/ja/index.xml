@@ -96,7 +96,7 @@
       
       <guid>http://localhost:1313/blog-cyber/ja/posts/fcsc2025/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/fcsc2025/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/fcsc/featured.png" />
     </item>
     
     <item>
@@ -106,7 +106,7 @@
       
       <guid>http://localhost:1313/blog-cyber/ja/posts/graphite-caught/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/fcsc/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog-cyber/posts/graphite-caught/featured.png" />
     </item>
     
   </channel>

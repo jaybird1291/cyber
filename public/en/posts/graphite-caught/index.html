@@ -80,10 +80,10 @@
     <meta property="article:tag" content="Patch-Diffing">
     <meta property="article:tag" content="Graphite">
     <meta property="article:tag" content="Paragon">
-    <meta property="og:image" content="http://localhost:1313/blog-cyber/posts/fcsc/featured.png">
+    <meta property="og:image" content="http://localhost:1313/blog-cyber/posts/graphite-caught/featured.png">
 
   <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/blog-cyber/posts/fcsc/featured.png"><meta name="twitter:title" content="Graphite Caught Paragon&#39;s zero-click iMessage bug and how Apple quietly patched it">
+<meta name="twitter:image" content="http://localhost:1313/blog-cyber/posts/graphite-caught/featured.png"><meta name="twitter:title" content="Graphite Caught Paragon&#39;s zero-click iMessage bug and how Apple quietly patched it">
 <meta name="twitter:description" content="🍎 Patch diffing iOS">
 
   
@@ -95,7 +95,7 @@
     "name": "Graphite Caught Paragon\u0027s zero-click iMessage bug and how Apple quietly patched it",
     "headline": "Graphite Caught Paragon\u0027s zero-click iMessage bug and how Apple quietly patched it",
     "description": "🍎 Patch diffing iOS",
-    "abstract": "1.",
+    "abstract": "⚠️ Disclaimer:",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/blog-cyber\/en\/posts\/graphite-caught\/",
     "author" : {
@@ -111,7 +111,7 @@
     "keywords": ["iOS","Patch-diffing","Graphite","Paragon"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1562"
+    "wordCount": "1291"
   }]
   </script>
 
@@ -337,8 +337,8 @@
           </p>
         </a>
         
-        <a href="/blog-cyber/posts/fcsc/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="FCSC 2025 - iOS Forensic">
+        <a href="/blog-cyber/posts/graphite-caught/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
             FR
           </p>
         </a>
@@ -404,8 +404,8 @@
           </p>
         </a>
         
-        <a href="/blog-cyber/posts/fcsc/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="FCSC 2025 - iOS Forensic">
+        <a href="/blog-cyber/posts/graphite-caught/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
             FR
           </p>
         </a>
@@ -648,7 +648,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-07-08T20:00:30&#43;00:00">8 July 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <time datetime="2025-07-08T20:00:30&#43;00:00">8 July 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -1115,7 +1115,7 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#1-citizen-lab-breaks-the-story">1. Citizen Lab breaks the story</a></li>
-    <li><a href="#2-cve-2025-43200--apples-one-liner-advisory">2. CVE-2025-43200 &amp; Apple’s one-liner advisory</a></li>
+    <li><a href="#2-cve-2025-43200--apples-one-liner-advisory">2. CVE-2025-43200 &amp; Apple&rsquo;s one-liner advisory</a></li>
     <li><a href="#3-checking-blacktopipsw-diffs-on-183-22d63-vs-1831-22d72">3. Checking <strong>blacktop/ipsw-diffs</strong> on 18.3 (22D63) vs 18.3.1 (22D72)</a></li>
     <li><a href="#4-getting-inside-183-22d63-and-1831-22d72">4. Getting inside 18.3 (22D63) and 18.3.1 (22D72)</a></li>
     <li><a href="#5-diffs-inside-imessageimservice-183-22d63-and-1831-22d72">5. Diffs inside iMessage.imservice 18.3 (22D63) and 18.3.1 (22D72)</a></li>
@@ -1136,7 +1136,7 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#1-citizen-lab-breaks-the-story">1. Citizen Lab breaks the story</a></li>
-    <li><a href="#2-cve-2025-43200--apples-one-liner-advisory">2. CVE-2025-43200 &amp; Apple’s one-liner advisory</a></li>
+    <li><a href="#2-cve-2025-43200--apples-one-liner-advisory">2. CVE-2025-43200 &amp; Apple&rsquo;s one-liner advisory</a></li>
     <li><a href="#3-checking-blacktopipsw-diffs-on-183-22d63-vs-1831-22d72">3. Checking <strong>blacktop/ipsw-diffs</strong> on 18.3 (22D63) vs 18.3.1 (22D72)</a></li>
     <li><a href="#4-getting-inside-183-22d63-and-1831-22d72">4. Getting inside 18.3 (22D63) and 18.3.1 (22D72)</a></li>
     <li><a href="#5-diffs-inside-imessageimservice-183-22d63-and-1831-22d72">5. Diffs inside iMessage.imservice 18.3 (22D63) and 18.3.1 (22D72)</a></li>
@@ -1226,7 +1226,11 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          
+          <blockquote>
+<p>⚠️ <strong>Disclaimer:</strong><br>
+I’m a cybersecurity student, this is a non-professional, personal blog post. My analysis may contain errors or oversights I&rsquo;m still learning. If you spot any mistakes or have suggestions, please don’t hesitate to reach out!</p>
+</blockquote>
+
 
 <h2 class="relative group">1. Citizen Lab breaks the story 
     <div id="1-citizen-lab-breaks-the-story" class="anchor"></div>
@@ -1238,19 +1242,19 @@
     </span>        
     
 </h2>
-<p>On 12 June 2025, Citizen Lab published <strong>“<a href="https://citizenlab.ca/2025/06/first-forensic-confirmation-of-paragons-ios-mercenary-spyware-finds-journalists-targeted/" target="_blank">First Forensic Confirmation of Paragon’s iOS Mercenary Spyware</a>”</strong>.</p>
-<p>Their report links Paragon’s <em>Graphite</em> spyware to a <strong>zero-click iMessage payload</strong> observed on several European journalists’ and NGO phones.</p>
+<p>On 12 June 2025, Citizen Lab published <strong>&quot;<a href="https://citizenlab.ca/2025/06/first-forensic-confirmation-of-paragons-ios-mercenary-spyware-finds-journalists-targeted/" target="_blank">First Forensic Confirmation of Paragon&rsquo;s iOS Mercenary Spyware</a>&quot;</strong>.</p>
+<p>Their report links Paragon&rsquo;s <em>Graphite</em> spyware to a <strong>zero-click iMessage payload</strong> observed on several European journalists&rsquo; and NGO phones.</p>
 <p>Core facts:</p>
 <ul>
 <li>Infection hit fully-patched iPhones in April 2025.</li>
 <li>Delivery vector: a <strong>malicious photo / video sent via an iCloud Link</strong> in Messages.</li>
 <li>On success, <em>Graphite</em> gained file-system access and exfiltrated iMessage, Signal and WhatsApp data.</li>
 </ul>
-<p>Citizen Lab’s timeline ends on 11 June 2025 UTC, when Apple ships <strong>iOS 18.3.1</strong> and credits <strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-43200" target="_blank">CVE-2025-43200</a></strong> as the fix.</p>
+<p>Citizen Lab&rsquo;s timeline ends on 11 June 2025 UTC, when Apple ships <strong>iOS 18.3.1</strong> and credits <strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-43200" target="_blank">CVE-2025-43200</a></strong> as the fix.</p>
 <hr>
 
 
-<h2 class="relative group">2. CVE-2025-43200 &amp; Apple’s one-liner advisory 
+<h2 class="relative group">2. CVE-2025-43200 &amp; Apple&rsquo;s one-liner advisory 
     <div id="2-cve-2025-43200--apples-one-liner-advisory" class="anchor"></div>
     
     <span
@@ -1260,13 +1264,13 @@
     </span>        
     
 </h2>
-<p>In <a href="https://support.apple.com/en-us/122174" target="_blank">Apple’s security note</a> for iOS 18.3.1 we can read:</p>
+<p>In <a href="https://support.apple.com/en-us/122174" target="_blank">Apple&rsquo;s security note</a> for iOS 18.3.1 we can read:</p>
 <blockquote>
 <p><em>Impact:</em> A logic issue existed when processing a maliciously crafted photo or video shared via an iCloud Link.  Apple is aware of a report that this issue may have been exploited in an extremely sophisticated attack against specific targeted individuals.
 <em>Description:</em> This issue was addressed with improved checks.<br>
 <em>CVE-2025-43200</em> – Apple.</p>
 </blockquote>
-<p>No file paths, no clue which binary changed. That’s where patch diffing comes in!</p>
+<p>No file paths, no clue which binary changed. That&rsquo;s where patch diffing comes in!</p>
 <hr>
 
 
@@ -1280,7 +1284,7 @@
     </span>        
     
 </h2>
-<p><a href="https://github.com/blacktop/ipsw-diffs/tree/main/18_3_22D63__vs_18_3_1_22D72" target="_blank">Blacktop’s automated diff</a> shows <strong>10 Mach-Os</strong> rebuilt in the hot-fix, but only three are in the Messages stack highlighted below:</p>
+<p><a href="https://github.com/blacktop/ipsw-diffs/tree/main/18_3_22D63__vs_18_3_1_22D72" target="_blank">Blacktop&rsquo;s automated diff</a> shows <strong>10 Mach-Os</strong> rebuilt in the hot-fix, but only three are in the Messages stack highlighted below:</p>
 <ul>
 <li>iMessage (<code>System/Library/Messages/PlugIns/iMessage.imservice/iMessage</code>)</li>
 <li>SafetyMonitor (<code>System/Library/Messages/iMessageApps/SafetyMonitorMessages.bundle/SafetyMonitorMessages</code>)</li>
@@ -1292,11 +1296,11 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /blog-cyber/posts/fcsc/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_330x0_resize_box_3.png 330w,
-        /blog-cyber/posts/fcsc/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_660x0_resize_box_3.png 660w,
-        /blog-cyber/posts/fcsc/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_1024x0_resize_box_3.png 1024w,
-        /blog-cyber/posts/fcsc/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_1320x0_resize_box_3.png 2x"
-        src="/blog-cyber/posts/fcsc/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_660x0_resize_box_3.png"
+        /blog-cyber/posts/graphite-caught/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/graphite-caught/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/graphite-caught/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/graphite-caught/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/graphite-caught/pictures/ipsw-diff_hu11c7d4213ca43e65c1fb0f830035bedf_102704_660x0_resize_box_3.png"
         alt=""
       />
       
@@ -1353,11 +1357,11 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /blog-cyber/posts/fcsc/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_330x0_resize_box_3.png 330w,
-        /blog-cyber/posts/fcsc/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_660x0_resize_box_3.png 660w,
-        /blog-cyber/posts/fcsc/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_1024x0_resize_box_3.png 1024w,
-        /blog-cyber/posts/fcsc/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_1320x0_resize_box_3.png 2x"
-        src="/blog-cyber/posts/fcsc/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_660x0_resize_box_3.png"
+        /blog-cyber/posts/graphite-caught/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/graphite-caught/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/graphite-caught/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/graphite-caught/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/graphite-caught/pictures/ipsw-download_hua2a7064fa24f77788698c9e4ded3ec8e_73714_660x0_resize_box_3.png"
         alt=""
       />
       
@@ -1395,11 +1399,11 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /blog-cyber/posts/fcsc/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_330x0_resize_box_3.png 330w,
-        /blog-cyber/posts/fcsc/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_660x0_resize_box_3.png 660w,
-        /blog-cyber/posts/fcsc/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_1024x0_resize_box_3.png 1024w,
-        /blog-cyber/posts/fcsc/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_1320x0_resize_box_3.png 2x"
-        src="/blog-cyber/posts/fcsc/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_660x0_resize_box_3.png"
+        /blog-cyber/posts/graphite-caught/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/graphite-caught/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/graphite-caught/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/graphite-caught/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/graphite-caught/pictures/files_hu2a66cdc40641bec2eae0281b25329c5e_75389_660x0_resize_box_3.png"
         alt=""
       />
       
@@ -1429,11 +1433,11 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /blog-cyber/posts/fcsc/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_330x0_resize_box_3.png 330w,
-        /blog-cyber/posts/fcsc/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_660x0_resize_box_3.png 660w,
-        /blog-cyber/posts/fcsc/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_1024x0_resize_box_3.png 1024w,
-        /blog-cyber/posts/fcsc/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_1320x0_resize_box_3.png 2x"
-        src="/blog-cyber/posts/fcsc/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_660x0_resize_box_3.png"
+        /blog-cyber/posts/graphite-caught/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/graphite-caught/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/graphite-caught/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/graphite-caught/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/graphite-caught/pictures/diff_hu906906c89fbb57b64bd818a00f5e3efa_120481_660x0_resize_box_3.png"
         alt=""
       />
       
@@ -1447,11 +1451,11 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /blog-cyber/posts/fcsc/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_330x0_resize_box_3.png 330w,
-        /blog-cyber/posts/fcsc/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_660x0_resize_box_3.png 660w,
-        /blog-cyber/posts/fcsc/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_1024x0_resize_box_3.png 1024w,
-        /blog-cyber/posts/fcsc/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_1320x0_resize_box_3.png 2x"
-        src="/blog-cyber/posts/fcsc/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_660x0_resize_box_3.png"
+        /blog-cyber/posts/graphite-caught/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/graphite-caught/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/graphite-caught/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/graphite-caught/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/graphite-caught/pictures/code_huf15eee85a5776abee822a045b44a12ca_158078_660x0_resize_box_3.png"
         alt=""
       />
       
@@ -1464,11 +1468,11 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /blog-cyber/posts/fcsc/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_330x0_resize_box_3.png 330w,
-        /blog-cyber/posts/fcsc/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_660x0_resize_box_3.png 660w,
-        /blog-cyber/posts/fcsc/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_1024x0_resize_box_3.png 1024w,
-        /blog-cyber/posts/fcsc/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_1320x0_resize_box_3.png 2x"
-        src="/blog-cyber/posts/fcsc/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_660x0_resize_box_3.png"
+        /blog-cyber/posts/graphite-caught/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/graphite-caught/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/graphite-caught/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/graphite-caught/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/graphite-caught/pictures/graph_hua1ceda3241969641e4e8e125d0d0b4c4_140113_660x0_resize_box_3.png"
         alt=""
       />
       
@@ -1481,10 +1485,10 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="c1">//  AFTER 18.3.1 - NEW blocks resend of foreign messages
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">message</span> <span class="n">isFromMe</span><span class="p">])</span> <span class="p">{</span>                       <span class="c1">// message authored by someone else
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">os_log_info</span><span class="p">(</span><span class="n">MessageServiceLog</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="s">&#34;Being requested to re-send a message that wasn’t sent by me&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="s">&#34;Being requested to re-send a message that wasn&#39;t sent by me&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>                                      <span class="c1">// bail = exploit dies
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></div><p><em>Why?</em> - Paragon’s zero-click chain forged a <strong>&ldquo;resend&rdquo;</strong> control frame that pointed to a GUID in the victim’s chat DB (where <code>is_from_me == 0</code>).  The single guard above rejects that request, cutting the data-exfil path.</p>
+</span></span></code></pre></div><p><em>Why?</em> - Paragon&rsquo;s zero-click chain forged a <strong>&ldquo;resend&rdquo;</strong> control frame that pointed to a GUID in the victim&rsquo;s chat DB (where <code>is_from_me == 0</code>).  The single guard above rejects that request, cutting the data-exfil path.</p>
 <p>You can see this here in the <strong>SMS.db</strong>:</p>
 <p>
     <figure>
@@ -1492,11 +1496,11 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /blog-cyber/posts/fcsc/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_330x0_resize_box_3.png 330w,
-        /blog-cyber/posts/fcsc/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_660x0_resize_box_3.png 660w,
-        /blog-cyber/posts/fcsc/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_1024x0_resize_box_3.png 1024w,
-        /blog-cyber/posts/fcsc/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_1320x0_resize_box_3.png 2x"
-        src="/blog-cyber/posts/fcsc/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_660x0_resize_box_3.png"
+        /blog-cyber/posts/graphite-caught/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_330x0_resize_box_3.png 330w,
+        /blog-cyber/posts/graphite-caught/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_660x0_resize_box_3.png 660w,
+        /blog-cyber/posts/graphite-caught/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_1024x0_resize_box_3.png 1024w,
+        /blog-cyber/posts/graphite-caught/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_1320x0_resize_box_3.png 2x"
+        src="/blog-cyber/posts/graphite-caught/pictures/sms_hu2f27a0fe128fcde9e5bc926242a06244_30290_660x0_resize_box_3.png"
         alt=""
       />
       
@@ -1517,15 +1521,15 @@
 </span></span><span class="line"><span class="cl">                <span class="n">guid</span><span class="p">,</span> <span class="n">deliveredDate</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>                                                <span class="c1">// no resend
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></div><p><em>Why?</em> - Apple tightened the resend window so attackers can’t keep hammering the same GUID months later.</p>
+</span></span></code></pre></div><p><em>Why?</em> - Apple tightened the resend window so attackers can&rsquo;t keep hammering the same GUID months later.</p>
 <p><strong>Putting the pieces together</strong>:</p>
 <ol>
 <li><strong>Author check</strong> closes the core logic bug exploited by CVE-2025-43200.</li>
 <li><strong>Tighter age check</strong> reduces the replay window (defence-in-depth).</li>
 </ol>
 <p><strong>CVE-2025-43200 is a one-line logic patch</strong>:<br>
-<em>“Only retry messages you actually wrote.”</em><br>
-The exploit succeeded because that obvious invariant was never enforced in the resend helper. Apple’s fix consists of:</p>
+<em>&ldquo;Only retry messages you actually wrote.&rdquo;</em><br>
+The exploit succeeded because that obvious invariant was never enforced in the resend helper. Apple&rsquo;s fix consists of:</p>
 <ol>
 <li><code>if (!msg.isFromMe) return;</code></li>
 <li>An <code>os_log</code> statement for triage.</li>
@@ -1554,13 +1558,13 @@ The exploit succeeded because that obvious invariant was never enforced in the r
     </span>        
     
 </h2>
-<p>Citizen Lab reports that PARAGON’s zero-click chain used <strong>iCloud-link messages</strong> to coerce the target device into <em>reflecting</em> or auto-forwarding content it had previously received, part of the spyware’s exfiltration stage.</p>
+<p>Citizen Lab reports that PARAGON&rsquo;s zero-click chain used <strong>iCloud-link messages</strong> to coerce the target device into <em>reflecting</em> or auto-forwarding content it had previously received, part of the spyware&rsquo;s exfiltration stage.</p>
 <p>The attacker:</p>
 <ol>
-<li>Injected or replayed a specially-crafted iMessage “resend” request that points to an existing GUID in the victim’s local SQLite chat DB.</li>
+<li>Injected or replayed a specially-crafted iMessage &ldquo;resend&rdquo; request that points to an existing GUID in the victim&rsquo;s local SQLite chat DB.</li>
 <li>Because 18.3 lacked the <code>isFromMe</code> test, the helper method <code>_reAttemptMessageDeliveryForGUID:…</code> happily burned a retry credit and <strong>re-sent the foreign message</strong> (or its attachment) to the attacker-controlled handle.</li>
 </ol>
-<p>Patch 18.3.1 closes that hole by insisting the GUID’s <code>isFromMe</code> bit is <strong>true</strong>. The message must originate from the local user. Any forged request that references someone-else’s message now trips the new log entry and <strong>bails early</strong>.</p>
+<p>Patch 18.3.1 closes that hole by insisting the GUID&rsquo;s <code>isFromMe</code> bit is <strong>true</strong>. The message must originate from the local user. Any forged request that references someone-else&rsquo;s message now trips the new log entry and <strong>bails early</strong>.</p>
 <hr>
 
 
@@ -1574,86 +1578,8 @@ The exploit succeeded because that obvious invariant was never enforced in the r
     </span>        
     
 </h2>
-<p><em>Everything below is the <strong>most-likely chain</strong> inferred from the patch diff, Citizen Lab’s field evidence, and what we know of iMessage internals; steps; marked <strong>(hyp.)</strong> remain hypotheses until a packet capture or Apple’s root-cause write-up appears.</em></p>
-<p><strong>Reconnaissance &amp; GUID discovery (hyp.)</strong>:</p>
-<ol>
-<li>
-<p>Victim receives an ordinary iMessage that carries an iCloud-link preview (photo/video) - no click required. <a href="https://citizenlab.ca/2025/06/first-forensic-confirmation-of-paragons-ios-mercenary-spyware-finds-journalists-targeted/" target="_blank">Citizen Lab</a> shows such links as the first artefact on both compromised iPhones.</p>
-</li>
-<li>
-<p>The inbound row is written to <code>sms.db</code> with <code>is_from_me = 0</code> and a unique <code>guid</code>, visible in every iOS chat database. <em>Attackers only need that 36-byte GUID.</em></p>
-</li>
-<li>
-<p>Paragon’s spyware foothold on the sender side (or passive CloudKit metadata leaks) lets them learn that GUID without device access.</p>
-</li>
-</ol>
-<p><strong>Forged &ldquo;resend&rdquo; request over IDS (hyp.)</strong>:</p>
-<ol>
-<li>
-<p>iMessage’s private protocol contains a <code>resendRequest</code> control-frame used when a sender asks a recipient to retry a failed delivery</p>
-</li>
-<li>
-<p><em>Graphite</em> forges such a frame, swapping roles:</p>
-<ul>
-<li>toIdentifier = attacker’s Apple ID</li>
-<li>guid = victim-side GUID from step 1</li>
-<li>other JSON fields mimic genuine traffic (timestamp, service = “iMessage”)</li>
-</ul>
-</li>
-</ol>
-<p>Because iOS 18.3’s helper lacked an <code>isFromMe</code> guard, the plug-in treats the request as authorised.</p>
-<p><strong>Helper execution on the device (observed)</strong>:</p>
-<ol>
-<li>
-<p>Control-frame reaches <code>handleResendRequest:</code> in <code>iMessage.imservice</code>; it calls <code>-[MessageServiceSession _reAttemptMessageDeliveryForGUID:…]</code>.</p>
-</li>
-<li>
-<p>Pre-patch path (18.3):</p>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="c1">// NO author validation
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">lookup_msg</span><span class="p">(</span><span class="n">guid</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">retryQuotaOK</span> <span class="o">&amp;&amp;</span> <span class="n">notStale</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nl">sendMessage</span><span class="p">:</span><span class="nl">attachment</span><span class="p">:</span><span class="nl">toChat</span><span class="p">:</span>       <span class="c1">// ← reflection
-</span></span></span></code></pre></div><p>The device uploads the attachment (encrypted with its own keys) and delivers it straight to the attacker’s chat (hyp.).</p>
-<p><strong>Payload retrieval &amp; spyware staging (fact)</strong>:</p>
-<ol>
-<li>
-<p>Attacker receives the reflected blob, extracts the same iCloud-link token or plaintext file, and feeds it to the next exploit stage (Citizen Lab shows <em>Graphite</em> pulling Signal &amp; WhatsApp DBs after landing)</p>
-</li>
-<li>
-<p>With <em>Graphite</em> fully installed, exfiltration of chats, photos and microphone recordings proceeds as documented by CL</p>
-</li>
-</ol>
-<p><strong>Why the attack worked</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Missing invariant in 18.3</th>
-<th>Consequence</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>❌ No <code>isFromMe</code> check</td>
-<td>Any <em>foreign</em> message could be re-sent.</td>
-</tr>
-<tr>
-<td>❌ Retry-timeout only checked “too fresh”, not “too old”</td>
-<td>Attackers could spam the same GUID for months.</td>
-</tr>
-<tr>
-<td>❌ No extra entitlement required</td>
-<td>No kernel, PAC or sandbox bypass needed.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Reality check</strong>:</p>
-<ul>
-<li>Citizen Lab never published the forged IDS frame; the exact JSON remains unknown, hence steps 1–5 are labelled (hyp.).</li>
-<li>What is confirmed: the patched guard, the new OS Log string, and that <code>iMessage.imservice</code> changed</li>
-<li>Even if the adversary used a different internal API (e.g. a mis-scoped XPC service), the absence of the <code>isFromMe</code> validation is the fundamental bug.</li>
-</ul>
+<p>So far I haven&rsquo;t found a compelling, end-to-end scenario that shows how CVE-2025-43200 fits into the cases documented by Citizen Lab. If you have alternative ideas-or artefacts I&rsquo;ve missed—please get in touch; I&rsquo;d be keen to investigate further.</p>
+<p>My first hypothesis was that the bug might provide a stealthy exfiltration channel. On closer inspection that seems unlikely: the resend primitive can forward only those attachments that already live inside the Messages sandbox. It would not, by itself, let an attacker pull arbitrary data such as Signal or WhatsApp databases.</p>
 <hr>
 
 

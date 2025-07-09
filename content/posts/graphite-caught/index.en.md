@@ -5,6 +5,10 @@ slug: graphite-caught
 date: 2025-07-08 20:00:30+0000
 tags: ["iOS", "Patch-diffing", "Graphite", "Paragon"]
 ---
+
+> ⚠️ **Disclaimer:**  
+> I’m a cybersecurity student, this is a non-professional, personal blog post. My analysis may contain errors or oversights I'm still learning. If you spot any mistakes or have suggestions, please don’t hesitate to reach out!
+
  
 ## 1. Citizen Lab breaks the story
 
