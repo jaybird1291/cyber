@@ -199,50 +199,10 @@ Patch 18.3.1 closes that hole by insisting the GUID's `isFromMe` bit is **true**
 ---
 
 ## 7. Attack vector - a plausible reconstruction
-_Everything below is the **most-likely chain** inferred from the patch diff, Citizen Lab's field evidence, and what we know of iMessage internals; steps; marked **(hyp.)** remain **hypotheses** until a packet capture or Apple's root-cause write-up appears._
 
-**1. Reconnaissance & GUID discovery (hyp.)**:
-1. Victim receives an ordinary iMessage that carries an iCloud-link preview (photo/video) - no click required. [Citizen Lab](https://citizenlab.ca/2025/06/first-forensic-confirmation-of-paragons-ios-mercenary-spyware-finds-journalists-targeted/) shows such links as the first artefact on both compromised iPhones.
+So far I haven't found a compelling, end-to-end scenario that shows how CVE-2025-43200 fits into the cases documented by Citizen Lab. If you have alternative ideas-or artefacts I've missed—please get in touch; I'd be keen to investigate further.
 
-2. The inbound row is written to `sms.db` with `is_from_me = 0` and a unique `guid`, visible in every iOS chat database. _Attackers only need that 36-byte GUID._
-
-3. Paragon's spyware foothold on the sender side (or passive CloudKit metadata leaks) lets them learn that GUID without device access. 
-
-**2. Forged "resend" request over IDS (hyp.)**:
-1. iMessage's private protocol contains a `resendRequest` control-frame used when a sender asks a recipient to retry a failed delivery
-
-2. _Graphite_ forges such a frame, swapping roles:
-    - toIdentifier = attacker's Apple ID
-    - guid = victim-side GUID from step 1
-    - other JSON fields mimic genuine traffic (timestamp, service = "iMessage")
-
-Because iOS 18.3's helper lacked an `isFromMe` guard, the plug-in treats the request as authorised.
-
-**Helper execution on the device (observed)**:
-1. Control-frame reaches `handleResendRequest:` in `iMessage.imservice`; it calls `-[MessageServiceSession _reAttemptMessageDeliveryForGUID:…]`.
-
-2. Pre-patch path (18.3):
-```objc
-// NO author validation
-lookup_msg(guid);
-if (retryQuotaOK && notStale)
-    sendMessage:attachment:toChat:       // ← reflection
-```
-
-The device uploads the attachment (encrypted with its own keys) and delivers it straight to the attacker's chat (hyp.).
-
-**Why the attack worked**:
-
-| Missing invariant in 18.3                               | Consequence                                    |
-| ------------------------------------------------------- | ---------------------------------------------- |
-| ❌ No `isFromMe` check                                   | Any _foreign_ message could be re-sent.        |
-| ❌ Retry-timeout only checked "too fresh", not "too old" | Attackers could spam the same GUID for months. |
-| ❌ No extra entitlement required                         | No kernel, PAC or sandbox bypass needed.       |
-
-**Reality check**:
-- Citizen Lab never published the forged IDS frame; the exact JSON remains unknown, hence steps 1–2 are labelled (hyp.).
-- What is confirmed: the patched guard, the new OS Log string, and that `iMessage.imservice` changed
-- Even if the adversary used a different internal API (e.g. a mis-scoped XPC service), the absence of the `isFromMe` validation is the fundamental bug.
+My first hypothesis was that the bug might provide a stealthy exfiltration channel. On closer inspection that seems unlikely: the resend primitive can forward only those attachments that already live inside the Messages sandbox. It would not, by itself, let an attacker pull arbitrary data such as Signal or WhatsApp databases.
 
 ---
 
