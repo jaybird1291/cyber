@@ -14,7 +14,7 @@ tags: ["iOS", "Patch-diffing", "Graphite", "Paragon"]
 
 On 12 June 2025, Citizen Lab published **"[First Forensic Confirmation of Paragon's iOS Mercenary Spyware](https://citizenlab.ca/2025/06/first-forensic-confirmation-of-paragons-ios-mercenary-spyware-finds-journalists-targeted/)"**.  
 
-Their report links Paragon's *Graphite* spyware to a **zero-click iMessage payload** observed on several European journalists' and NGO phones.  
+Their report links Paragon's *Graphite* spyware to a **zero-click iMessage payload** observed on several European journalists' phones.  
 
 Core facts:
 - Victims received an Apple notification in April 2025.
