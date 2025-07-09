@@ -14,7 +14,7 @@ tags: ["iOS", "CVE-2025-43200", "Patch-diffing", "Graphite", "Paragon"]
 
 On 12 June 2025, Citizen Lab published **"[First Forensic Confirmation of Paragon's iOS Mercenary Spyware](https://citizenlab.ca/2025/06/first-forensic-confirmation-of-paragons-ios-mercenary-spyware-finds-journalists-targeted/)"**.  
 
-Their report links Paragon's *Graphite* spyware to a **zero-click iMessage payload** observed on several European journalists' and NGO phones.  
+Their report links Paragon's *Graphite* spyware to a **zero-click iMessage payload** observed on several European journalists' phones.  
 
 Core facts:
 - Victims received an Apple notification in April 2025.
@@ -147,9 +147,9 @@ if (![message isFromMe]) {                       // message authored by someone 
 }
 ```
 
-_Why?_ - Paragon's zero-click chain forged a **"resend"** control frame that pointed to a GUID in the victim's chat DB (where `is_from_me == 0`).  The single guard above rejects that request, cutting the data-exfil path.
+_Why?_ - We can assume that Paragon's zero-click chain forged a **"resend"** control frame that pointed to a GUID in the victim's chat DB (where `is_from_me == 0`).  The single guard above rejects that request.
 
-You can see this here in the **SMS.db**: 
+You can see these informations in the **SMS.db**: 
 
 ![](pictures/sms.png)
 
