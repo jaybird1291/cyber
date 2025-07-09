@@ -7,6 +7,11 @@ html {
   max-width: 90ch;
 }
 
+.big-image {
+  grid-template-columns: repeat(auto-fill, minmax(1200px, 1fr));
+}
+
+
 /*   Desktop ≥ 600 px  ------------------------------------------ */
 .image-container {
   display: grid;

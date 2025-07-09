@@ -43,7 +43,9 @@ No file paths, no clue which binary changed. That's where patch diffing comes in
 - SafetyMonitor (``System/Library/Messages/iMessageApps/SafetyMonitorMessages.bundle/SafetyMonitorMessages``)
 - identityservicesd (``System/Library/PrivateFrameworks/IDS.framework/identityservicesd.app/identityservicesd``)
 
-![](pictures/ipsw-diff.png)
+<div class="big-image">
+    <div class="image">{{< figure src="pictures/ipsw-diff.png" >}}</div>
+</div>
 
 
 | Binary                    | Why we picked it                                                                      | High-level diff preview result                           |
@@ -114,17 +116,24 @@ distance: 49654
 
 Then we can dig deeper in the diff with IDA Pro and [Diaphora script](https://github.com/joxeankoret/diaphora):
 
-![](pictures/diff.png)
+<div class="big-image">
+    <div class="image">{{< figure src="pictures/diff.png" >}}</div>
+</div>
 
 We can see a partial match for ``-[MessageServiceSession _reAttemptMessageDeliveryForGUID: …]``
 
 With a notable new log ``"Being requested to re-send a message that wasn't sent by me"``
 
-![](pictures/code.png)
+<div class="big-image">
+    <div class="image">{{< figure src="pictures/code.png" >}}</div>
+</div>
 
 Using Graph view we can clearly see the new checking:
 
-![](pictures/graph.png)
+<div class="big-image">
+    <div class="image">{{< figure src="pictures/graph.png" >}}</div>
+</div>
+
 
 Here's the 2 important changes:
 
