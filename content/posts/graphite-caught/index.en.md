@@ -7,7 +7,7 @@ tags: ["iOS", "Patch-diffing", "Graphite", "Paragon"]
 ---
 
 > ⚠️ **Disclaimer:**  
-> I’m a cybersecurity student, this is a non-professional, personal blog post. My analysis may contain errors or oversights I'm still learning. If you spot any mistakes or have suggestions, please don’t hesitate to reach out!
+> I'm a cybersecurity student, this is a non-professional, personal blog post. My analysis may contain errors or oversights I'm still learning. If you spot any mistakes or have suggestions, please don't hesitate to reach out!
 
  
 ## 1. Citizen Lab breaks the story
@@ -17,9 +17,8 @@ On 12 June 2025, Citizen Lab published **"[First Forensic Confirmation of Parago
 Their report links Paragon's *Graphite* spyware to a **zero-click iMessage payload** observed on several European journalists' and NGO phones.  
 
 Core facts:
-- Infection hit fully-patched iPhones in April 2025.
-- Delivery vector: a **malicious photo / video sent via an iCloud Link** in Messages.
-- On success, _Graphite_ gained file-system access and exfiltrated iMessage, Signal and WhatsApp data. 
+- Victims received an Apple notification in April 2025.
+- Delivery vector: Paragon's Graphite spyware used a sophisticated iMessage zero-click attack
 
 Citizen Lab's timeline ends on 11 June 2025 UTC, when Apple ships **iOS 18.3.1** and credits **[CVE-2025-43200](https://nvd.nist.gov/vuln/detail/CVE-2025-43200)** as the fix.
 
@@ -31,7 +30,7 @@ In [Apple's security note](https://support.apple.com/en-us/122174) for iOS 18.3.
 
 > _Impact:_ A logic issue existed when processing a maliciously crafted photo or video shared via an iCloud Link.  Apple is aware of a report that this issue may have been exploited in an extremely sophisticated attack against specific targeted individuals.
 > _Description:_ This issue was addressed with improved checks.  
-> _CVE-2025-43200_ – Apple.
+> _CVE-2025-43200_ - Apple.
 
 No file paths, no clue which binary changed. That's where patch diffing comes in!
 
@@ -47,7 +46,7 @@ No file paths, no clue which binary changed. That's where patch diffing comes in
 ![](pictures/ipsw-diff.png)
 
 
-| Binary                    | Why we picked it                                                                      | High-level diff result                                   |
+| Binary                    | Why we picked it                                                                      | High-level diff preview result                           |
 | ------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | **iMessage.imservice**    | Core plug-in that implements iMessage logic, network deserialization & resend helpers | **Significant:** new log string + new early-return guard |
 | **SafetyMonitorMessages** | Swift bundle that shows Communication-Safety pop-ups                                  | no functional delta seen with diffing tool               |
@@ -191,14 +190,11 @@ The exploit succeeded because that obvious invariant was never enforced in the r
 
 ## 6. How this maps to CVE-2025-43200
 
-Citizen Lab reports that PARAGON's zero-click chain used **iCloud-link messages** to coerce the target device into _reflecting_ or auto-forwarding content it had previously received, part of the spyware's exfiltration stage.  
-
 The attacker:
 1. Injected or replayed a specially-crafted iMessage "resend" request that points to an existing GUID in the victim's local SQLite chat DB.
 2. Because 18.3 lacked the `isFromMe` test, the helper method `_reAttemptMessageDeliveryForGUID:…` happily burned a retry credit and **re-sent the foreign message** (or its attachment) to the attacker-controlled handle.
 
 Patch 18.3.1 closes that hole by insisting the GUID's `isFromMe` bit is **true**. The message must originate from the local user. Any forged request that references someone-else's message now trips the new log entry and **bails early**.
-
 
 ---
 
@@ -212,7 +208,7 @@ My first hypothesis was that the bug might provide a stealthy exfiltration chann
 
 ## 8. Forensic thoughts
 
-Since I don't have the CitizenLab compromised iPhones everything here is hypothesis or purely logical deductions.
+Since I don't have the CitizenLab compromised iPhones data everything here is hypothesis or purely logical deductions.
 
 **1. Unified log queries that surface CVE-2025-43200 activity**:
 
