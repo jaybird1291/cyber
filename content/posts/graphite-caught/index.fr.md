@@ -122,7 +122,7 @@ Ensuite nous pouvons creuser plus profondément avec IDA Pro et [Diaphora script
 
 Nous pouvons voir un "partial match" pour``-[MessageServiceSession _reAttemptMessageDeliveryForGUID: …]``.
 
-Avec un nouveau log ``"Being requested to re-send a message that wasn't sent by me"``.
+Avec un nouveau log notable ``"Being requested to re-send a message that wasn't sent by me"``.
 
 <div class="big-image">
     <div class="image">{{< figure src="pictures/code.png" >}}</div>
@@ -176,12 +176,12 @@ _Pourquoi ?_ - Apple a restreint la fenêtre de renvoi pour empêcher les attaqu
 
 **CVE-2025-43200 est un correctif logique d'une seule ligne**:  
 _"Ne renvoie que les messages que tu as réellement écrits."_  
-L'exploit a fonctionné car cette invariant évidente n'était jamais appliquée dans l'helper de renvoi. Le correctif d'Apple se compose de :  
+L'exploit a fonctionné car cette invariant évidente n'était jamais appliquée dans l'helper de renvoi. Le correctif d'Apple consiste à :  
 1. `if (!msg.isFromMe) return;`
 2. Une instruction `os_log` pour le triage / log.
 
 ```s
-18.3 (vulnerable)          18.3.1 (patched)
+18.3 (vulnerable)          18.3.1 (patché)
 ┌───────────────────┐      ┌────────────────────────────────┐
 │ … look-ups …      │      │ … same …                       │ 
 │ age-limit check   │      │ age-limit check (unchanged)    │ 
@@ -218,14 +218,14 @@ Mon premier scénario envisageait que ce bug fournisse un canal d'exfiltration f
 
 Étant donné que je n'ai pas accès aux données des iPhone compromis par Citizen Lab, tout ce qui suit est purement hypothétique ou fondé sur des déductions logiques.
 
-**1. Requêtes de logs unifiés dévoilant l’activité CVE-2025-43200 :**
+**1. Requêtes de logs unifiés dévoilant l'activité CVE-2025-43200 :**
 
-| À rechercher                                                   | Pourquoi c’est important                                                                                                  |
+| À rechercher                                                   | Pourquoi c'est important                                                                                                  |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **`"re-send a message that wasn't sent by me"`**               | Nouvelle chaîne `os_log` introduite uniquement à partir d’iOS 18.3.1 ; sa présence indique que l’appareil a *bloqué* une tentative de renvoi falsifiée. |
-| **stack traces `_reAttemptMessageDeliveryForGUID` (pré-patch)** | Sur les appareils vulnérables (18.3/18.2.1), vous pouvez toujours trouver dans les logs de crash des références à ce sélecteur si l’exploit échoue. |
+| **`"re-send a message that wasn't sent by me"`**               | Nouvelle chaîne `os_log` introduite uniquement à partir d'iOS 18.3.1 ; sa présence indique que l'appareil a *bloqué* une tentative de renvoi falsifiée. |
+| **stack traces `_reAttemptMessageDeliveryForGUID` (pré-patch)** | Sur les appareils vulnérables (18.3/18.2.1), vous pouvez toujours trouver dans les logs de crash des références à ce sélecteur si l'exploit échoue. |
 
-Attention : les logs unifiés rotate au bout d’environ 7 jours sur l’appareil ; pensez à extraire un sysdiagnose complet immédiatement.
+Attention : les logs unifiés rotate au bout d'environ 7 jours sur l'appareil ; pensez à extraire un sysdiagnose complet immédiatement.
 
 **2. Artefacts dans la base de chat (sms.db)**  
 ```sql
@@ -239,7 +239,7 @@ WHERE guid IN (
 ORDER BY date ASC;
 ```
 
-- Un **GUID dupliqué** passant de `is_from_me = 0` ➜ `1` sans action de l’utilisateur suggère fortement un abus du mécanisme de renvoi.  
+- Un **GUID dupliqué** passant de `is_from_me = 0` ➜ `1` sans action de l'utilisateur suggère fortement un abus du mécanisme de renvoi.  
 - Recouper ce GUID avec la table **attachments**.
 
 **3. Traces IDS & livraison de messages :**  
