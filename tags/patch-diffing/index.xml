@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Patch-Diffing on Jaybird1291</title>
-    <link>http://localhost:1313/blog-cyber/tags/patch-diffing/</link>
-    <description>Recent content in Patch-Diffing on Jaybird1291</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>fr</language>
-    <copyright>© 2025 Jaybird1291</copyright>
-    <atom:link href="http://localhost:1313/blog-cyber/tags/patch-diffing/index.xml" rel="self" type="application/rss+xml" />
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Patch-Diffing on Jaybird1291</title><link>https://jaybird1291.github.io/blog-cyber/tags/patch-diffing/</link><description>Recent content in Patch-Diffing on Jaybird1291</description><generator>Hugo -- gohugo.io</generator><language>fr</language><copyright>© 2025 Jaybird1291</copyright><lastBuildDate>Tue, 08 Jul 2025 20:00:30 +0000</lastBuildDate><atom:link href="https://jaybird1291.github.io/blog-cyber/tags/patch-diffing/index.xml" rel="self" type="application/rss+xml"/><item><title>Graphite Paragon's zero-click iMessage bug et comment Apple l'a patché</title><link>https://jaybird1291.github.io/blog-cyber/posts/graphite-caught/</link><pubDate>Tue, 08 Jul 2025 20:00:30 +0000</pubDate><guid>https://jaybird1291.github.io/blog-cyber/posts/graphite-caught/</guid><description>⚠️ Attention :</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://jaybird1291.github.io/blog-cyber/posts/graphite-caught/featured.png"/></item></channel></rss>
