@@ -3,7 +3,7 @@ title: Graphite Paragon's zero-click iMessage bug and how Apple patched it
 description: 🍎 Patch diffing iOS 
 slug: graphite-caught
 date: 2025-07-08 20:00:30+0000
-tags: ["iOS", "Patch-diffing", "Graphite", "Paragon"]
+tags: ["iOS", "CVE-2025-43200", "Patch-diffing", "Graphite", "Paragon"]
 ---
 
 > ⚠️ **Disclaimer:**  
