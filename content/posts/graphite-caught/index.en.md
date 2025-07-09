@@ -147,9 +147,9 @@ if (![message isFromMe]) {                       // message authored by someone 
 }
 ```
 
-_Why?_ - Paragon's zero-click chain forged a **"resend"** control frame that pointed to a GUID in the victim's chat DB (where `is_from_me == 0`).  The single guard above rejects that request, cutting the data-exfil path.
+_Why?_ - We can assume that Paragon's zero-click chain forged a **"resend"** control frame that pointed to a GUID in the victim's chat DB (where `is_from_me == 0`).  The single guard above rejects that request.
 
-You can see this here in the **SMS.db**: 
+You can see these informations in the **SMS.db**: 
 
 ![](pictures/sms.png)
 
