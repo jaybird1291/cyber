@@ -17,7 +17,7 @@ On 12 June 2025, Citizen Lab published **"[First Forensic Confirmation of Parago
 Their report links Paragon's *Graphite* spyware to a **zero-click iMessage payload** observed on several European journalists' phones.  
 
 Core facts:
-- Victims received an Apple notification in April 2025.
+- Victim received an Apple notification in April 2025.
 - Delivery vector: Paragon's Graphite spyware used a sophisticated iMessage zero-click attack
 
 Citizen Lab's timeline ends on 11 June 2025 UTC, when Apple ships **iOS 18.3.1** and credits **[CVE-2025-43200](https://nvd.nist.gov/vuln/detail/CVE-2025-43200)** as the fix.
@@ -58,7 +58,7 @@ No file paths, no clue which binary changed. That's where patch diffing comes in
 
 ## 4. Getting inside 18.3 (22D63) and 18.3.1 (22D72)
 
-As iOS 18, Apple added **dmg.aea** which make the diffing different than before, if like me you were used to basic dmg! That's why I will provide a micro-guide for this. If you're only interested in the technical analysis you can skip to: *write*
+As iOS 18, Apple added **dmg.aea** which make the diffing different than before, if like me you were used to basic dmg! That's why I will provide a micro-guide for this. If you're only interested in the technical analysis you can skip to step 5.
 
 1. **Download the two iOS versions**
 ```shell
