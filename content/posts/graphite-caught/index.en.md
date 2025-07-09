@@ -204,7 +204,7 @@ Patch 18.3.1 closes that hole by insisting the GUID's `isFromMe` bit is **true**
 
 ## 7. Attack vector - a plausible reconstruction
 
-So far I haven't found a compelling, end-to-end scenario that shows how CVE-2025-43200 fits into the cases documented by Citizen Lab. If you have alternative ideas-or artefacts I've missed—please get in touch; I'd be keen to investigate further.
+So far I haven't found a compelling, end-to-end scenario that shows how CVE-2025-43200 fits into the cases documented by Citizen Lab. If you have alternative ideas-or artefacts I've missed-please get in touch; I'd be keen to investigate further.
 
 My first hypothesis was that the bug might provide a stealthy exfiltration channel. On closer inspection that seems unlikely: the resend primitive can forward only those attachments that already live inside the Messages sandbox. It would not, by itself, let an attacker pull arbitrary data such as Signal or WhatsApp databases.
 
