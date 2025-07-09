@@ -241,7 +241,7 @@ ORDER BY date ASC;
 ```
 
 - A **duplicate GUID** flipping from ``is_from_me`` = 0 ➜ 1 without user action strongly suggests the resend primitive was abused.
-- Cross-reference the GUID with the **attachments** table; Paragon's chain replayed iCloud-link photo/video blobs.
+- Cross-reference the GUID with the **attachments** table.
 
 **3. IDS & Message-delivery traces**:
 - Location (rooted dump or iOS Full Filesystem): ``/private/var/mobile/Library/Logs/CrashReporter/DiagnosticLogs/ids.*``
