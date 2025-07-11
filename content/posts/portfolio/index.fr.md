@@ -227,17 +227,20 @@ Certaines images ne redirigent pas vers les pages de résultat d'HTB car se sont
 - <strong class="alternate">Opdisk</strong> : The Cyber Plumber's Handbook
 
 
-## **Conf & meetups**
+## **Conf & trainings**
 ### 2025
-- THCON - Toulous Hacking Convention
+- [Objective for the We](https://objective-see.org/oftw/v3.html), Londres - Angleterre
+    - événement privé sur invitation uniquement
+    - Training "How to Use LLMs to Detect macOS Malware" by Martina Tivadar, Research Assistant à iVerify
+- [THCON - Toulous Hacking Convention](https://thcon.party/), Toulouse - France
 
 ### 2024
-- DEFCON Paris
-- Meetup HackTheBox France
+- [DEFCON Paris](https://defconparis.org/index.php/2024/04/), Paris - France
+- [Meetup HackTheBox France](https://www.hackthebox.com/meetups), Online
 
 ### 2023
-- Hexacon
-- DEFCON Paris
-- LeHack
-- Meetup HackTheBox France
+- [Hexacon](https://2023.hexacon.fr/), Paris - France
+- [DEFCON Paris](https://defconparis.org/index.php/2023/07/), Paris - France
+- [LeHack](https://lehack.org/fr/), Paris - France
+- [Meetup HackTheBox France](https://www.hackthebox.com/meetups), Online
  

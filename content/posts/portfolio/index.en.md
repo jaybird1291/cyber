@@ -226,21 +226,18 @@ Path :
 
 ## **Conf & meetups**
 ### 2025
-<div class="image-container">
-    <div class="image">{{< figure src="pictures/thcon.png" title="THCON 2025" width=195 >}}</div>
-</div>
+- [Objective for the We](https://objective-see.org/oftw/v3.html), London - England
+    - Private event by invitation only
+    - "How to Use LLMs to Detect macOS Malware" Training by Martina Tivadar, Research Assistant at iVerify
+- [THCON - Toulous Hacking Convention](https://thcon.party/), Toulouse - France
 
 ### 2024
-<div class="image-container">
-    <div class="image">{{< figure src="pictures/defconparis.png" title="DEFCON Paris" width=165 >}}</div>
-    <div class="image">{{< figure src="pictures/meetuphtb.jpg" title="Meetups HTB France" width=320 >}}</div>
-</div>
+- [DEFCON Paris](https://defconparis.org/index.php/2024/04/), Paris - France
+- [Meetup HackTheBox France](https://www.hackthebox.com/meetups), Online
 
 ### 2023
-<div class="image-container">
-    <div class="image">{{< figure src="pictures/hexacon.png" title="Hexacon" width=300 >}}</div>
-    <div class="image">{{< figure src="pictures/defconparis.png" title="DEFCON Paris" width=165 >}}</div>
-    <div class="image">{{< figure src="pictures/lehack.png" title="LeHack" width=320 >}}</div>
-    <div class="image">{{< figure src="pictures/meetuphtb.jpg" title="HTB Meetups France" width=320 >}}</div>
-</div>
+- [Hexacon](https://2023.hexacon.fr/), Paris - France
+- [DEFCON Paris](https://defconparis.org/index.php/2023/07/), Paris - France
+- [LeHack](https://lehack.org/fr/), Paris - France
+- [Meetup HackTheBox France](https://www.hackthebox.com/meetups), Online
 

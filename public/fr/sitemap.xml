@@ -3,8 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>http://localhost:1313/blog-cyber/posts/graphite-caught/</loc>
+    <lastmod>2025-07-08T20:00:30+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="http://localhost:1313/blog-cyber/en/posts/graphite-caught/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="http://localhost:1313/blog-cyber/ja/posts/graphite-caught/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="http://localhost:1313/blog-cyber/posts/graphite-caught/"
+    />
+  </url>
+  <url>
     <loc>http://localhost:1313/blog-cyber/</loc>
-    <lastmod>2025-06-01T00:00:05+00:00</lastmod>
+    <lastmod>2025-07-08T20:00:30+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -25,7 +46,7 @@
   </url>
   <url>
     <loc>http://localhost:1313/blog-cyber/posts/</loc>
-    <lastmod>2025-06-01T00:00:05+00:00</lastmod>
+    <lastmod>2025-07-08T20:00:30+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -231,26 +252,6 @@
       rel="alternate"
       hreflang="fr"
       href="http://localhost:1313/blog-cyber/posts/projets/"
-    />
-  </url>
-  <url>
-    <loc>http://localhost:1313/blog-cyber/posts/graphite-caught/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="http://localhost:1313/blog-cyber/en/posts/graphite-caught/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="http://localhost:1313/blog-cyber/ja/posts/graphite-caught/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="fr"
-      href="http://localhost:1313/blog-cyber/posts/graphite-caught/"
     />
   </url>
 </urlset>

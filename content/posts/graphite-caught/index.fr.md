@@ -135,8 +135,8 @@ En utilisant la Graph view nous pouvons clairement voir la nouvelle vérificatio
 </div>
 
 Voici les deux changements importants : 
-
-1. Une nouvelle vérification de l'auteur qui empêche la primitive de réflexion
+e
+1. Une nouvelle vérification de l'auteur
 ```objc
 //  APRÈS 18.3.1 - Bloque le renvoi des messages étrangers.
 if (![message isFromMe]) {                       // message authored by someone else
@@ -210,7 +210,7 @@ Le correctif d'iOS 18.3.1 comble cette faille en exigeant que le bit `isFromMe` 
 
 À ce jour, je n'ai pas identifié de scénario complet et convaincant montrant comment la CVE-2025-43200 s'insère exactement dans les cas documentés par Citizen Lab. Si vous avez d'autres idées ou des artefacts que j'aurais pu manquer, n'hésitez pas à me contacter. 
 
-Mon premier scénario envisageait que ce bug fournisse un canal d'exfiltration furtif. À y regarder de plus près, cela paraît peu probable : la primitive de renvoi ne peut transmettre que des pièces jointes déjà présentes dans la sandbox de Messages. Elle ne permettrait pas, à elle seule, d'extraire des données arbitraires (bases Signal, WhatsApp, etc.).  
+Mon premier scénario envisageait que ce bug fournisse un canal d'exfiltration furtif. À y regarder de plus près, cela paraît peu probable : la primitive ne peut transmettre que des pièces jointes déjà présentes dans la sandbox de Messages. Elle ne permettrait pas, à elle seule, d'extraire des données arbitraires (bases Signal, WhatsApp, etc.).  
 
 ---
 
@@ -229,7 +229,7 @@ Attention : les logs unifiés rotate au bout d'environ 7 jours sur l'appareil ; 
 
 **2. Artefacts dans la base de chat (sms.db)**  
 ```sql
-/*  Possible reflection duplicates: same GUID appears as both inbound (is_from_me = 0)
+/*  Possible duplicates: same GUID appears as both inbound (is_from_me = 0)
     and outbound (is_from_me = 1) within a short window                */
 SELECT guid, date, is_from_me, text
 FROM message

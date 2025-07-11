@@ -12,7 +12,7 @@
   <meta name="title" content="Graphite Paragon&#39;s zero-click iMessage bug and how Apple patched it &middot; Jaybird1291" />
   
   <meta name="description" content="🍎 Patch diffing iOS" />
-  <meta name="keywords" content="iOS, Patch-diffing, Graphite, Paragon, " />
+  <meta name="keywords" content="iOS, CVE-2025-43200, Patch-diffing, Graphite, Paragon, " />
   
   
   <link rel="canonical" href="http://localhost:1313/blog-cyber/en/posts/graphite-caught/" />
@@ -77,6 +77,7 @@
     <meta property="article:published_time" content="2025-07-08T20:00:30+00:00">
     <meta property="article:modified_time" content="2025-07-08T20:00:30+00:00">
     <meta property="article:tag" content="IOS">
+    <meta property="article:tag" content="CVE-2025-43200">
     <meta property="article:tag" content="Patch-Diffing">
     <meta property="article:tag" content="Graphite">
     <meta property="article:tag" content="Paragon">
@@ -108,10 +109,10 @@
     
     "dateModified": "2025-07-08T20:00:30\u002b00:00",
     
-    "keywords": ["iOS","Patch-diffing","Graphite","Paragon"],
+    "keywords": ["iOS","CVE-2025-43200","Patch-diffing","Graphite","Paragon"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1248"
+    "wordCount": "1232"
   }]
   </script>
 
@@ -338,7 +339,7 @@
         </a>
         
         <a href="/blog-cyber/posts/graphite-caught/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Graphite Paragon&#39;s zero-click iMessage bug et comment Apple l&#39;a patché">
             FR
           </p>
         </a>
@@ -405,7 +406,7 @@
         </a>
         
         <a href="/blog-cyber/posts/graphite-caught/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Graphite Paragon&#39;s zero-click iMessage bug et comment Apple l&#39;a patché">
             FR
           </p>
         </a>
@@ -777,6 +778,14 @@
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     IOS
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog-cyber/en/tags/cve-2025-43200/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CVE-2025-43200
   </span>
 </span>
   </span>
@@ -1243,10 +1252,10 @@ I&rsquo;m a cybersecurity student, this is a non-professional, personal blog pos
     
 </h2>
 <p>On 12 June 2025, Citizen Lab published <strong>&quot;<a href="https://citizenlab.ca/2025/06/first-forensic-confirmation-of-paragons-ios-mercenary-spyware-finds-journalists-targeted/" target="_blank">First Forensic Confirmation of Paragon&rsquo;s iOS Mercenary Spyware</a>&quot;</strong>.</p>
-<p>Their report links Paragon&rsquo;s <em>Graphite</em> spyware to a <strong>zero-click iMessage payload</strong> observed on several European journalists&rsquo; and NGO phones.</p>
+<p>Their report links Paragon&rsquo;s <em>Graphite</em> spyware to a <strong>zero-click iMessage payload</strong> observed on several European journalists&rsquo; phones.</p>
 <p>Core facts:</p>
 <ul>
-<li>Victims received an Apple notification in April 2025.</li>
+<li>Victim received an Apple notification in April 2025.</li>
 <li>Delivery vector: Paragon&rsquo;s Graphite spyware used a sophisticated iMessage zero-click attack</li>
 </ul>
 <p>Citizen Lab&rsquo;s timeline ends on 11 June 2025 UTC, when Apple ships <strong>iOS 18.3.1</strong> and credits <strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-43200" target="_blank">CVE-2025-43200</a></strong> as the fix.</p>
@@ -1393,7 +1402,7 @@ I&rsquo;m a cybersecurity student, this is a non-professional, personal blog pos
     </span>        
     
 </h2>
-<p>As iOS 18, Apple added <strong>dmg.aea</strong> which make the diffing different than before, if like me you were used to basic dmg! That&rsquo;s why I will provide a micro-guide for this. If you&rsquo;re only interested in the technical analysis you can skip to: <em>write</em></p>
+<p>As iOS 18, Apple added <strong>dmg.aea</strong> which make the diffing different than before, if like me you were used to basic dmg! That&rsquo;s why I will provide a micro-guide for this. If you&rsquo;re only interested in the technical analysis you can skip to step 5.</p>
 <ol>
 <li><strong>Download the two iOS versions</strong></li>
 </ol>
@@ -1675,7 +1684,7 @@ I&rsquo;m a cybersecurity student, this is a non-professional, personal blog pos
 </div>
 <p>Here&rsquo;s the 2 important changes:</p>
 <ol>
-<li>New authorship gate that stops the reflection primitive:</li>
+<li>New authorship gate:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="c1">//  AFTER 18.3.1 - NEW blocks resend of foreign messages
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">message</span> <span class="n">isFromMe</span><span class="p">])</span> <span class="p">{</span>                       <span class="c1">// message authored by someone else
@@ -1683,8 +1692,8 @@ I&rsquo;m a cybersecurity student, this is a non-professional, personal blog pos
 </span></span><span class="line"><span class="cl">                <span class="s">&#34;Being requested to re-send a message that wasn&#39;t sent by me&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>                                      <span class="c1">// bail = exploit dies
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></div><p><em>Why?</em> - Paragon&rsquo;s zero-click chain forged a <strong>&ldquo;resend&rdquo;</strong> control frame that pointed to a GUID in the victim&rsquo;s chat DB (where <code>is_from_me == 0</code>).  The single guard above rejects that request, cutting the data-exfil path.</p>
-<p>You can see this here in the <strong>SMS.db</strong>:</p>
+</span></span></code></pre></div><p><em>Why?</em> - We can assume that Paragon&rsquo;s zero-click chain forged a <strong>&ldquo;resend&rdquo;</strong> control frame that pointed to a GUID in the victim&rsquo;s chat DB (where <code>is_from_me == 0</code>).  The single guard above rejects that request.</p>
+<p>You can see these informations in the <strong>SMS.db</strong>:</p>
 <p>
     <figure>
       <img
@@ -1773,7 +1782,7 @@ The exploit succeeded because that obvious invariant was never enforced in the r
     
 </h2>
 <p>So far I haven&rsquo;t found a compelling, end-to-end scenario that shows how CVE-2025-43200 fits into the cases documented by Citizen Lab. If you have alternative ideas-or artefacts I&rsquo;ve missed-please get in touch; I&rsquo;d be keen to investigate further.</p>
-<p>My first hypothesis was that the bug might provide a stealthy exfiltration channel. On closer inspection that seems unlikely: the resend primitive can forward only those attachments that already live inside the Messages sandbox. It would not, by itself, let an attacker pull arbitrary data such as Signal or WhatsApp databases.</p>
+<p>My first hypothesis was that the bug might provide a stealthy exfiltration channel. On closer inspection that seems unlikely: the primitive can forward only those attachments that already live inside the Messages sandbox. It would not, by itself, let an attacker pull arbitrary data such as Signal or WhatsApp databases.</p>
 <hr>
 
 
@@ -1812,7 +1821,7 @@ The exploit succeeded because that obvious invariant was never enforced in the r
 </table>
 <p>Tip: unified logs roll after ~7 days on-device; always pull a full sysdiagnose immediately.</p>
 <p><strong>2. Chat database (sms.db) artefacts</strong>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="cm">/*  Possible reflection duplicates: same GUID appears as both inbound (is_from_me = 0)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="cm">/*  Possible duplicates: same GUID appears as both inbound (is_from_me = 0)
 </span></span></span><span class="line"><span class="cl"><span class="cm">    and outbound (is_from_me = 1) within a short window                */</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">guid</span><span class="p">,</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">is_from_me</span><span class="p">,</span><span class="w"> </span><span class="nb">text</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">message</span><span class="w">
@@ -1821,8 +1830,8 @@ The exploit succeeded because that obvious invariant was never enforced in the r
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><ul>
-<li>A <strong>duplicate GUID</strong> flipping from <code>is_from_me</code> = 0 ➜ 1 without user action strongly suggests the resend primitive was abused.</li>
-<li>Cross-reference the GUID with the <strong>attachments</strong> table; Paragon&rsquo;s chain replayed iCloud-link photo/video blobs.</li>
+<li>A <strong>duplicate GUID</strong> flipping from <code>is_from_me</code> = 0 ➜ 1 without user action strongly suggests this was abused.</li>
+<li>Cross-reference the GUID with the <strong>attachments</strong> table.</li>
 </ul>
 <p><strong>3. IDS &amp; Message-delivery traces</strong>:</p>
 <ul>
