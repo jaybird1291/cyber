@@ -114,6 +114,10 @@ similarity: 0.977
 distance: 49654
 ```
 
+Before going into the differences in detail, let's take a moment to understand what **iMessage.imservice** does. 
+
+As mentioned above, it's an internal iMessage method that handles network deserialization and forwarding.
+
 Then we can dig deeper in the diff with IDA Pro and [Diaphora script](https://github.com/joxeankoret/diaphora):
 
 <div class="big-image">
@@ -128,6 +132,8 @@ With a notable new log ``"Being requested to re-send a message that wasn't sent 
     <div class="image">{{< figure src="pictures/code.png" >}}</div>
 </div>
 
+A closer look at the code shows what all this is for. The **"_reAttemptMessageDeliveryForGUID:... "** method is used to decide whether a failed "iMessage" should be retried, or whether an error should be displayed.
+
 Using Graph view we can clearly see the new checking:
 
 <div class="big-image">
@@ -135,9 +141,9 @@ Using Graph view we can clearly see the new checking:
 </div>
 
 
-Here's the 2 important changes:
+Here's the important change:
 
-1. New authorship gate:
+- New authorship gate:
 ```objc
 //  AFTER 18.3.1 - NEW blocks resend of foreign messages
 if (![message isFromMe]) {                       // message authored by someone else
@@ -152,28 +158,6 @@ _Why?_ - We can assume that Paragon's zero-click chain forged a **"resend"** con
 You can see these informations in the **SMS.db**: 
 
 ![](pictures/sms.png)
-
-2. Age-limit test pulled forward, no retries for stale messages
-```objc
-// BEFORE 18.3 - only skipped retries if the msg was still fresh (logic inverted)
-if (timeSinceDelivered <= [self _messageRetryTimeout]) {   // !v37
-    … proceed toward retry …
-}
-
-// AFTER 18.3.1 – bail out immediately when message is too old
-if (timeSinceDelivered > [self _messageRetryTimeout]) {    // v37
-    os_log_info(MessageServiceLog,
-                "Message %@ originally delivered at %@ is too old to retry.",
-                guid, deliveredDate);
-    return;                                                // no resend
-}
-```
-
-_Why?_ - Apple tightened the resend window so attackers can't keep hammering the same GUID months later.
-
-**Putting the pieces together**: 
-1. **Author check** closes the core logic bug exploited by CVE-2025-43200.
-2. **Tighter age check** reduces the replay window (defence-in-depth).
 
 **CVE-2025-43200 is a one-line logic patch**:  
 _"Only retry messages you actually wrote."_  

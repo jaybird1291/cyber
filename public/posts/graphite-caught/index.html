@@ -112,7 +112,7 @@
     "keywords": ["iOS","CVE-2025-43200","Patch-diffing","Graphite","Paragon"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1354"
+    "wordCount": "1422"
   }]
   </script>
 
@@ -1374,7 +1374,7 @@ Je suis un étudiant en cybersécurité. Ce post est personnel et non-profession
 <tbody>
 <tr>
 <td><strong>iMessage.imservice</strong></td>
-<td>Logique iMessage, désérialisation réseau et renvois</td>
+<td>Méthode interne d&rsquo;iMessage, désérialisation réseau et renvois</td>
 <td><strong>Important :</strong> nouvelle chaîne de log + vérification anticipée</td>
 </tr>
 <tr>
@@ -1483,7 +1483,9 @@ Je suis un étudiant en cybersécurité. Ce post est personnel et non-profession
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">radiff2 -s 18.3/iMessage 18.3.1/iMessage
 </span></span><span class="line"><span class="cl">similarity: 0.977
 </span></span><span class="line"><span class="cl">distance: <span class="m">49654</span>
-</span></span></code></pre></div><p>Ensuite nous pouvons creuser plus profondément avec IDA Pro et <a href="https://github.com/joxeankoret/diaphora" target="_blank">Diaphora script</a> :</p>
+</span></span></code></pre></div><p>Avant de rentrer plus en détail dans les différences prenons un peu de temps pour comprendre à quoi sert <strong>iMessage.imservice</strong>.</p>
+<p>Comme dit plus haut c&rsquo;est une méthode interne d&rsquo;iMessage qui s&rsquo;occupe désérialisation réseau et renvois.</p>
+<p>Ensuite nous pouvons creuser plus profondément avec IDA Pro et <a href="https://github.com/joxeankoret/diaphora" target="_blank">Diaphora script</a> :</p>
 <div class="big-image">
     <div class="image">
 
@@ -1616,6 +1618,7 @@ Je suis un étudiant en cybersécurité. Ce post est personnel et non-profession
 
 </div>
 </div>
+<p>En analysant le code, on comprend à quoi sert tout cela. La méthode <strong>&quot;_reAttemptMessageDeliveryForGUID:…&quot;</strong> sert à décider si un message &ldquo;iMessage&rdquo; en échec doit être retenté ou s&rsquo;il faut afficher une erreur.</p>
 <p>En utilisant la Graph view nous pouvons clairement voir la nouvelle vérification :</p>
 <div class="big-image">
     <div class="image">
@@ -1782,8 +1785,8 @@ L&rsquo;exploit a fonctionné car cette invariant évidente n&rsquo;était jamai
     </span>        
     
 </h2>
-<p>À ce jour, je n&rsquo;ai pas identifié de scénario complet et convaincant montrant comment la CVE-2025-43200 s&rsquo;insère exactement dans les cas documentés par Citizen Lab. Si vous avez d&rsquo;autres idées ou des artefacts que j&rsquo;aurais pu manquer, n&rsquo;hésitez pas à me contacter.</p>
-<p>Mon premier scénario envisageait que ce bug fournisse un canal d&rsquo;exfiltration furtif. À y regarder de plus près, cela paraît peu probable : la primitive ne peut transmettre que des pièces jointes déjà présentes dans la sandbox de Messages. Elle ne permettrait pas, à elle seule, d&rsquo;extraire des données arbitraires (bases Signal, WhatsApp, etc.).</p>
+<p><del>À ce jour, je n&rsquo;ai pas identifié de scénario complet et convaincant montrant comment la CVE-2025-43200 s&rsquo;insère exactement dans les cas documentés par Citizen Lab. Si vous avez d&rsquo;autres idées ou des artefacts que j&rsquo;aurais pu manquer, n&rsquo;hésitez pas à me contacter.</del></p>
+<p><del>Mon premier scénario envisageait que ce bug fournisse un canal d&rsquo;exfiltration furtif. À y regarder de plus près, cela paraît peu probable : la primitive ne peut transmettre que des pièces jointes déjà présentes dans la sandbox de Messages. Elle ne permettrait pas, à elle seule, d&rsquo;extraire des données arbitraires (bases Signal, WhatsApp, etc.).</del></p>
 <hr>
 
 

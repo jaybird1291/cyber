@@ -49,7 +49,7 @@ Le [diff automatisé de Blacktop](https://github.com/blacktop/ipsw-diffs/tree/ma
 
 |Binaire|Pourquoi ce choix ?|Aperçu du diff|
 |---|---|---|
-|**iMessage.imservice**|Logique iMessage, désérialisation réseau et renvois|**Important :** nouvelle chaîne de log + vérification anticipée|
+|**iMessage.imservice**|Méthode interne d'iMessage, désérialisation réseau et renvois|**Important :** nouvelle chaîne de log + vérification anticipée|
 |**SafetyMonitorMessages**|Pop-ups de sécurité de communication|Aucun delta fonctionnel vu avec le diffing tool|
 |**identityservicesd**|Daemon IDS/Push acheminant le trafic vers Messages|Aucun delta fonctionnel vu avec le diffing tool|
 
@@ -114,6 +114,10 @@ similarity: 0.977
 distance: 49654
 ```
 
+Avant de rentrer plus en détail dans les différences prenons un peu de temps pour comprendre à quoi sert **iMessage.imservice**. 
+
+Comme dit plus haut c'est une méthode interne d'iMessage qui s'occupe désérialisation réseau et renvois. 
+
 Ensuite nous pouvons creuser plus profondément avec IDA Pro et [Diaphora script](https://github.com/joxeankoret/diaphora) :
 
 <div class="big-image">
@@ -128,15 +132,17 @@ Avec un nouveau log notable ``"Being requested to re-send a message that wasn't 
     <div class="image">{{< figure src="pictures/code.png" >}}</div>
 </div>
 
+En analysant le code, on comprend à quoi sert tout cela. La méthode **"_reAttemptMessageDeliveryForGUID:…"** sert à décider si un message "iMessage" en échec doit être retenté ou s'il faut afficher une erreur.
+
 En utilisant la Graph view nous pouvons clairement voir la nouvelle vérification :
 
 <div class="big-image">
     <div class="image">{{< figure src="pictures/graph.png" >}}</div>
 </div>
 
-Voici les deux changements importants : 
-e
-1. Une nouvelle vérification de l'auteur
+Voici le changement important : 
+
+- Une nouvelle vérification de l'auteur
 ```objc
 //  APRÈS 18.3.1 - Bloque le renvoi des messages étrangers.
 if (![message isFromMe]) {                       // message authored by someone else
@@ -151,28 +157,6 @@ _Pourquoi ?_ - On peut supposer que la chaîne zéro-clic de Paragon a créé un
 Nous pouvons voir ces informations dans la **SMS.db**: 
 
 ![](pictures/sms.png)
-
-2. Test de age-limit, plus de tentatives pour les messages obsolètes
-```objc
-// AVANT 18.3 - on n'interrompait le renvoi que si le message était encore récent (logique inversée)
-if (timeSinceDelivered <= [self _messageRetryTimeout]) {   // !v37
-    … proceed toward retry …
-}
-
-// AFTER 18.3.1 – interruption immédiate si le message est trop ancien 
-if (timeSinceDelivered > [self _messageRetryTimeout]) {    // v37
-    os_log_info(MessageServiceLog,
-                "Message %@ originally delivered at %@ is too old to retry.",
-                guid, deliveredDate);
-    return;                                                // no resend
-}
-```
-
-_Pourquoi ?_ - Apple a restreint la fenêtre de renvoi pour empêcher les attaquants de relancer indéfiniment le même GUID plusieurs mois après.
-
-**Mise en perspective**: 
-1. **Vérification de l'auteur** corrige le bug logique central exploité par CVE-2025-43200.  
-2. **Test d'ancienneté renforcé** réduit la fenêtre de rejouabilité (défense en profondeur).  
 
 **CVE-2025-43200 est un correctif logique d'une seule ligne**:  
 _"Ne renvoie que les messages que tu as réellement écrits."_  
@@ -206,11 +190,11 @@ Le correctif d'iOS 18.3.1 comble cette faille en exigeant que le bit `isFromMe` 
 
 ---
 
-## 7. Vecteur d'attaque – reconstruction plausible
+## 7. Vecteur d'attaque - reconstruction plausible
 
-À ce jour, je n'ai pas identifié de scénario complet et convaincant montrant comment la CVE-2025-43200 s'insère exactement dans les cas documentés par Citizen Lab. Si vous avez d'autres idées ou des artefacts que j'aurais pu manquer, n'hésitez pas à me contacter. 
+À ce jour, je n'ai pas identifié de scénario complet et convaincant montrant comment la CVE-2025-43200 s'insère exactement dans les cas documentés par Citizen Lab. Si vous avez d'autres idées ou des artefacts que j'aurais pu manquer, n'hésitez pas à me contacter.
 
-Mon premier scénario envisageait que ce bug fournisse un canal d'exfiltration furtif. À y regarder de plus près, cela paraît peu probable : la primitive ne peut transmettre que des pièces jointes déjà présentes dans la sandbox de Messages. Elle ne permettrait pas, à elle seule, d'extraire des données arbitraires (bases Signal, WhatsApp, etc.).  
+Mon premier scénario envisageait que ce bug fournisse un canal d'exfiltration furtif. À y regarder de plus près, cela paraît peu probable : la primitive ne peut transmettre que des pièces jointes déjà présentes dans la sandbox de Messages. Elle ne permettrait pas, à elle seule, d'extraire des données arbitraires (bases Signal, WhatsApp, etc.).
 
 ---
 
@@ -222,7 +206,7 @@ Mon premier scénario envisageait que ce bug fournisse un canal d'exfiltration f
 
 | À rechercher                                                   | Pourquoi c'est important                                                                                                  |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **`"re-send a message that wasn't sent by me"`**               | Nouvelle chaîne `os_log` introduite uniquement à partir d'iOS 18.3.1 ; sa présence indique que l'appareil a *bloqué* une tentative de renvoi falsifiée. |
+| **`"re-send a message that wasn't sent by me"`**               | Nouvelle chaîne `os_log` introduite uniquement à partir d'iOS 18.3.1 ; sa présence indique que l'appareil a *bloqué* une tentative de renvoi falsifiée. |
 | **stack traces `_reAttemptMessageDeliveryForGUID` (pré-patch)** | Sur les appareils vulnérables (18.3/18.2.1), vous pouvez toujours trouver dans les logs de crash des références à ce sélecteur si l'exploit échoue. |
 
 Attention : les logs unifiés rotate au bout d'environ 7 jours sur l'appareil ; pensez à extraire un sysdiagnose complet immédiatement.
